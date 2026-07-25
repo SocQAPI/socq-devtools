@@ -6,13 +6,13 @@ Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Fetch normalized channel live videos data from YouTube. | urls | 0.5 credits/result |
+| [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Collect public YouTube channel live videos. | urls | 0.5 credits/result |
 | [`youtube/channel-videos`](https://docs.socq.ai/api-manual/youtube/channel-videos) | YouTube Channel Videos API | urls | 0.5 credits/result |
 | [`youtube/channels`](https://docs.socq.ai/api-manual/youtube/channels) | YouTube Channels API | urls | 0.26 credits/result |
-| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Fetch normalized comment replies data from YouTube. | continuation_token | 0.5 credits/result |
+| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Collect public YouTube comment replies. | continuation_token | 0.5 credits/result |
 | [`youtube/comments`](https://docs.socq.ai/api-manual/youtube/comments) | YouTube Comments API | urls | 0.3 credits/result |
-| [`youtube/community-posts`](https://docs.socq.ai/api-manual/youtube/community-posts) | Fetch normalized community posts data from YouTube. | urls | 0.5 credits/result |
-| [`youtube/hashtag-search`](https://docs.socq.ai/api-manual/youtube/hashtag-search) | Fetch normalized hashtag search data from YouTube. | hashtags | 0.5 credits/result |
+| [`youtube/community-posts`](https://docs.socq.ai/api-manual/youtube/community-posts) | Collect public YouTube community posts. | urls | 0.5 credits/result |
+| [`youtube/hashtag-search`](https://docs.socq.ai/api-manual/youtube/hashtag-search) | Search public YouTube videos by hashtag. | hashtags | 0.5 credits/result |
 | [`youtube/playlist-videos`](https://docs.socq.ai/api-manual/youtube/playlist-videos) | Collect videos from a public YouTube playlist. | urls | 0.5 credits/result |
 | [`youtube/search`](https://docs.socq.ai/api-manual/youtube/search) | YouTube Search API | query | 0.5 credits/result |
 | [`youtube/shorts`](https://docs.socq.ai/api-manual/youtube/shorts) | YouTube Shorts API | urls | 0.5 credits/result |

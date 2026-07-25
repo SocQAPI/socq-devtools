@@ -6,19 +6,19 @@ Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`facebook/ad-transcript`](https://docs.socq.ai/api-manual/facebook/ad-transcript) | Fetch normalized ad transcript data from Facebook. | urls | 0.5 credits/result |
-| [`facebook/comment-replies`](https://docs.socq.ai/api-manual/facebook/comment-replies) | Fetch normalized comment replies data from Facebook. | expansion_token, feedback_id | 0.3 credits/result |
+| [`facebook/ad-transcript`](https://docs.socq.ai/api-manual/facebook/ad-transcript) | Extract transcripts from public Facebook ads. | urls | 0.5 credits/result |
+| [`facebook/comment-replies`](https://docs.socq.ai/api-manual/facebook/comment-replies) | Collect public Facebook comment replies. | expansion_token, feedback_id | 0.3 credits/result |
 | [`facebook/comments`](https://docs.socq.ai/api-manual/facebook/comments) | Facebook Comments API | urls | 0.3 credits/result |
-| [`facebook/company-reviews`](https://docs.socq.ai/api-manual/facebook/company-reviews) | Fetch normalized company reviews data from Facebook. | urls | 0.5 credits/result |
-| [`facebook/event-details`](https://docs.socq.ai/api-manual/facebook/event-details) | Fetch normalized event details data from Facebook. | urls | 0.5 credits/result |
+| [`facebook/company-reviews`](https://docs.socq.ai/api-manual/facebook/company-reviews) | Collect public Facebook company reviews. | urls | 0.5 credits/result |
+| [`facebook/event-details`](https://docs.socq.ai/api-manual/facebook/event-details) | Collect public Facebook event details. | urls | 0.5 credits/result |
 | [`facebook/events-search`](https://docs.socq.ai/api-manual/facebook/events-search) | Search public Facebook events by keyword. | query | 0.6 credits/result |
 | [`facebook/group-posts`](https://docs.socq.ai/api-manual/facebook/group-posts) | Collect posts from public Facebook groups. | urls | 1.2 credits/result |
 | [`facebook/pages`](https://docs.socq.ai/api-manual/facebook/pages) | Facebook Page API | one of query, urls, usernames | 2.4 credits/result |
 | [`facebook/posts`](https://docs.socq.ai/api-manual/facebook/posts) | Facebook Posts API | one of query, urls, usernames | 1 credits/result |
-| [`facebook/profile-events`](https://docs.socq.ai/api-manual/facebook/profile-events) | Fetch normalized profile events data from Facebook. | urls | 0.6 credits/result |
-| [`facebook/profile-photos`](https://docs.socq.ai/api-manual/facebook/profile-photos) | Fetch normalized profile photos data from Facebook. | urls | 0.5 credits/result |
-| [`facebook/profiles`](https://docs.socq.ai/api-manual/facebook/profiles) | Fetch normalized profiles data from Facebook. | urls | 1.2 credits/result |
-| [`facebook/reels`](https://docs.socq.ai/api-manual/facebook/reels) | Fetch normalized reels data from Facebook. | urls | 0.7 credits/result |
+| [`facebook/profile-events`](https://docs.socq.ai/api-manual/facebook/profile-events) | Collect public Facebook profile events. | urls | 0.6 credits/result |
+| [`facebook/profile-photos`](https://docs.socq.ai/api-manual/facebook/profile-photos) | Collect public Facebook profile photos. | urls | 0.5 credits/result |
+| [`facebook/profiles`](https://docs.socq.ai/api-manual/facebook/profiles) | Collect public Facebook profile details. | urls | 1.2 credits/result |
+| [`facebook/reels`](https://docs.socq.ai/api-manual/facebook/reels) | Collect public Facebook profile reels. | urls | 0.7 credits/result |
 | [`facebook/video-transcript`](https://docs.socq.ai/api-manual/facebook/video-transcript) | Extract transcripts from public Facebook videos and reels. | urls | 0.7 credits/result |
 
 ## Validated examples
@@ -184,7 +184,7 @@ Typed MCP tool: `socq_facebook_reels`
 
 ### `facebook/video-transcript`
 
-Typed MCP tool: `socq_facebook_transcripts`
+Typed MCP tool: `socq_facebook_video_transcript`
 
 ```json
 {

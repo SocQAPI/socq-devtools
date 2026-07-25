@@ -6,17 +6,17 @@ Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Fetch normalized comment replies data from TikTok. | comment_id, url | 0.5 credits/result |
+| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Collect public TikTok comment replies. | comment_id, url | 0.5 credits/result |
 | [`tiktok/comments`](https://docs.socq.ai/api-manual/tiktok/comments) | TikTok Comments API | urls | 0.25 credits/result |
-| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Fetch normalized followers list data from TikTok. | usernames | 0.5 credits/result |
-| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Fetch normalized following list data from TikTok. | usernames | 0.5 credits/result |
+| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Collect public TikTok follower profiles. | usernames | 0.5 credits/result |
+| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Collect public TikTok followed profiles. | usernames | 0.5 credits/result |
 | [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | TikTok Hashtags API | hashtags | 0.7 credits/result |
 | [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Collect public TikTok live room metadata and audience metrics. | room_id, user_id | 0.5 credits/result |
 | [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | TikTok Profiles API | usernames | 0.6 credits/result |
 | [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | TikTok Search API | query | 0.7 credits/result |
 | [`tiktok/transcripts`](https://docs.socq.ai/api-manual/tiktok/transcripts) | Extract transcripts from public TikTok videos. | urls | 0.5 credits/result |
 | [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Collect trending TikTok videos for a region. | region | 0.7 credits/result |
-| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Fetch normalized user videos data from TikTok. | usernames | 0.5 credits/result |
+| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Collect public videos from TikTok profiles. | usernames | 0.5 credits/result |
 | [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | TikTok Videos API | urls | 0.7 credits/result |
 
 ## Validated examples

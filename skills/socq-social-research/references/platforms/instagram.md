@@ -6,23 +6,23 @@ Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`instagram/audio-reels`](https://docs.socq.ai/api-manual/instagram/audio-reels) | Fetch normalized audio reels data from Instagram. | audio_ids | 0.5 credits/result |
+| [`instagram/audio-reels`](https://docs.socq.ai/api-manual/instagram/audio-reels) | Collect public Instagram reels by audio identifier. | audio_ids | 0.5 credits/result |
 | [`instagram/comments`](https://docs.socq.ai/api-manual/instagram/comments) | Instagram Comments API | urls | 0.3 credits/result |
 | [`instagram/followers-count`](https://docs.socq.ai/api-manual/instagram/followers-count) | Instagram Followers Count API | one of query, urls, usernames | 0.52 credits/result |
 | [`instagram/followers-list`](https://docs.socq.ai/api-manual/instagram/followers-list) | Collect public profiles from an Instagram account follower list. | usernames | 0.3 credits/result |
 | [`instagram/following-list`](https://docs.socq.ai/api-manual/instagram/following-list) | Collect public profiles followed by an Instagram account. | usernames | 0.3 credits/result |
 | [`instagram/hashtag-posts`](https://docs.socq.ai/api-manual/instagram/hashtag-posts) | Collect public Instagram posts matching a hashtag. | hashtags | 0.5 credits/result |
-| [`instagram/highlight-items`](https://docs.socq.ai/api-manual/instagram/highlight-items) | Fetch normalized highlight items data from Instagram. | highlight_ids | 0.5 credits/result |
-| [`instagram/post-info`](https://docs.socq.ai/api-manual/instagram/post-info) | Fetch normalized post info data from Instagram. | urls | 0.5 credits/result |
+| [`instagram/highlight-items`](https://docs.socq.ai/api-manual/instagram/highlight-items) | Collect public Instagram highlight items. | highlight_ids | 0.5 credits/result |
+| [`instagram/post-info`](https://docs.socq.ai/api-manual/instagram/post-info) | Collect public Instagram post details. | urls | 0.5 credits/result |
 | [`instagram/posts`](https://docs.socq.ai/api-manual/instagram/posts) | Instagram Post API | one of query, urls, usernames | 0.34 credits/result |
 | [`instagram/profiles`](https://docs.socq.ai/api-manual/instagram/profiles) | Collect public Instagram profile metadata and statistics. | usernames | 0.6 credits/result |
 | [`instagram/reels`](https://docs.socq.ai/api-manual/instagram/reels) | Instagram Reel API | one of query, urls, usernames | 0.52 credits/result |
-| [`instagram/reels-search`](https://docs.socq.ai/api-manual/instagram/reels-search) | Fetch normalized reels search data from Instagram. | query | 0.5 credits/result |
+| [`instagram/reels-search`](https://docs.socq.ai/api-manual/instagram/reels-search) | Search public Instagram reels. | query | 0.5 credits/result |
 | [`instagram/search`](https://docs.socq.ai/api-manual/instagram/search) | Instagram Search API | one of query, urls, usernames | 0.54 credits/result |
-| [`instagram/story-highlights`](https://docs.socq.ai/api-manual/instagram/story-highlights) | Fetch normalized story highlights data from Instagram. | usernames | 0.5 credits/result |
+| [`instagram/story-highlights`](https://docs.socq.ai/api-manual/instagram/story-highlights) | Collect public Instagram story highlights. | usernames | 0.5 credits/result |
 | [`instagram/tagged-posts`](https://docs.socq.ai/api-manual/instagram/tagged-posts) | Collect public posts that tag an Instagram profile. | usernames | 0.5 credits/result |
 | [`instagram/transcript`](https://docs.socq.ai/api-manual/instagram/transcript) | Extract transcripts from public Instagram posts and reels. | urls | 0.7 credits/result |
-| [`instagram/trending-reels`](https://docs.socq.ai/api-manual/instagram/trending-reels) | Fetch normalized trending reels data from Instagram. | none | 0.5 credits/result |
+| [`instagram/trending-reels`](https://docs.socq.ai/api-manual/instagram/trending-reels) | Collect public trending Instagram reels. | none | 0.5 credits/result |
 
 ## Validated examples
 
@@ -65,7 +65,7 @@ Typed MCP tool: `socq_instagram_followers_count`
 
 ### `instagram/followers-list`
 
-Typed MCP tool: `socq_instagram_followers`
+Typed MCP tool: `socq_instagram_followers_list`
 
 ```json
 {
@@ -78,7 +78,7 @@ Typed MCP tool: `socq_instagram_followers`
 
 ### `instagram/following-list`
 
-Typed MCP tool: `socq_instagram_following`
+Typed MCP tool: `socq_instagram_following_list`
 
 ```json
 {
@@ -210,7 +210,7 @@ Typed MCP tool: `socq_instagram_tagged_posts`
 
 ### `instagram/transcript`
 
-Typed MCP tool: `socq_instagram_transcripts`
+Typed MCP tool: `socq_instagram_transcript`
 
 ```json
 {
