@@ -28,7 +28,7 @@ Use `SOCQ_BASE_URL` or `--base-url` to target another SocQ API environment. Run 
 
 Agent Skills should pass `--request-source skill` or set `SOCQ_REQUEST_SOURCE=skill`; submitted tasks are then attributed as `skill-cli`.
 
-See the [SocQ CLI documentation](https://socq.ai/cli).
+See the [SocQ website](https://socq.ai/).
 
 ## License
 
