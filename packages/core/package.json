@@ -8,7 +8,7 @@
     "url": "git+https://github.com/SocQAPI/socq-devtools.git",
     "directory": "packages/core"
   },
-  "homepage": "https://docs.socq.ai/integrations/overview",
+  "homepage": "https://socq.ai/",
   "bugs": {
     "url": "https://github.com/SocQAPI/socq-devtools/issues"
   },

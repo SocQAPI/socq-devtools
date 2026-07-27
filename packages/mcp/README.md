@@ -22,7 +22,7 @@ Configuration variables:
 - `SOCQ_MCP_PLATFORMS`: comma-separated platform filter.
 - `SOCQ_MCP_TOOLS`: comma-separated endpoint tool filter.
 
-Do not configure platforms and tools at the same time. See the [SocQ MCP documentation](https://docs.socq.ai/integrations/mcp).
+Do not configure platforms and tools at the same time. See the [SocQ MCP documentation](https://socq.ai/mcp).
 
 ## License
 

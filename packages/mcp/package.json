@@ -8,7 +8,7 @@
     "url": "git+https://github.com/SocQAPI/socq-devtools.git",
     "directory": "packages/mcp"
   },
-  "homepage": "https://docs.socq.ai/integrations/mcp",
+  "homepage": "https://socq.ai/mcp",
   "bugs": {
     "url": "https://github.com/SocQAPI/socq-devtools/issues"
   },

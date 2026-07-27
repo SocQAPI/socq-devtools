@@ -26,7 +26,7 @@ const downloaded = await client.downloadFiles(task.task_id, "./socq-results");
 
 Set `SOCQ_BASE_URL` or pass `baseUrl` to target another SocQ environment. The default is `https://api.socq.ai`.
 
-See the [SocQ integration documentation](https://docs.socq.ai/integrations/overview).
+See the [SocQ website](https://socq.ai/).
 
 ## License
 
