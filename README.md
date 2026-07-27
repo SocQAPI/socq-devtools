@@ -18,14 +18,6 @@ pnpm typecheck
 pnpm test
 ```
 
-Use environment variables to target a non-production SocQ deployment without changing package defaults:
-
-```bash
-SOCQ_BASE_URL=https://dev-api.socq.ai \
-SOCQ_MCP_URL=https://dev-api.socq.ai/mcp \
-pnpm build
-```
-
 Generated production artifacts are refreshed immediately before a release:
 
 ```bash
