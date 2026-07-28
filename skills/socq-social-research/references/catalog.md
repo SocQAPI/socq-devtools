@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-82a413bb5c3c`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Cost |
 | --- | --- | --- | --- |
@@ -70,9 +70,9 @@ Generated from SocQ Capability Registry schema `v1-9e02c88be86a`. Do not edit en
 | [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Collect public TikTok live room metadata and audience metrics. | room_id, user_id | 0.5 credits/result |
 | [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | TikTok Profiles API | usernames | 0.6 credits/result |
 | [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | TikTok Search API | query | 0.7 credits/result |
-| [`tiktok/transcripts`](https://docs.socq.ai/api-manual/tiktok/transcripts) | Extract transcripts from public TikTok videos. | urls | 0.5 credits/result |
 | [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Collect trending TikTok videos for a region. | region | 0.7 credits/result |
 | [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Collect public videos from TikTok profiles. | usernames | 0.5 credits/result |
+| [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Extract transcripts from public TikTok videos. | urls | 0.5 credits/result |
 | [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | TikTok Videos API | urls | 0.7 credits/result |
 | [`x/followers-list`](https://docs.socq.ai/api-manual/x/followers-list) | Collect public X follower profiles. | usernames | 0.5 credits/result |
 | [`x/following-list`](https://docs.socq.ai/api-manual/x/following-list) | Collect public X followed profiles. | usernames | 0.5 credits/result |

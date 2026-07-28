@@ -1,5 +1,5 @@
 {
-  "schema_version": "v1-9e02c88be86a",
+  "schema_version": "v1-82a413bb5c3c",
   "platforms": [
     {
       "platform": "facebook",
@@ -123,9 +123,9 @@
         "socq_tiktok_live_room_info",
         "socq_tiktok_profiles",
         "socq_tiktok_search",
-        "socq_tiktok_transcripts",
         "socq_tiktok_trending_feed",
         "socq_tiktok_user_videos",
+        "socq_tiktok_video_transcript",
         "socq_tiktok_videos"
       ]
     },
@@ -10228,154 +10228,6 @@
         "docs_url": "https://docs.socq.ai/api-manual/tiktok/search"
       },
       {
-        "public_id": "tiktok/transcripts",
-        "platform": "tiktok",
-        "resource": "transcripts",
-        "tool_name": "socq_tiktok_transcripts",
-        "title": "TikTok Video Transcripts API",
-        "description": "Extract transcripts from public TikTok videos.",
-        "input_schema": {
-          "$schema": "https://json-schema.org/draft/2020-12/schema",
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "language": {
-              "type": "string",
-              "minLength": 1
-            },
-            "urls": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "minLength": 1
-              },
-              "minItems": 1,
-              "description": "Public profile or content URLs."
-            }
-          },
-          "required": [
-            "urls"
-          ]
-        },
-        "output_schema": {
-          "type": "object",
-          "properties": {
-            "task_id": {
-              "type": "string"
-            },
-            "status": {
-              "type": "string"
-            },
-            "results": {
-              "type": "object",
-              "properties": {
-                "items": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "additionalProperties": true,
-                    "properties": {
-                      "platform": {
-                        "type": "string"
-                      },
-                      "resource": {
-                        "type": "string"
-                      },
-                      "type": {
-                        "type": "string"
-                      },
-                      "id": {
-                        "type": [
-                          "string",
-                          "number",
-                          "null"
-                        ]
-                      },
-                      "url": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      },
-                      "author": {
-                        "type": "object",
-                        "additionalProperties": true
-                      },
-                      "text": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      },
-                      "metrics": {
-                        "type": "object",
-                        "additionalProperties": true
-                      },
-                      "media": {
-                        "type": [
-                          "object",
-                          "array"
-                        ],
-                        "additionalProperties": true
-                      },
-                      "published_at": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "next_cursor": {
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "has_more": {
-                  "type": "boolean"
-                }
-              }
-            }
-          }
-        },
-        "billing": {
-          "mode": "base_plus_result",
-          "credits": null,
-          "base_credits": 0,
-          "unit": "result",
-          "unit_size": 1,
-          "unit_credits": 0.5,
-          "config": {
-            "mode": "base_plus_result",
-            "result_unit_size": 1,
-            "empty_result_policy": "base_only",
-            "result_unit_credits": 0.5,
-            "estimate_input_field": "urls"
-          },
-          "dynamic": true
-        },
-        "examples": [
-          {
-            "urls": [
-              "https://www.tiktok.com/@scout2015/video/6718335390845095173"
-            ],
-            "language": "en"
-          }
-        ],
-        "tags": [
-          "tiktok",
-          "transcripts"
-        ],
-        "execution_mode": "async",
-        "supports_pagination": true,
-        "supports_files": true,
-        "supports_callback": false,
-        "status": "stable",
-        "docs_url": "https://docs.socq.ai/api-manual/tiktok/transcripts"
-      },
-      {
         "public_id": "tiktok/trending-feed",
         "platform": "tiktok",
         "resource": "trending-feed",
@@ -10680,6 +10532,154 @@
         "supports_callback": true,
         "status": "stable",
         "docs_url": "https://docs.socq.ai/api-manual/tiktok/user-videos"
+      },
+      {
+        "public_id": "tiktok/video-transcript",
+        "platform": "tiktok",
+        "resource": "video-transcript",
+        "tool_name": "socq_tiktok_video_transcript",
+        "title": "TikTok Video Transcript API",
+        "description": "Extract transcripts from public TikTok videos.",
+        "input_schema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "language": {
+              "type": "string",
+              "minLength": 1
+            },
+            "urls": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "description": "Public profile or content URLs."
+            }
+          },
+          "required": [
+            "urls"
+          ]
+        },
+        "output_schema": {
+          "type": "object",
+          "properties": {
+            "task_id": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "results": {
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "platform": {
+                        "type": "string"
+                      },
+                      "resource": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "id": {
+                        "type": [
+                          "string",
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "author": {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      "text": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "metrics": {
+                        "type": "object",
+                        "additionalProperties": true
+                      },
+                      "media": {
+                        "type": [
+                          "object",
+                          "array"
+                        ],
+                        "additionalProperties": true
+                      },
+                      "published_at": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "next_cursor": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "has_more": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "billing": {
+          "mode": "base_plus_result",
+          "credits": null,
+          "base_credits": 0,
+          "unit": "result",
+          "unit_size": 1,
+          "unit_credits": 0.5,
+          "config": {
+            "mode": "base_plus_result",
+            "result_unit_size": 1,
+            "empty_result_policy": "base_only",
+            "result_unit_credits": 0.5,
+            "estimate_input_field": "urls"
+          },
+          "dynamic": true
+        },
+        "examples": [
+          {
+            "urls": [
+              "https://www.tiktok.com/@scout2015/video/6718335390845095173"
+            ],
+            "language": "en"
+          }
+        ],
+        "tags": [
+          "tiktok",
+          "video-transcript"
+        ],
+        "execution_mode": "async",
+        "supports_pagination": true,
+        "supports_files": true,
+        "supports_callback": false,
+        "status": "stable",
+        "docs_url": "https://docs.socq.ai/api-manual/tiktok/video-transcript"
       },
       {
         "public_id": "tiktok/videos",
