@@ -6,10 +6,10 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Fetch normalized comments data from Reddit. | urls | live pricing |
-| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Fetch normalized posts data from Reddit. | urls | live pricing |
-| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Fetch normalized search data from Reddit. | query | live pricing |
-| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Fetch normalized subreddit posts data from Reddit. | urls | live pricing |
+| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Reddit Comments API | urls | 0.3 credits/result |
+| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Reddit Posts API | urls | 0.5 credits/result |
+| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Reddit Search API | query | 0.6 credits/result |
+| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Reddit Subreddit Posts API | urls | 0.5 credits/result |
 
 ## Validated examples
 

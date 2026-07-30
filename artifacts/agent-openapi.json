@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "SocQ Agent API",
-    "version": "v1-82a413bb5c3c",
+    "version": "v1-c8347f9103e7",
     "description": "Asynchronous social data API generated from the SocQ Capability Registry."
   },
   "servers": [
@@ -3270,6 +3270,864 @@
                 },
                 "required": [
                   "urls"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/google-organic-serp": {
+      "post": {
+        "operationId": "socq_seo_google_organic_serp",
+        "summary": "Google Organic SERP API",
+        "description": "Retrieve live organic search results.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "device": {
+                    "type": "string",
+                    "enum": [
+                      "desktop",
+                      "mobile"
+                    ]
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "query": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search query."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 700,
+                    "default": 10
+                  }
+                },
+                "required": [
+                  "query"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/keyword-difficulty": {
+      "post": {
+        "operationId": "socq_seo_keyword_difficulty",
+        "summary": "Keyword Difficulty API",
+        "description": "Calculate ranking difficulty for each input keyword.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "Keywords to analyze in one batch."
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000
+                  }
+                },
+                "required": [
+                  "keywords"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/keyword-overview": {
+      "post": {
+        "operationId": "socq_seo_keyword_overview",
+        "summary": "Keyword Overview API",
+        "description": "Return combined metrics for each input keyword.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "Keywords to analyze in one batch."
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000
+                  }
+                },
+                "required": [
+                  "keywords"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/keyword-search-volume": {
+      "post": {
+        "operationId": "socq_seo_keyword_search_volume",
+        "summary": "Keyword Search Volume API",
+        "description": "Batch search volume, CPC, competition, and monthly trends.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "Keywords to analyze in one batch."
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000
+                  }
+                },
+                "required": [
+                  "keywords"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/keyword-suggestions": {
+      "post": {
+        "operationId": "socq_seo_keyword_suggestions",
+        "summary": "Keyword Suggestions API",
+        "description": "Find long-tail terms containing a seed keyword.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "query": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search query."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "default": 100
+                  }
+                },
+                "required": [
+                  "query"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/keywords-for-site": {
+      "post": {
+        "operationId": "socq_seo_keywords_for_site",
+        "summary": "Keywords For Site API",
+        "description": "Generate keywords relevant to a website.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "default": 100
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Domain, subdomain, or page URL."
+                  }
+                },
+                "required": [
+                  "target"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/ranked-keywords": {
+      "post": {
+        "operationId": "socq_seo_ranked_keywords",
+        "summary": "Ranked Keywords API",
+        "description": "Find keywords already ranked by a domain or page.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "default": 100
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Domain, subdomain, or page URL."
+                  }
+                },
+                "required": [
+                  "target"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/related-keywords": {
+      "post": {
+        "operationId": "socq_seo_related_keywords",
+        "summary": "Related Keywords API",
+        "description": "Find semantically and lexically related keywords.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "depth": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 4
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "query": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search query."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "default": 100
+                  }
+                },
+                "required": [
+                  "query"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/relevant-pages": {
+      "post": {
+        "operationId": "socq_seo_relevant_pages",
+        "summary": "Relevant Pages API",
+        "description": "Find pages with measurable SEO value.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "offset": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "default": 100
+                  },
+                  "target": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Domain, subdomain, or page URL."
+                  }
+                },
+                "required": [
+                  "target"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Task accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentSubmitResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/seo/search-intent": {
+      "post": {
+        "operationId": "socq_seo_search_intent",
+        "summary": "Search Intent API",
+        "description": "Classify the intent of each input keyword.",
+        "tags": [
+          "seo"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          },
+          {
+            "apiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "callback_url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 80
+                    },
+                    "minItems": 1,
+                    "maxItems": 1000,
+                    "description": "Keywords to analyze in one batch."
+                  },
+                  "language": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "language_code": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 10
+                  },
+                  "location_code": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Search market location code."
+                  },
+                  "location_name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Search market location name."
+                  },
+                  "results_limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2000
+                  }
+                },
+                "required": [
+                  "keywords"
                 ]
               }
             }

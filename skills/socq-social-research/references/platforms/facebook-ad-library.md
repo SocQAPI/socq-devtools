@@ -6,10 +6,10 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`facebook-ad-library/ad`](https://docs.socq.ai/api-manual/facebook-ad-library/ad) | Fetch normalized ad data from Facebook Ad Library. | url | live pricing |
-| [`facebook-ad-library/company-ads`](https://docs.socq.ai/api-manual/facebook-ad-library/company-ads) | Fetch normalized company ads data from Facebook Ad Library. | page_id | live pricing |
-| [`facebook-ad-library/company-search`](https://docs.socq.ai/api-manual/facebook-ad-library/company-search) | Fetch normalized company search data from Facebook Ad Library. | query | live pricing |
-| [`facebook-ad-library/search`](https://docs.socq.ai/api-manual/facebook-ad-library/search) | Fetch normalized search data from Facebook Ad Library. | query | live pricing |
+| [`facebook-ad-library/ad`](https://docs.socq.ai/api-manual/facebook-ad-library/ad) | Facebook Ad Library Ad API | url | 0.6 credits/result |
+| [`facebook-ad-library/company-ads`](https://docs.socq.ai/api-manual/facebook-ad-library/company-ads) | Facebook Ad Library Company Ads API | page_id | 0.5 credits/result |
+| [`facebook-ad-library/company-search`](https://docs.socq.ai/api-manual/facebook-ad-library/company-search) | Facebook Ad Library Company Search API | query | 0.5 credits/result |
+| [`facebook-ad-library/search`](https://docs.socq.ai/api-manual/facebook-ad-library/search) | Facebook Ad Library Search API | query | 0.5 credits/result |
 
 ## Validated examples
 

@@ -6,18 +6,18 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Fetch normalized comment replies data from TikTok. | comment_id, url | live pricing |
-| [`tiktok/comments`](https://docs.socq.ai/api-manual/tiktok/comments) | Fetch normalized comments data from TikTok. | urls | live pricing |
-| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Fetch normalized followers list data from TikTok. | usernames | live pricing |
-| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Fetch normalized following list data from TikTok. | usernames | live pricing |
-| [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | Fetch normalized hashtags data from TikTok. | hashtags | live pricing |
-| [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Fetch normalized live room info data from TikTok. | room_id, user_id | live pricing |
-| [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | Fetch normalized profiles data from TikTok. | usernames | live pricing |
-| [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | Fetch normalized search data from TikTok. | query | live pricing |
-| [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Fetch normalized trending feed data from TikTok. | region | live pricing |
-| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Fetch normalized user videos data from TikTok. | usernames | live pricing |
-| [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Fetch normalized video transcript data from TikTok. | urls | live pricing |
-| [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | Fetch normalized videos data from TikTok. | urls | live pricing |
+| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Collect public TikTok comment replies. | comment_id, url | 0.5 credits/result |
+| [`tiktok/comments`](https://docs.socq.ai/api-manual/tiktok/comments) | TikTok Comments API | urls | 0.25 credits/result |
+| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Collect public TikTok follower profiles. | usernames | 0.5 credits/result |
+| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Collect public TikTok followed profiles. | usernames | 0.5 credits/result |
+| [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | TikTok Hashtags API | hashtags | 0.7 credits/result |
+| [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Collect public TikTok live room metadata and audience metrics. | room_id, user_id | 0.5 credits/result |
+| [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | TikTok Profiles API | usernames | 0.6 credits/result |
+| [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | TikTok Search API | query | 0.7 credits/result |
+| [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Collect trending TikTok videos for a region. | region | 0.7 credits/result |
+| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Collect public videos from TikTok profiles. | usernames | 0.5 credits/result |
+| [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Extract transcripts from public TikTok videos. | urls | 0.5 credits/result |
+| [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | TikTok Videos API | urls | 0.7 credits/result |
 
 ## Validated examples
 

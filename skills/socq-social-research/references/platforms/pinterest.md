@@ -6,10 +6,10 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`pinterest/pins`](https://docs.socq.ai/api-manual/pinterest/pins) | Fetch normalized pins data from Pinterest. | urls | live pricing |
-| [`pinterest/profiles`](https://docs.socq.ai/api-manual/pinterest/profiles) | Fetch normalized profiles data from Pinterest. | urls | live pricing |
-| [`pinterest/search`](https://docs.socq.ai/api-manual/pinterest/search) | Fetch normalized search data from Pinterest. | query | live pricing |
-| [`pinterest/user-pins`](https://docs.socq.ai/api-manual/pinterest/user-pins) | Fetch normalized user pins data from Pinterest. | urls | live pricing |
+| [`pinterest/pins`](https://docs.socq.ai/api-manual/pinterest/pins) | Pinterest Pins API | urls | 0.5 credits/result |
+| [`pinterest/profiles`](https://docs.socq.ai/api-manual/pinterest/profiles) | Pinterest Profiles API | urls | 0.6 credits/result |
+| [`pinterest/search`](https://docs.socq.ai/api-manual/pinterest/search) | Pinterest Search API | query | 0.6 credits/result |
+| [`pinterest/user-pins`](https://docs.socq.ai/api-manual/pinterest/user-pins) | Pinterest User Pins API | urls | 0.5 credits/result |
 
 ## Validated examples
 

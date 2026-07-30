@@ -6,16 +6,16 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`seo/google-organic-serp`](https://docs.socq.ai/api-manual/seo/google-organic-serp) | Fetch normalized google organic serp data from SEO. | query | live pricing |
-| [`seo/keyword-difficulty`](https://docs.socq.ai/api-manual/seo/keyword-difficulty) | Fetch normalized keyword difficulty data from SEO. | keywords | live pricing |
-| [`seo/keyword-overview`](https://docs.socq.ai/api-manual/seo/keyword-overview) | Fetch normalized keyword overview data from SEO. | keywords | live pricing |
-| [`seo/keyword-search-volume`](https://docs.socq.ai/api-manual/seo/keyword-search-volume) | Fetch normalized keyword search volume data from SEO. | keywords | live pricing |
-| [`seo/keyword-suggestions`](https://docs.socq.ai/api-manual/seo/keyword-suggestions) | Fetch normalized keyword suggestions data from SEO. | query | live pricing |
-| [`seo/keywords-for-site`](https://docs.socq.ai/api-manual/seo/keywords-for-site) | Fetch normalized keywords for site data from SEO. | target | live pricing |
-| [`seo/ranked-keywords`](https://docs.socq.ai/api-manual/seo/ranked-keywords) | Fetch normalized ranked keywords data from SEO. | target | live pricing |
-| [`seo/related-keywords`](https://docs.socq.ai/api-manual/seo/related-keywords) | Fetch normalized related keywords data from SEO. | query | live pricing |
-| [`seo/relevant-pages`](https://docs.socq.ai/api-manual/seo/relevant-pages) | Fetch normalized relevant pages data from SEO. | target | live pricing |
-| [`seo/search-intent`](https://docs.socq.ai/api-manual/seo/search-intent) | Fetch normalized search intent data from SEO. | keywords | live pricing |
+| [`seo/google-organic-serp`](https://docs.socq.ai/api-manual/seo/google-organic-serp) | Retrieve live organic search results. | query | 0.1 credits/result |
+| [`seo/keyword-difficulty`](https://docs.socq.ai/api-manual/seo/keyword-difficulty) | Calculate ranking difficulty for each input keyword. | keywords | 0.1 credits/input |
+| [`seo/keyword-overview`](https://docs.socq.ai/api-manual/seo/keyword-overview) | Return combined metrics for each input keyword. | keywords | 0.15 credits/input |
+| [`seo/keyword-search-volume`](https://docs.socq.ai/api-manual/seo/keyword-search-volume) | Batch search volume, CPC, competition, and monthly trends. | keywords | 24 credits/request |
+| [`seo/keyword-suggestions`](https://docs.socq.ai/api-manual/seo/keyword-suggestions) | Find long-tail terms containing a seed keyword. | query | 0.1 credits/result |
+| [`seo/keywords-for-site`](https://docs.socq.ai/api-manual/seo/keywords-for-site) | Generate keywords relevant to a website. | target | 0.1 credits/result |
+| [`seo/ranked-keywords`](https://docs.socq.ai/api-manual/seo/ranked-keywords) | Find keywords already ranked by a domain or page. | target | 0.1 credits/result |
+| [`seo/related-keywords`](https://docs.socq.ai/api-manual/seo/related-keywords) | Find semantically and lexically related keywords. | query | 0.1 credits/result |
+| [`seo/relevant-pages`](https://docs.socq.ai/api-manual/seo/relevant-pages) | Find pages with measurable SEO value. | target | 0.15 credits/result |
+| [`seo/search-intent`](https://docs.socq.ai/api-manual/seo/search-intent) | Classify the intent of each input keyword. | keywords | 0.1 credits/input |
 
 ## Validated examples
 

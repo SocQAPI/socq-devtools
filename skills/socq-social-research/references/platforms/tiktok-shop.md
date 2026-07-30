@@ -6,11 +6,11 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`tiktok-shop/product`](https://docs.socq.ai/api-manual/tiktok-shop/product) | Fetch normalized product data from TikTok Shop. | url | live pricing |
-| [`tiktok-shop/product-reviews`](https://docs.socq.ai/api-manual/tiktok-shop/product-reviews) | Fetch normalized product reviews data from TikTok Shop. | url | live pricing |
-| [`tiktok-shop/products`](https://docs.socq.ai/api-manual/tiktok-shop/products) | Fetch normalized products data from TikTok Shop. | url | live pricing |
-| [`tiktok-shop/search`](https://docs.socq.ai/api-manual/tiktok-shop/search) | Fetch normalized search data from TikTok Shop. | query | live pricing |
-| [`tiktok-shop/user-showcase`](https://docs.socq.ai/api-manual/tiktok-shop/user-showcase) | Fetch normalized user showcase data from TikTok Shop. | username | live pricing |
+| [`tiktok-shop/product`](https://docs.socq.ai/api-manual/tiktok-shop/product) | TikTok Shop Product API | url | 0.7 credits/result |
+| [`tiktok-shop/product-reviews`](https://docs.socq.ai/api-manual/tiktok-shop/product-reviews) | TikTok Shop Product Reviews API | url | 0.3 credits/result |
+| [`tiktok-shop/products`](https://docs.socq.ai/api-manual/tiktok-shop/products) | TikTok Shop Products API | url | 0.7 credits/result |
+| [`tiktok-shop/search`](https://docs.socq.ai/api-manual/tiktok-shop/search) | TikTok Shop Search API | query | 0.7 credits/result |
+| [`tiktok-shop/user-showcase`](https://docs.socq.ai/api-manual/tiktok-shop/user-showcase) | TikTok Shop User Showcase API | username | 0.7 credits/result |
 
 ## Validated examples
 

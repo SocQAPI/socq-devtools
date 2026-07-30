@@ -6,9 +6,9 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Fetch normalized posts data from Threads. | urls | live pricing |
-| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Fetch normalized profiles data from Threads. | urls | live pricing |
-| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Fetch normalized user posts data from Threads. | urls | live pricing |
+| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Threads Posts API | urls | 0.5 credits/result |
+| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Threads Profiles API | urls | 0.6 credits/result |
+| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Threads User Posts API | urls | 0.5 credits/result |
 
 ## Validated examples
 
