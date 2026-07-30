@@ -1,14 +1,14 @@
 # Facebook Marketplace
 
-Generated from SocQ Capability Registry schema `v1-82a413bb5c3c`. Read this file when the request targets Facebook Marketplace.
+Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file when the request targets Facebook Marketplace.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`facebook-marketplace/item`](https://docs.socq.ai/api-manual/facebook-marketplace/item) | Facebook Marketplace Item API | urls | 0.6 credits/result |
-| [`facebook-marketplace/location-search`](https://docs.socq.ai/api-manual/facebook-marketplace/location-search) | Facebook Marketplace Location Search API | query | 0.3 credits/result |
-| [`facebook-marketplace/search`](https://docs.socq.ai/api-manual/facebook-marketplace/search) | Facebook Marketplace Search API | latitude, longitude, query | 0.7 credits/result |
+| [`facebook-marketplace/item`](https://docs.socq.ai/api-manual/facebook-marketplace/item) | Fetch normalized item data from Facebook Marketplace. | urls | live pricing |
+| [`facebook-marketplace/location-search`](https://docs.socq.ai/api-manual/facebook-marketplace/location-search) | Fetch normalized location search data from Facebook Marketplace. | query | live pricing |
+| [`facebook-marketplace/search`](https://docs.socq.ai/api-manual/facebook-marketplace/search) | Fetch normalized search data from Facebook Marketplace. | latitude, longitude, query | live pricing |
 
 ## Validated examples
 

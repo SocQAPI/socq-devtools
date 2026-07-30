@@ -1,11 +1,11 @@
 ---
 name: socq-social-research
-description: Research public social-platform content and accounts with SocQ. Use when Codex needs to discover the right SocQ endpoint, estimate credits, submit asynchronous social-data jobs, poll results, paginate normalized records, retrieve raw files, or coordinate cross-platform research through SocQ MCP or CLI.
+description: Research public social-platform content, accounts, keywords, and SEO search data with SocQ. Use when Codex needs keyword volume, suggestions, related terms, difficulty, intent, organic results, site rankings, or social data; or needs to discover a SocQ endpoint, estimate credits, submit asynchronous jobs, poll results, paginate normalized records, and retrieve raw files through SocQ MCP or CLI.
 ---
 
-# SocQ Social Research
+# SocQ Social and SEO Research
 
-Use SocQ to collect public social data through an asynchronous, credit-metered workflow.
+Use SocQ to collect public social and SEO data through an asynchronous, credit-metered workflow.
 
 ## Choose the integration
 
@@ -39,7 +39,9 @@ Never place an API key in a prompt, query string, committed file, or shell comma
    [TikTok Shop](references/platforms/tiktok-shop.md),
    [X](references/platforms/x.md), or
    [YouTube](references/platforms/youtube.md).
-4. Prefer direct URLs or canonical usernames over broad keyword search when the user supplies them.
+   For keyword research, intent, organic results, or site rankings, read
+   [SEO](references/platforms/seo.md).
+4. Prefer direct URLs or canonical usernames over broad social search when the user supplies them. For SEO work, preserve the requested market and language; do not compare keyword metrics from different locations as if they were equivalent.
 5. Check account credits before a large or cross-platform run. Read [billing.md](references/billing.md) for cost controls.
 6. Submit with a reusable idempotency key when a transport retry is possible.
 7. Treat `queued` and `running` as incomplete. Poll until `succeeded` or `failed`; follow [async-tasks.md](references/async-tasks.md).

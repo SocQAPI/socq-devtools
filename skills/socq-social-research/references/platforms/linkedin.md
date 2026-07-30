@@ -1,15 +1,15 @@
 # Linkedin
 
-Generated from SocQ Capability Registry schema `v1-82a413bb5c3c`. Read this file when the request targets Linkedin.
+Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file when the request targets Linkedin.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Cost |
 | --- | --- | --- | --- |
-| [`linkedin/companies`](https://docs.socq.ai/api-manual/linkedin/companies) | LinkedIn Companies API | urls | 2 credits/result |
-| [`linkedin/jobs`](https://docs.socq.ai/api-manual/linkedin/jobs) | LinkedIn Jobs API | urls | 0.8 credits/result |
-| [`linkedin/posts`](https://docs.socq.ai/api-manual/linkedin/posts) | LinkedIn Posts API | urls | 1 credits/result |
-| [`linkedin/profiles`](https://docs.socq.ai/api-manual/linkedin/profiles) | LinkedIn Profiles API | urls | 2.5 credits/result |
+| [`linkedin/companies`](https://docs.socq.ai/api-manual/linkedin/companies) | Fetch normalized companies data from LinkedIn. | urls | live pricing |
+| [`linkedin/jobs`](https://docs.socq.ai/api-manual/linkedin/jobs) | Fetch normalized jobs data from LinkedIn. | urls | live pricing |
+| [`linkedin/posts`](https://docs.socq.ai/api-manual/linkedin/posts) | Fetch normalized posts data from LinkedIn. | urls | live pricing |
+| [`linkedin/profiles`](https://docs.socq.ai/api-manual/linkedin/profiles) | Fetch normalized profiles data from LinkedIn. | urls | live pricing |
 
 ## Validated examples
 
