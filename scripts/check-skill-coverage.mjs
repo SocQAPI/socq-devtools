@@ -1,5 +1,6 @@
 import {access, readFile} from "node:fs/promises";
 import {resolve} from "node:path";
+import {requiredAlternativeGroups, satisfiesRequiredAlternatives} from "./schema-requirements.mjs";
 
 const catalogPath = resolve(process.argv[2] ?? "artifacts/capability-catalog.json");
 const skillRoot = resolve("skills/socq-social-research");
@@ -21,9 +22,10 @@ for (const endpoint of endpoints) {
   if (unknown.length) throw new Error(`Example for ${endpoint.public_id} has unknown fields: ${unknown.join(",")}`);
   const missing = (endpoint.input_schema.required ?? []).filter((field) => !hasValue(example[field]));
   if (missing.length) throw new Error(`Example for ${endpoint.public_id} misses required fields: ${missing.join(",")}`);
-  const alternatives = (endpoint.input_schema.anyOf ?? []).flatMap((entry) => entry.required ?? []);
-  if (alternatives.length && !alternatives.some((field) => hasValue(example[field]))) {
-    throw new Error(`Example for ${endpoint.public_id} must include one of: ${alternatives.join(",")}`);
+  const alternatives = requiredAlternativeGroups(endpoint.input_schema);
+  if (!satisfiesRequiredAlternatives(endpoint.input_schema, example)) {
+    const choices = alternatives.map((group) => group.join(" + ")).join("; ");
+    throw new Error(`Example for ${endpoint.public_id} must satisfy one of: ${choices}`);
   }
 }
 

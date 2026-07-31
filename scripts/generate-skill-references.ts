@@ -1,5 +1,6 @@
 import {mkdir, readFile, readdir, rm, writeFile} from "node:fs/promises";
 import {resolve} from "node:path";
+import {describeInputRequirement} from "./schema-requirements.mjs";
 
 function option(name: string, fallback: string): string {
   const index = process.argv.indexOf(`--${name}`);
@@ -107,14 +108,7 @@ for (const [platform, items] of grouped) {
 process.stderr.write(`Wrote ${output}\nWrote ${grouped.size} platform references to ${platformOutput}\n`);
 
 function inputRequirement(item: Capability): string {
-  const required = item.input_schema.required ?? [];
-  const alternatives = (item.input_schema.anyOf ?? [])
-    .flatMap((entry) => entry.required ?? [])
-    .filter(Boolean);
-  if (required.length && alternatives.length) return `${required.join(", ")}; one of ${alternatives.join(", ")}`;
-  if (required.length) return required.join(", ");
-  if (alternatives.length) return `one of ${alternatives.join(", ")}`;
-  return "none";
+  return describeInputRequirement(item.input_schema);
 }
 
 function billingSummary(billing: Billing): string {
