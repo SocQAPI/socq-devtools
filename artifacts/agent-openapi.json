@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "SocQ Agent API",
-    "version": "v1-c8347f9103e7",
+    "version": "v1-dc091b011267",
     "description": "Asynchronous social data API generated from the SocQ Capability Registry."
   },
   "servers": [
@@ -587,6 +587,11 @@
                     "type": "string",
                     "format": "uri"
                   },
+                  "comment_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "A public comment identifier."
+                  },
                   "expansion_token": {
                     "type": "string",
                     "minLength": 1,
@@ -602,11 +607,27 @@
                     "minimum": 20,
                     "maximum": 2000,
                     "default": 100
+                  },
+                  "url": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "A public content or product URL."
                   }
                 },
-                "required": [
-                  "expansion_token",
-                  "feedback_id"
+                "required": [],
+                "anyOf": [
+                  {
+                    "required": [
+                      "comment_id",
+                      "url"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "expansion_token",
+                      "feedback_id"
+                    ]
+                  }
                 ]
               }
             }
@@ -6222,6 +6243,11 @@
                     "type": "string",
                     "format": "uri"
                   },
+                  "comment_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "A public comment identifier."
+                  },
                   "continuation_token": {
                     "type": "string",
                     "minLength": 1,
@@ -6232,10 +6258,26 @@
                     "minimum": 20,
                     "maximum": 2000,
                     "default": 100
+                  },
+                  "url": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "A public content or product URL."
                   }
                 },
-                "required": [
-                  "continuation_token"
+                "required": [],
+                "anyOf": [
+                  {
+                    "required": [
+                      "comment_id",
+                      "url"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "continuation_token"
+                    ]
+                  }
                 ]
               }
             }

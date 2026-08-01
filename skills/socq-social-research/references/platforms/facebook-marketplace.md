@@ -1,6 +1,6 @@
 # Facebook Marketplace
 
-Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file when the request targets Facebook Marketplace.
+Generated from SocQ Capability Registry schema `v1-dc091b011267`. Read this file when the request targets Facebook Marketplace.
 
 ## Endpoint selection
 

@@ -1,6 +1,6 @@
 # Youtube
 
-Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file when the request targets Youtube.
+Generated from SocQ Capability Registry schema `v1-dc091b011267`. Read this file when the request targets Youtube.
 
 ## Endpoint selection
 
@@ -9,7 +9,7 @@ Generated from SocQ Capability Registry schema `v1-c8347f9103e7`. Read this file
 | [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Collect public YouTube channel live videos. | urls | 0.5 credits/result |
 | [`youtube/channel-videos`](https://docs.socq.ai/api-manual/youtube/channel-videos) | YouTube Channel Videos API | urls | 0.5 credits/result |
 | [`youtube/channels`](https://docs.socq.ai/api-manual/youtube/channels) | YouTube Channels API | urls | 0.26 credits/result |
-| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Collect public YouTube comment replies. | continuation_token | 0.5 credits/result |
+| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Collect public YouTube comment replies. | one of: comment_id + url; continuation_token | 0.5 credits/result |
 | [`youtube/comments`](https://docs.socq.ai/api-manual/youtube/comments) | YouTube Comments API | urls | 0.3 credits/result |
 | [`youtube/community-posts`](https://docs.socq.ai/api-manual/youtube/community-posts) | Collect public YouTube community posts. | urls | 0.5 credits/result |
 | [`youtube/hashtag-search`](https://docs.socq.ai/api-manual/youtube/hashtag-search) | Search public YouTube videos by hashtag. | hashtags | 0.5 credits/result |
@@ -64,7 +64,8 @@ Typed MCP tool: `socq_youtube_comment_replies`
 
 ```json
 {
-  "continuation_token": "reply_continuation_token",
+  "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "comment_id": "Ugzge340dBgB75hWBm54AaABAg",
   "results_limit": 20
 }
 ```

@@ -1,5 +1,5 @@
 {
-  "schema_version": "v1-c8347f9103e7",
+  "schema_version": "v1-dc091b011267",
   "platforms": [
     {
       "platform": "facebook",
@@ -1453,6 +1453,11 @@
               "type": "string",
               "format": "uri"
             },
+            "comment_id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A public comment identifier."
+            },
             "expansion_token": {
               "type": "string",
               "minLength": 1,
@@ -1468,11 +1473,27 @@
               "minimum": 20,
               "maximum": 2000,
               "default": 100
+            },
+            "url": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A public content or product URL."
             }
           },
-          "required": [
-            "expansion_token",
-            "feedback_id"
+          "required": [],
+          "anyOf": [
+            {
+              "required": [
+                "comment_id",
+                "url"
+              ]
+            },
+            {
+              "required": [
+                "expansion_token",
+                "feedback_id"
+              ]
+            }
           ]
         },
         "output_schema": {
@@ -1577,8 +1598,8 @@
         },
         "examples": [
           {
-            "feedback_id": "feedback_123",
-            "expansion_token": "reply_token",
+            "url": "https://www.facebook.com/NASA/posts/would-you-lie-in-bed-for-60-days-for-scientific-research11-volunteers-did-exactl/1271494461012594/",
+            "comment_id": "Y29tbWVudDoxMjcxNDk0NDYxMDEyNTk0XzU4NzcxOTAzMTA0Mjk5MQ==",
             "results_limit": 20
           }
         ],
@@ -14578,6 +14599,11 @@
               "type": "string",
               "format": "uri"
             },
+            "comment_id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A public comment identifier."
+            },
             "continuation_token": {
               "type": "string",
               "minLength": 1,
@@ -14588,10 +14614,26 @@
               "minimum": 20,
               "maximum": 2000,
               "default": 100
+            },
+            "url": {
+              "type": "string",
+              "minLength": 1,
+              "description": "A public content or product URL."
             }
           },
-          "required": [
-            "continuation_token"
+          "required": [],
+          "anyOf": [
+            {
+              "required": [
+                "comment_id",
+                "url"
+              ]
+            },
+            {
+              "required": [
+                "continuation_token"
+              ]
+            }
           ]
         },
         "output_schema": {
@@ -14696,7 +14738,8 @@
         },
         "examples": [
           {
-            "continuation_token": "reply_continuation_token",
+            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "comment_id": "Ugzge340dBgB75hWBm54AaABAg",
             "results_limit": 20
           }
         ],
