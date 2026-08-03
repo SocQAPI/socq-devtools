@@ -1,4 +1,4 @@
-import {mkdir, readFile, readdir, rm, writeFile} from "node:fs/promises";
+import {copyFile, mkdir, readFile, readdir, rm, writeFile} from "node:fs/promises";
 import {resolve} from "node:path";
 import {describeInputRequirement} from "./schema-requirements.mjs";
 
@@ -42,6 +42,7 @@ interface Catalog {
 const input = option("input", "artifacts/capability-catalog.json");
 const output = option("output", "skills/socq-social-research/references/catalog.md");
 const platformOutput = option("platform-output", "skills/socq-social-research/references/platforms");
+const skillsOutput = option("skills-output", "skills");
 const catalog = JSON.parse(await readFile(input, "utf8")) as Catalog;
 const endpoints = (Array.isArray(catalog.endpoints) ? catalog.endpoints : catalog.endpoints.items)
   .slice()
@@ -103,9 +104,101 @@ for (const [platform, items] of grouped) {
     ]),
   ];
   await writeFile(resolve(platformOutput, `${platform}.md`), lines.join("\n"), "utf8");
+  await writePlatformSkill(platform, resolve(platformOutput, `${platform}.md`));
 }
 
 process.stderr.write(`Wrote ${output}\nWrote ${grouped.size} platform references to ${platformOutput}\n`);
+process.stderr.write(`Wrote ${grouped.size} platform Skills to ${skillsOutput}\n`);
+
+async function writePlatformSkill(platform: string, platformReference: string): Promise<void> {
+  const title = platformTitle(platform);
+  const skillName = platformSkillName(platform);
+  const skillRoot = resolve(skillsOutput, skillName);
+  const referencesRoot = resolve(skillRoot, "references");
+  await mkdir(resolve(skillRoot, "agents"), {recursive: true});
+  await mkdir(referencesRoot, {recursive: true});
+
+  const description = platformSkillDescription(platform, title);
+  const skill = `---
+name: ${skillName}
+description: ${description}
+metadata:
+  openclaw:
+    homepage: https://github.com/SocQAPI/socq-devtools
+    primaryEnv: SOCQ_API_KEY
+    requires:
+      env:
+        - SOCQ_API_KEY
+      anyBins:
+        - socq
+        - npx
+    envVars:
+      - name: SOCQ_API_KEY
+        required: true
+        description: SocQ API key used to authenticate CLI, MCP, and REST requests.
+    install:
+      - kind: node
+        package: "@socq/cli"
+        bins:
+          - socq
+---
+
+# SocQ ${title} Research
+
+Use SocQ to collect public ${title} data through an asynchronous, credit-metered workflow.
+
+## Choose the integration
+
+1. In OpenClaw, prefer the \`socq\` CLI when installed; otherwise use \`npx @socq/cli\`.
+2. Use the hosted MCP server at \`https://api.socq.ai/mcp?platforms=${platform}\` when SocQ MCP is already configured.
+3. Use REST only when neither CLI nor MCP is available.
+4. Attribute executions with \`--request-source skill\`, \`_request_source: "skill"\`, or \`X-Socq-Source: skill-rest\` for CLI, MCP, or REST respectively.
+
+Never place an API key in a prompt, query string, committed file, or retained shell command. Read [authentication.md](references/authentication.md) before configuring credentials.
+
+SocQ is an external, credit-metered service. A SocQ account and \`SOCQ_API_KEY\` are required, and requests may consume paid credits.
+
+## Execute research
+
+1. Restate the requested ${title} entities, date range, filters, and result volume.
+2. Read [platform.md](references/platform.md), select the endpoint, and validate inputs against its current schema.
+3. Check account credits before a large request. Read [billing.md](references/billing.md).
+4. Submit with a reusable idempotency key when a transport retry is possible.
+5. Treat \`queued\` and \`running\` as incomplete. Poll until \`succeeded\` or \`failed\`; follow [async-tasks.md](references/async-tasks.md).
+6. Follow every \`next_cursor\` required for the requested scope. Read [pagination.md](references/pagination.md).
+7. Retrieve task files when complete raw JSONL output is needed.
+8. Report filters, collection time, partial coverage, and provider failures with the results.
+
+For authentication, rate limits, provider failures, and recovery, follow [errors.md](references/errors.md).
+
+## Guardrails
+
+- Collect only public data supported by the selected endpoint.
+- Do not retry a failed paid request blindly; inspect the normalized error first.
+- Do not invent unsupported parameters; re-read the endpoint schema after validation errors.
+- Do not claim completeness when pagination stops early, a provider fails, or a requested filter is unsupported.
+- Keep task IDs in working notes so interrupted research can resume without resubmission.
+`;
+  await writeFile(resolve(skillRoot, "SKILL.md"), skill, "utf8");
+
+  const openai = `interface:
+  display_name: "SocQ ${title} Research"
+  short_description: "Research public ${title} data"
+  default_prompt: "Use $${skillName} to research this topic on ${title}."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "socq"
+      description: "Hosted SocQ ${title} data tools"
+      transport: "streamable_http"
+      url: "https://api.socq.ai/mcp?platforms=${platform}"
+`;
+  await writeFile(resolve(skillRoot, "agents", "openai.yaml"), openai, "utf8");
+  await copyFile(platformReference, resolve(referencesRoot, "platform.md"));
+  for (const name of ["authentication.md", "async-tasks.md", "billing.md", "errors.md", "pagination.md"]) {
+    await copyFile(resolve("skills/socq-social-research/references", name), resolve(referencesRoot, name));
+  }
+}
 
 function inputRequirement(item: Capability): string {
   return describeInputRequirement(item.input_schema);
@@ -131,7 +224,31 @@ function platformTitle(platform: string): string {
     "facebook-ad-library": "Facebook Ad Library",
     "facebook-marketplace": "Facebook Marketplace",
     "tiktok-shop": "TikTok Shop",
+    linkedin: "LinkedIn",
+    seo: "SEO",
+    tiktok: "TikTok",
     x: "X",
+    youtube: "YouTube",
   };
   return titles[platform] ?? platform.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join(" ");
+}
+
+function platformSkillDescription(platform: string, title: string): string {
+  const subjects: Record<string, string> = {
+    "facebook-ad-library": "ads, advertisers, creatives, and campaign activity",
+    "facebook-marketplace": "Marketplace listings, sellers, prices, and product details",
+    seo: "keyword volume, suggestions, related terms, difficulty, intent, organic results, and site rankings",
+    "tiktok-shop": "TikTok Shop products, shops, creators, categories, and sales signals",
+  };
+  const subject = subjects[platform] ?? `${title} content, accounts, keywords, and performance data`;
+  return `Research public ${subject} with SocQ. Use when an agent needs ${title}-specific discovery, collection, endpoint selection, credit estimates, asynchronous task execution, pagination, or raw exports through the SocQ CLI, MCP, or REST API.`;
+}
+
+function platformSkillName(platform: string): string {
+  const names: Record<string, string> = {
+    "facebook-ad-library": "socq-facebook-ad-library",
+    "facebook-marketplace": "socq-facebook-marketplace",
+    "tiktok-shop": "socq-tiktok-shop",
+  };
+  return names[platform] ?? `socq-${platform}-research`;
 }

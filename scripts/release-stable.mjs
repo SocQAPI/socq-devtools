@@ -52,7 +52,7 @@ run("git", [
   "--",
   ...packagePaths,
   "artifacts",
-  "skills/socq-social-research/references",
+  "skills",
 ]);
 run("git", ["diff", "--cached", "--check"]);
 

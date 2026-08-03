@@ -34,9 +34,27 @@ for (const platform of platforms) {
   const path = resolve(skillRoot, "references", "platforms", `${platform}.md`);
   await access(path);
   const content = await readFile(path, "utf8");
+  const specialistRoot = resolve("skills", platformSkillName(platform));
+  const specialistSkill = await readFile(resolve(specialistRoot, "SKILL.md"), "utf8");
+  if (!specialistSkill.includes(`name: ${platformSkillName(platform)}`)) {
+    throw new Error(`${specialistRoot} has incorrect Skill metadata`);
+  }
+  if (!specialistSkill.includes("[platform.md](references/platform.md)")) {
+    throw new Error(`${specialistRoot} does not link its platform reference`);
+  }
+  const specialistReference = await readFile(resolve(specialistRoot, "references", "platform.md"), "utf8");
+  if (specialistReference !== content) throw new Error(`${specialistRoot} platform reference is stale`);
+  for (const name of ["authentication.md", "async-tasks.md", "billing.md", "errors.md", "pagination.md"]) {
+    const shared = await readFile(resolve(skillRoot, "references", name), "utf8");
+    const specialistShared = await readFile(resolve(specialistRoot, "references", name), "utf8");
+    if (specialistShared !== shared) throw new Error(`${specialistRoot}/references/${name} is stale`);
+  }
   for (const endpoint of endpoints.filter((item) => item.platform === platform)) {
     if (!content.includes(`\`${endpoint.public_id}\``)) throw new Error(`${path} is missing ${endpoint.public_id}`);
     if (!content.includes(`\`${endpoint.tool_name}\``)) throw new Error(`${path} is missing ${endpoint.tool_name}`);
+    if (!specialistReference.includes(`\`${endpoint.public_id}\``)) {
+      throw new Error(`${specialistRoot} is missing ${endpoint.public_id}`);
+    }
   }
 }
 
@@ -50,4 +68,13 @@ process.stdout.write(`Validated Skill coverage for ${endpoints.length} endpoints
 
 function hasValue(value) {
   return value !== undefined && value !== null && value !== "" && (!Array.isArray(value) || value.length > 0);
+}
+
+function platformSkillName(platform) {
+  const names = {
+    "facebook-ad-library": "socq-facebook-ad-library",
+    "facebook-marketplace": "socq-facebook-marketplace",
+    "tiktok-shop": "socq-tiktok-shop",
+  };
+  return names[platform] ?? `socq-${platform}-research`;
 }

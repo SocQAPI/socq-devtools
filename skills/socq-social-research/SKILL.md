@@ -1,7 +1,6 @@
 ---
 name: socq-social-research
 description: Research public social-platform content, accounts, keywords, and SEO search data with SocQ. Use when an agent needs keyword volume, suggestions, related terms, difficulty, intent, organic results, site rankings, or social data; or needs to discover a SocQ endpoint, estimate credits, submit asynchronous jobs, poll results, paginate normalized records, and retrieve raw files through SocQ MCP or CLI.
-version: 1.0.0
 metadata:
   openclaw:
     homepage: https://github.com/SocQAPI/socq-devtools
