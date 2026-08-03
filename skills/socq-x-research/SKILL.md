@@ -37,6 +37,20 @@ Never place an API key in a prompt, query string, committed file, or retained sh
 
 SocQ is an external, credit-metered service. A SocQ account and `SOCQ_API_KEY` are required, and requests may consume paid credits.
 
+## Plan X research
+
+Choose the endpoint from the shape of the question instead of treating every X request as generic search:
+
+- Use `x/search` for topic, phrase, hashtag, or time-bounded conversation discovery. Preserve the user's query operators and requested ordering.
+- Use `x/trends` for currently trending topics. Report the collection time and requested region because trends are time- and market-sensitive.
+- Use `x/profiles` to resolve account identity before collecting an account's posts or network.
+- Use `x/user-posts` for a known account's timeline and `x/posts` when the user supplies specific post URLs or IDs.
+- Use `x/post-replies`, `x/post-quotes`, or `x/post-retweeters` for distinct engagement behaviors. Do not combine them into one engagement metric without labeling each source.
+- Use `x/followers-list` and `x/following-list` for network questions. Treat the returned relationship snapshot as point-in-time data, not proof of historical following.
+
+For conversation analysis, collect seed posts first, retain their IDs, and expand only the requested reply, quote, or repost branches. Distinguish original posts, replies, quotes, and reposts in the final report. When comparing accounts, use the same date window and collection method for each account. X search and trend results can change quickly, so state when the data was collected and avoid claiming exhaustive coverage when pagination or search visibility limits the result.
+
+
 ## Execute research
 
 1. Restate the requested X entities, date range, filters, and result volume.

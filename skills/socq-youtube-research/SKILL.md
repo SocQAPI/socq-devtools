@@ -37,6 +37,20 @@ Never place an API key in a prompt, query string, committed file, or retained sh
 
 SocQ is an external, credit-metered service. A SocQ account and `SOCQ_API_KEY` are required, and requests may consume paid credits.
 
+## Plan YouTube research
+
+Select an endpoint based on the YouTube content object the user needs:
+
+- Use `youtube/search` or `youtube/hashtag-search` for discovery, then resolve selected results with `youtube/videos` or `youtube/channels` when detailed metadata is required.
+- Use `youtube/channel-videos`, `youtube/channel-live-videos`, and `youtube/shorts` for format-specific channel inventories. Keep regular uploads, live streams, and Shorts separate in comparisons.
+- Use `youtube/playlist-videos` only when playlist membership or ordering matters; do not treat a playlist as the channel's complete catalog.
+- Use `youtube/comments` for top-level discussion and `youtube/comment-replies` for a selected thread. Preserve parent comment IDs so replies remain attributable.
+- Use `youtube/transcripts` for spoken-content analysis. Report unavailable, disabled, auto-generated, or language-mismatched transcripts instead of substituting descriptions.
+- Use `youtube/community-posts` for channel community activity and keep it distinct from video publishing activity.
+
+Resolve channel and video URLs to canonical IDs before joining results across endpoints. For performance comparisons, align publication windows and distinguish cumulative counters from activity observed during the requested period. A video's current views or comments are not the number gained inside a historical date range. When analyzing themes from transcripts and comments, identify which evidence comes from creator speech and which comes from audience discussion. State whether the result includes videos, Shorts, live streams, playlists, community posts, or only a subset.
+
+
 ## Execute research
 
 1. Restate the requested YouTube entities, date range, filters, and result volume.
