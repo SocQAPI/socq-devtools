@@ -9,6 +9,18 @@ Official SocQ CLI, stdio MCP bridge, and Agent Skill. Endpoint schemas are disco
 - [`@socq/mcp`](packages/mcp): local stdio bridge to hosted SocQ MCP.
 - [`socq-social-research`](skills/socq-social-research): Agent research workflow and generated endpoint references.
 
+## Install the Agent Skill
+
+Install the published Skill from ClawHub:
+
+```bash
+openclaw skills install @socq/socq-social-research
+```
+
+The public listing is [SocQ Social and SEO Research on ClawHub](https://clawhub.ai/socq/skills/socq-social-research). Set `SOCQ_API_KEY` in the OpenClaw process environment before using the Skill. SocQ is an external, credit-metered service, so requests may consume paid credits.
+
+ClawHub publishing is separate from the npm package release. Pull requests run a dry-run for `skills/socq-social-research`; maintainers publish new or changed versions by manually running the `Publish ClawHub skill` workflow. The publishing identity must have access to the `socq` ClawHub publisher, and its token must be stored as the `CLAWHUB_TOKEN` Actions secret. Review the workflow output and ClawHub security scan after every release. If a version is held or blocked, inspect its scan report, fix the Skill, and publish a new version rather than replacing an existing version.
+
 ## Development
 
 ```bash

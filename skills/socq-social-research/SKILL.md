@@ -1,6 +1,26 @@
 ---
 name: socq-social-research
-description: Research public social-platform content, accounts, keywords, and SEO search data with SocQ. Use when Codex needs keyword volume, suggestions, related terms, difficulty, intent, organic results, site rankings, or social data; or needs to discover a SocQ endpoint, estimate credits, submit asynchronous jobs, poll results, paginate normalized records, and retrieve raw files through SocQ MCP or CLI.
+description: Research public social-platform content, accounts, keywords, and SEO search data with SocQ. Use when an agent needs keyword volume, suggestions, related terms, difficulty, intent, organic results, site rankings, or social data; or needs to discover a SocQ endpoint, estimate credits, submit asynchronous jobs, poll results, paginate normalized records, and retrieve raw files through SocQ MCP or CLI.
+version: 1.0.0
+metadata:
+  openclaw:
+    homepage: https://github.com/SocQAPI/socq-devtools
+    primaryEnv: SOCQ_API_KEY
+    requires:
+      env:
+        - SOCQ_API_KEY
+      anyBins:
+        - socq
+        - npx
+    envVars:
+      - name: SOCQ_API_KEY
+        required: true
+        description: SocQ API key used to authenticate CLI, MCP, and REST requests.
+    install:
+      - kind: node
+        package: "@socq/cli"
+        bins:
+          - socq
 ---
 
 # SocQ Social and SEO Research
@@ -9,18 +29,21 @@ Use SocQ to collect public social and SEO data through an asynchronous, credit-m
 
 ## Choose the integration
 
-1. Prefer the hosted MCP server at `https://api.socq.ai/mcp`.
-2. Use a filtered MCP URL when the platforms or endpoints are known:
+1. In OpenClaw, prefer the `socq` CLI when it is installed. Otherwise run the same commands through `npx @socq/cli`.
+2. Prefer the hosted MCP server at `https://api.socq.ai/mcp` when the client already has SocQ MCP configured.
+3. Use a filtered MCP URL when the platforms or endpoints are known:
    - `?platforms=youtube,tiktok` for at most five platforms.
    - `?tools=youtube_comments,x_search` for at most thirty endpoint tools.
-3. Run `npx @socq/mcp` when the client only supports local stdio MCP.
-4. Fall back to `npx @socq/cli` or REST only when MCP is unavailable.
-5. Attribute every execution started by this Skill:
+4. Run `npx @socq/mcp` when the client only supports local stdio MCP.
+5. Use REST only when neither CLI nor MCP is available.
+6. Attribute every execution started by this Skill:
    - pass `_request_source: "skill"` to compact or typed MCP execution tools;
    - pass `--request-source skill` to CLI execution commands;
    - send `X-Socq-Source: skill-rest` for direct REST execution.
 
 Never place an API key in a prompt, query string, committed file, or shell command that will be retained. Read [authentication.md](references/authentication.md) before configuring credentials.
+
+SocQ is an external, credit-metered service. A SocQ account and `SOCQ_API_KEY` are required, and research requests may consume paid credits. Check the available credits and expected endpoint cost before starting a large or cross-platform request.
 
 ## Execute research
 
