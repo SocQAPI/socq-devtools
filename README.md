@@ -26,12 +26,15 @@ Platform-specific Skills are also available:
 | Facebook | `openclaw skills install @socq/socq-facebook-research` |
 | Facebook Ad Library | `openclaw skills install @socq/socq-facebook-ad-library` |
 | Facebook Marketplace | `openclaw skills install @socq/socq-facebook-marketplace` |
+| Google Ad Library | `openclaw skills install @socq/socq-google-ad-library-research` |
 | Instagram | `openclaw skills install @socq/socq-instagram-research` |
 | LinkedIn | `openclaw skills install @socq/socq-linkedin-research` |
+| LinkedIn Ad Library | `openclaw skills install @socq/socq-linkedin-ad-library-research` |
 | Pinterest | `openclaw skills install @socq/socq-pinterest-research` |
 | Reddit | `openclaw skills install @socq/socq-reddit-research` |
 | Threads | `openclaw skills install @socq/socq-threads-research` |
 | TikTok | `openclaw skills install @socq/socq-tiktok-research` |
+| TikTok Ad Library | `openclaw skills install @socq/socq-tiktok-ad-library-research` |
 | TikTok Shop | `openclaw skills install @socq/socq-tiktok-shop` |
 | X | `openclaw skills install @socq/socq-x-research` |
 | YouTube | `openclaw skills install @socq/socq-youtube-research` |

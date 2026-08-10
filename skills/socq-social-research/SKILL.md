@@ -52,12 +52,15 @@ SocQ is an external, credit-metered service. A SocQ account and `SOCQ_API_KEY` a
    [Facebook](references/platforms/facebook.md),
    [Facebook Ad Library](references/platforms/facebook-ad-library.md),
    [Facebook Marketplace](references/platforms/facebook-marketplace.md),
+   [Google Ad Library](references/platforms/google-ad-library.md),
    [Instagram](references/platforms/instagram.md),
    [LinkedIn](references/platforms/linkedin.md),
+   [LinkedIn Ad Library](references/platforms/linkedin-ad-library.md),
    [Pinterest](references/platforms/pinterest.md),
    [Reddit](references/platforms/reddit.md),
    [Threads](references/platforms/threads.md),
    [TikTok](references/platforms/tiktok.md),
+   [TikTok Ad Library](references/platforms/tiktok-ad-library.md),
    [TikTok Shop](references/platforms/tiktok-shop.md),
    [X](references/platforms/x.md), or
    [YouTube](references/platforms/youtube.md).
