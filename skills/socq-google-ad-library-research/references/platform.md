@@ -1,6 +1,6 @@
 # Google Ad Library
 
-Generated from SocQ Capability Registry schema `v1-85cfc881f7f4`. Read this file when the request targets Google Ad Library.
+Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets Google Ad Library.
 
 ## Endpoint selection
 
@@ -40,6 +40,6 @@ Typed MCP tool: `socq_google_ad_library_company_ads`
 ```json
 {
   "domain": "example.com",
-  "results_limit": 20
+  "results_limit": 40
 }
 ```

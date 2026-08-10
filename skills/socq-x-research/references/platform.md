@@ -1,6 +1,6 @@
 # X
 
-Generated from SocQ Capability Registry schema `v1-85cfc881f7f4`. Read this file when the request targets X.
+Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets X.
 
 ## Endpoint selection
 

@@ -1,6 +1,6 @@
 # LinkedIn
 
-Generated from SocQ Capability Registry schema `v1-85cfc881f7f4`. Read this file when the request targets LinkedIn.
+Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets LinkedIn.
 
 ## Endpoint selection
 
@@ -76,8 +76,7 @@ Typed MCP tool: `socq_linkedin_post_comments`
 
 ```json
 {
-  "url": "https://www.linkedin.com/posts/microsoft_ai-activity-1234567890",
-  "results_limit": 20
+  "url": "https://www.linkedin.com/posts/microsoft_ai-activity-1234567890"
 }
 ```
 
@@ -140,8 +139,7 @@ Typed MCP tool: `socq_linkedin_search_people`
 {
   "urls": [
     "https://www.linkedin.com/search/results/people/?keywords=engineer"
-  ],
-  "results_limit": 20
+  ]
 }
 ```
 

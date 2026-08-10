@@ -1,6 +1,6 @@
 # Linkedin Ad Library
 
-Generated from SocQ Capability Registry schema `v1-85cfc881f7f4`. Read this file when the request targets Linkedin Ad Library.
+Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets Linkedin Ad Library.
 
 ## Endpoint selection
 
@@ -31,6 +31,6 @@ Typed MCP tool: `socq_linkedin_ad_library_search`
   "countries": [
     "US"
   ],
-  "results_limit": 20
+  "results_limit": 24
 }
 ```
