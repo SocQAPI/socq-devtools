@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-603ff741990d`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
