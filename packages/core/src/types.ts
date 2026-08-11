@@ -24,6 +24,8 @@ export interface Capability {
   description: string;
   input_schema: JsonSchema;
   output_schema: JsonSchema;
+  output_schema_id: string;
+  output_schema_version: string;
   billing: {credits: number | null; unit: string; dynamic?: boolean; config?: Record<string, unknown>};
   examples: Array<Record<string, unknown>>;
   tags: string[];
@@ -40,6 +42,15 @@ export interface PlatformSummary {
   title: string;
   endpoint_count: number;
   tools: string[];
+}
+
+export type ResultView = "full" | "standard";
+
+export interface TaskResultOptions {
+  cursor?: string;
+  limit?: number;
+  view?: ResultView;
+  fields?: string | string[];
 }
 
 export interface CatalogData {
@@ -61,7 +72,15 @@ export interface TaskData {
   created_time?: string | null;
   finished_time?: string | null;
   idempotent_replay?: boolean;
-  results?: {limit: number; next_cursor: string | null; has_more: boolean; items: unknown[]};
+  results?: {
+    limit: number;
+    next_cursor: string | null;
+    has_more: boolean;
+    view: ResultView;
+    schema_id: string | null;
+    schema_version: string | null;
+    items: unknown[];
+  };
   poll_after_seconds?: number;
 }
 

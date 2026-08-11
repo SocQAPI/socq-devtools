@@ -1,23 +1,23 @@
 # YouTube
 
-Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets YouTube.
+Generated from SocQ Capability Registry schema `v1-603ff741990d`. Read this file when the request targets YouTube.
 
 ## Endpoint selection
 
-| Endpoint | Use for | Input choice | Cost |
-| --- | --- | --- | --- |
-| [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Fetch normalized channel live videos data from YouTube. | urls | live pricing |
-| [`youtube/channel-videos`](https://docs.socq.ai/api-manual/youtube/channel-videos) | Fetch normalized channel videos data from YouTube. | urls | live pricing |
-| [`youtube/channels`](https://docs.socq.ai/api-manual/youtube/channels) | Fetch normalized channels data from YouTube. | urls | live pricing |
-| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Fetch normalized comment replies data from YouTube. | one of: comment_id + url; continuation_token | live pricing |
-| [`youtube/comments`](https://docs.socq.ai/api-manual/youtube/comments) | Fetch normalized comments data from YouTube. | urls | live pricing |
-| [`youtube/community-posts`](https://docs.socq.ai/api-manual/youtube/community-posts) | Fetch normalized community posts data from YouTube. | urls | live pricing |
-| [`youtube/hashtag-search`](https://docs.socq.ai/api-manual/youtube/hashtag-search) | Fetch normalized hashtag search data from YouTube. | hashtags | live pricing |
-| [`youtube/playlist-videos`](https://docs.socq.ai/api-manual/youtube/playlist-videos) | Fetch normalized playlist videos data from YouTube. | urls | live pricing |
-| [`youtube/search`](https://docs.socq.ai/api-manual/youtube/search) | Fetch normalized search data from YouTube. | query | live pricing |
-| [`youtube/shorts`](https://docs.socq.ai/api-manual/youtube/shorts) | Fetch normalized shorts data from YouTube. | urls | live pricing |
-| [`youtube/transcripts`](https://docs.socq.ai/api-manual/youtube/transcripts) | Fetch normalized transcripts data from YouTube. | urls | live pricing |
-| [`youtube/videos`](https://docs.socq.ai/api-manual/youtube/videos) | Fetch normalized videos data from YouTube. | urls | live pricing |
+| Endpoint | Use for | Input choice | Standard schema | Cost |
+| --- | --- | --- | --- | --- |
+| [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Fetch normalized channel live videos data from YouTube. | urls | `reel-video@1.0` | live pricing |
+| [`youtube/channel-videos`](https://docs.socq.ai/api-manual/youtube/channel-videos) | Fetch normalized channel videos data from YouTube. | urls | `reel-video@1.0` | live pricing |
+| [`youtube/channels`](https://docs.socq.ai/api-manual/youtube/channels) | Fetch normalized channels data from YouTube. | urls | `account@1.0` | live pricing |
+| [`youtube/comment-replies`](https://docs.socq.ai/api-manual/youtube/comment-replies) | Fetch normalized comment replies data from YouTube. | one of: comment_id + url; continuation_token | `comment@1.0` | live pricing |
+| [`youtube/comments`](https://docs.socq.ai/api-manual/youtube/comments) | Fetch normalized comments data from YouTube. | urls | `comment@1.0` | live pricing |
+| [`youtube/community-posts`](https://docs.socq.ai/api-manual/youtube/community-posts) | Fetch normalized community posts data from YouTube. | urls | `post@1.0` | live pricing |
+| [`youtube/hashtag-search`](https://docs.socq.ai/api-manual/youtube/hashtag-search) | Fetch normalized hashtag search data from YouTube. | hashtags | `reel-video@1.0` | live pricing |
+| [`youtube/playlist-videos`](https://docs.socq.ai/api-manual/youtube/playlist-videos) | Fetch normalized playlist videos data from YouTube. | urls | `reel-video@1.0` | live pricing |
+| [`youtube/search`](https://docs.socq.ai/api-manual/youtube/search) | Fetch normalized search data from YouTube. | query | `reel-video@1.0` | live pricing |
+| [`youtube/shorts`](https://docs.socq.ai/api-manual/youtube/shorts) | Fetch normalized shorts data from YouTube. | urls | `reel-video@1.0` | live pricing |
+| [`youtube/transcripts`](https://docs.socq.ai/api-manual/youtube/transcripts) | Fetch normalized transcripts data from YouTube. | urls | `transcript@1.0` | live pricing |
+| [`youtube/videos`](https://docs.socq.ai/api-manual/youtube/videos) | Fetch normalized videos data from YouTube. | urls | `reel-video@1.0` | live pricing |
 
 ## Validated examples
 

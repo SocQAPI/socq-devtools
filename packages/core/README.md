@@ -21,6 +21,12 @@ const task = await client.submit("youtube", "videos", {
   urls: ["https://www.youtube.com/watch?v=VIDEO_ID"],
 });
 const completed = await client.waitTask(task.task_id);
+
+// Fixed, provider-independent result fields with an optional projection.
+const standard = await client.waitTask(task.task_id, {
+  view: "standard",
+  fields: ["id", "url", "author.username"],
+});
 const downloaded = await client.downloadFiles(task.task_id, "./socq-results");
 ```
 

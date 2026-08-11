@@ -1,15 +1,15 @@
 # Reddit
 
-Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets Reddit.
+Generated from SocQ Capability Registry schema `v1-603ff741990d`. Read this file when the request targets Reddit.
 
 ## Endpoint selection
 
-| Endpoint | Use for | Input choice | Cost |
-| --- | --- | --- | --- |
-| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Fetch normalized comments data from Reddit. | urls | live pricing |
-| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Fetch normalized posts data from Reddit. | urls | live pricing |
-| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Fetch normalized search data from Reddit. | query | live pricing |
-| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Fetch normalized subreddit posts data from Reddit. | urls | live pricing |
+| Endpoint | Use for | Input choice | Standard schema | Cost |
+| --- | --- | --- | --- | --- |
+| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Fetch normalized comments data from Reddit. | urls | `comment@1.0` | live pricing |
+| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Fetch normalized posts data from Reddit. | urls | `post@1.0` | live pricing |
+| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Fetch normalized search data from Reddit. | query | `post@1.0` | live pricing |
+| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Fetch normalized subreddit posts data from Reddit. | urls | `post@1.0` | live pricing |
 
 ## Validated examples
 
@@ -20,7 +20,7 @@ Typed MCP tool: `socq_reddit_comments`
 ```json
 {
   "urls": [
-    "https://www.reddit.com/r/technology/comments/abc123/example_post/"
+    "https://www.reddit.com/r/technology/comments/1vbchyh/second_major_ai_company_says_its_systems_hacked/"
   ]
 }
 ```
@@ -32,7 +32,7 @@ Typed MCP tool: `socq_reddit_posts`
 ```json
 {
   "urls": [
-    "https://www.reddit.com/r/technology/comments/abc123/example_post/"
+    "https://www.reddit.com/r/technology/comments/1vbchyh/second_major_ai_company_says_its_systems_hacked/"
   ]
 }
 ```

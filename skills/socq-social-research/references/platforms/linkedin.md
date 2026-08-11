@@ -1,22 +1,22 @@
 # LinkedIn
 
-Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets LinkedIn.
+Generated from SocQ Capability Registry schema `v1-603ff741990d`. Read this file when the request targets LinkedIn.
 
 ## Endpoint selection
 
-| Endpoint | Use for | Input choice | Cost |
-| --- | --- | --- | --- |
-| [`linkedin/companies`](https://docs.socq.ai/api-manual/linkedin/companies) | Fetch normalized companies data from LinkedIn. | urls | live pricing |
-| [`linkedin/company-jobs`](https://docs.socq.ai/api-manual/linkedin/company-jobs) | Fetch normalized company jobs data from LinkedIn. | urls | live pricing |
-| [`linkedin/company-posts`](https://docs.socq.ai/api-manual/linkedin/company-posts) | Fetch normalized company posts data from LinkedIn. | urls | live pricing |
-| [`linkedin/jobs`](https://docs.socq.ai/api-manual/linkedin/jobs) | Fetch normalized jobs data from LinkedIn. | urls | live pricing |
-| [`linkedin/post-comments`](https://docs.socq.ai/api-manual/linkedin/post-comments) | Fetch normalized post comments data from LinkedIn. | url | live pricing |
-| [`linkedin/posts`](https://docs.socq.ai/api-manual/linkedin/posts) | Fetch normalized posts data from LinkedIn. | urls | live pricing |
-| [`linkedin/profile-posts`](https://docs.socq.ai/api-manual/linkedin/profile-posts) | Fetch normalized profile posts data from LinkedIn. | urls | live pricing |
-| [`linkedin/profiles`](https://docs.socq.ai/api-manual/linkedin/profiles) | Fetch normalized profiles data from LinkedIn. | urls | live pricing |
-| [`linkedin/search-jobs`](https://docs.socq.ai/api-manual/linkedin/search-jobs) | Fetch normalized search jobs data from LinkedIn. | location | live pricing |
-| [`linkedin/search-people`](https://docs.socq.ai/api-manual/linkedin/search-people) | Fetch normalized search people data from LinkedIn. | urls | live pricing |
-| [`linkedin/search-posts`](https://docs.socq.ai/api-manual/linkedin/search-posts) | Fetch normalized search posts data from LinkedIn. | query | live pricing |
+| Endpoint | Use for | Input choice | Standard schema | Cost |
+| --- | --- | --- | --- | --- |
+| [`linkedin/companies`](https://docs.socq.ai/api-manual/linkedin/companies) | Fetch normalized companies data from LinkedIn. | urls | `company@1.0` | live pricing |
+| [`linkedin/company-jobs`](https://docs.socq.ai/api-manual/linkedin/company-jobs) | Fetch normalized company jobs data from LinkedIn. | urls | `job@1.0` | live pricing |
+| [`linkedin/company-posts`](https://docs.socq.ai/api-manual/linkedin/company-posts) | Fetch normalized company posts data from LinkedIn. | urls | `post@1.0` | live pricing |
+| [`linkedin/jobs`](https://docs.socq.ai/api-manual/linkedin/jobs) | Fetch normalized jobs data from LinkedIn. | urls | `job@1.0` | live pricing |
+| [`linkedin/post-comments`](https://docs.socq.ai/api-manual/linkedin/post-comments) | Fetch normalized post comments data from LinkedIn. | url | `comment@1.0` | live pricing |
+| [`linkedin/posts`](https://docs.socq.ai/api-manual/linkedin/posts) | Fetch normalized posts data from LinkedIn. | urls | `post@1.0` | live pricing |
+| [`linkedin/profile-posts`](https://docs.socq.ai/api-manual/linkedin/profile-posts) | Fetch normalized profile posts data from LinkedIn. | urls | `post@1.0` | live pricing |
+| [`linkedin/profiles`](https://docs.socq.ai/api-manual/linkedin/profiles) | Fetch normalized profiles data from LinkedIn. | urls | `account@1.0` | live pricing |
+| [`linkedin/search-jobs`](https://docs.socq.ai/api-manual/linkedin/search-jobs) | Fetch normalized search jobs data from LinkedIn. | location | `job@1.0` | live pricing |
+| [`linkedin/search-people`](https://docs.socq.ai/api-manual/linkedin/search-people) | Fetch normalized search people data from LinkedIn. | urls | `account@1.0` | live pricing |
+| [`linkedin/search-posts`](https://docs.socq.ai/api-manual/linkedin/search-posts) | Fetch normalized search posts data from LinkedIn. | query | `post@1.0` | live pricing |
 
 ## Validated examples
 
@@ -65,7 +65,7 @@ Typed MCP tool: `socq_linkedin_jobs`
 ```json
 {
   "urls": [
-    "https://www.linkedin.com/jobs/view/1234567890/"
+    "https://www.linkedin.com/jobs/view/4435421919/"
   ]
 }
 ```
@@ -87,7 +87,7 @@ Typed MCP tool: `socq_linkedin_posts`
 ```json
 {
   "urls": [
-    "https://www.linkedin.com/posts/microsoft_ai-activity-1234567890"
+    "https://www.linkedin.com/posts/microsoft_ai-is-entering-a-new-era-defined-by-real-world-activity-7403848387738955776-hCMS"
   ]
 }
 ```
@@ -151,6 +151,6 @@ Typed MCP tool: `socq_linkedin_search_posts`
 {
   "query": "AI agents",
   "date_posted": "last-week",
-  "results_limit": 20
+  "results_limit": 10
 }
 ```

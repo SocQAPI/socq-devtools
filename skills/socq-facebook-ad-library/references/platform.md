@@ -1,15 +1,15 @@
 # Facebook Ad Library
 
-Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets Facebook Ad Library.
+Generated from SocQ Capability Registry schema `v1-603ff741990d`. Read this file when the request targets Facebook Ad Library.
 
 ## Endpoint selection
 
-| Endpoint | Use for | Input choice | Cost |
-| --- | --- | --- | --- |
-| [`facebook-ad-library/ad`](https://docs.socq.ai/api-manual/facebook-ad-library/ad) | Fetch normalized ad data from Facebook Ad Library. | url | live pricing |
-| [`facebook-ad-library/company-ads`](https://docs.socq.ai/api-manual/facebook-ad-library/company-ads) | Fetch normalized company ads data from Facebook Ad Library. | page_id | live pricing |
-| [`facebook-ad-library/company-search`](https://docs.socq.ai/api-manual/facebook-ad-library/company-search) | Fetch normalized company search data from Facebook Ad Library. | query | live pricing |
-| [`facebook-ad-library/search`](https://docs.socq.ai/api-manual/facebook-ad-library/search) | Fetch normalized search data from Facebook Ad Library. | query | live pricing |
+| Endpoint | Use for | Input choice | Standard schema | Cost |
+| --- | --- | --- | --- | --- |
+| [`facebook-ad-library/ad`](https://docs.socq.ai/api-manual/facebook-ad-library/ad) | Fetch normalized ad data from Facebook Ad Library. | url | `ad@1.0` | live pricing |
+| [`facebook-ad-library/company-ads`](https://docs.socq.ai/api-manual/facebook-ad-library/company-ads) | Fetch normalized company ads data from Facebook Ad Library. | page_id | `ad@1.0` | live pricing |
+| [`facebook-ad-library/company-search`](https://docs.socq.ai/api-manual/facebook-ad-library/company-search) | Fetch normalized company search data from Facebook Ad Library. | query | `advertiser@1.0` | live pricing |
+| [`facebook-ad-library/search`](https://docs.socq.ai/api-manual/facebook-ad-library/search) | Fetch normalized search data from Facebook Ad Library. | query | `ad@1.0` | live pricing |
 
 ## Validated examples
 
@@ -19,7 +19,7 @@ Typed MCP tool: `socq_facebook_ad_library_ad`
 
 ```json
 {
-  "url": "https://www.facebook.com/ads/library/?id=123456789012345"
+  "url": "https://www.facebook.com/ads/library?id=1545582153738441"
 }
 ```
 

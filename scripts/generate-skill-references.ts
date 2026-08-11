@@ -30,6 +30,8 @@ interface Capability {
     anyOf?: Array<{required?: string[]}>;
     properties?: Record<string, unknown>;
   };
+  output_schema_id: string;
+  output_schema_version: string;
   examples: Array<Record<string, unknown>>;
   docs_url: string;
 }
@@ -53,10 +55,10 @@ const catalogLines = [
   "",
   `Generated from SocQ Capability Registry schema \`${catalog.schema_version}\`. Do not edit endpoint definitions manually.`,
   "",
-  "| Endpoint | Purpose | Required input | Cost |",
-  "| --- | --- | --- | --- |",
+  "| Endpoint | Purpose | Required input | Standard schema | Cost |",
+  "| --- | --- | --- | --- | --- |",
   ...endpoints.map((item) =>
-    `| [\`${item.public_id}\`](${item.docs_url}) | ${escapeTable(item.description)} | ${escapeTable(inputRequirement(item))} | ${escapeTable(billingSummary(item.billing))} |`,
+    `| [\`${item.public_id}\`](${item.docs_url}) | ${escapeTable(item.description)} | ${escapeTable(inputRequirement(item))} | \`${item.output_schema_id}@${item.output_schema_version}\` | ${escapeTable(billingSummary(item.billing))} |`,
   ),
   "",
 ];
@@ -84,10 +86,10 @@ for (const [platform, items] of grouped) {
     "",
     "## Endpoint selection",
     "",
-    "| Endpoint | Use for | Input choice | Cost |",
-    "| --- | --- | --- | --- |",
+    "| Endpoint | Use for | Input choice | Standard schema | Cost |",
+    "| --- | --- | --- | --- | --- |",
     ...items.map((item) =>
-      `| [\`${item.public_id}\`](${item.docs_url}) | ${escapeTable(item.description)} | ${escapeTable(inputRequirement(item))} | ${escapeTable(billingSummary(item.billing))} |`,
+      `| [\`${item.public_id}\`](${item.docs_url}) | ${escapeTable(item.description)} | ${escapeTable(inputRequirement(item))} | \`${item.output_schema_id}@${item.output_schema_version}\` | ${escapeTable(billingSummary(item.billing))} |`,
     ),
     "",
     "## Validated examples",

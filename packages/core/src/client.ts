@@ -3,7 +3,7 @@ import {mkdir} from "node:fs/promises";
 import {basename, extname, resolve} from "node:path";
 import {Readable} from "node:stream";
 import {pipeline} from "node:stream/promises";
-import type {Capability, CatalogData, ClientOptions, DownloadedTaskFile, TaskData, TaskFiles} from "./types.js";
+import type {Capability, CatalogData, ClientOptions, DownloadedTaskFile, ResultView, TaskData, TaskFiles, TaskResultOptions} from "./types.js";
 
 export class SocqApiError extends Error {
   constructor(
@@ -69,9 +69,14 @@ export class SocqClient {
     return (await this.parseResponse<{code: number; data: TaskData}>(response)).data;
   }
 
-  async task(taskId: string, options: {cursor?: string; limit?: number} = {}): Promise<TaskData> {
+  async task(taskId: string, options: TaskResultOptions = {}): Promise<TaskData> {
     const response = await this.fetchImpl(
-      this.url(`/v1/tasks/${encodeURIComponent(taskId)}`, {cursor: options.cursor, limit: options.limit ?? 50}),
+      this.url(`/v1/tasks/${encodeURIComponent(taskId)}`, {
+        cursor: options.cursor,
+        limit: options.limit ?? 50,
+        view: options.view ?? (options.fields !== undefined ? "standard" : undefined),
+        fields: normalizeResultFields(options.fields),
+      }),
       {headers: this.authHeaders()},
     );
     return (await this.parseResponse<{code: number; data: TaskData}>(response)).data;
@@ -111,6 +116,8 @@ export class SocqClient {
     options: {
       timeoutSeconds?: number;
       limit?: number;
+      view?: ResultView;
+      fields?: string | string[];
       onPoll?: (task: TaskData) => void;
       notFoundGraceSeconds?: number;
     } = {},
@@ -121,7 +128,11 @@ export class SocqClient {
     while (true) {
       let task: TaskData;
       try {
-        task = await this.task(taskId, {limit: options.limit});
+        task = await this.task(taskId, {
+          limit: options.limit,
+          view: options.view,
+          fields: options.fields,
+        });
       } catch (error) {
         if (error instanceof SocqApiError && error.status === 404 && Date.now() < notFoundDeadline && Date.now() < deadline) {
           await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -167,6 +178,11 @@ export class SocqClient {
     }
     return payload as T;
   }
+}
+
+function normalizeResultFields(fields: string | string[] | undefined): string | undefined {
+  if (fields === undefined) return undefined;
+  return Array.isArray(fields) ? fields.join(",") : fields;
 }
 
 function taskFileName(taskId: string, index: number, fileType: string, publicUrl: string): string {

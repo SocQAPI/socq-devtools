@@ -95,6 +95,8 @@ async function execute(
     const completed = await client.waitTask(task.task_id, {
       timeoutSeconds: numberOption(parsed.options, "timeout", 90),
       limit: numberOption(parsed.options, "result-limit", 50),
+      view: resultView(parsed),
+      fields: stringOption(parsed, "result-fields"),
       // A newly submitted task can be briefly invisible while the request
       // transaction finishes on another API worker.
       notFoundGraceSeconds: 10,
@@ -125,8 +127,18 @@ async function taskCommand(
     return 0;
   }
   const task = action === "wait"
-    ? await client.waitTask(taskId, {timeoutSeconds: numberOption(parsed.options, "timeout", 90), limit: numberOption(parsed.options, "result-limit", 50)})
-    : await client.task(taskId, {cursor: stringOption(parsed, "cursor"), limit: numberOption(parsed.options, "result-limit", 50)});
+    ? await client.waitTask(taskId, {
+        timeoutSeconds: numberOption(parsed.options, "timeout", 90),
+        limit: numberOption(parsed.options, "result-limit", 50),
+        view: resultView(parsed),
+        fields: stringOption(parsed, "result-fields"),
+      })
+    : await client.task(taskId, {
+        cursor: stringOption(parsed, "cursor"),
+        limit: numberOption(parsed.options, "result-limit", 50),
+        view: resultView(parsed),
+        fields: stringOption(parsed, "result-fields"),
+      });
   const value = action === "results" ? task.results ?? {items: []} : task;
   await renderOutput(value, format, output);
   return task.status === "failed" ? 5 : 0;
@@ -184,6 +196,13 @@ function requestSource(parsed: ParsedArgs): "cli" | "skill-cli" {
   throw new Error("--request-source must be cli or skill");
 }
 
+function resultView(parsed: ParsedArgs): "full" | "standard" | undefined {
+  const value = stringOption(parsed, "result-view");
+  if (value === undefined) return stringOption(parsed, "result-fields") ? "standard" : undefined;
+  if (value === "full" || value === "standard") return value;
+  throw new Error("--result-view must be full or standard");
+}
+
 export function exitCodeFor(error: unknown): number {
   if (error instanceof SocqApiError) {
     if (error.status === 401 || error.status === 403) return 3;
@@ -195,4 +214,4 @@ export function exitCodeFor(error: unknown): number {
   return 2;
 }
 
-const HELP = `SocQ CLI\n\nUsage:\n  socq auth login|status|clear\n  socq platforms\n  socq tools [platform]\n  socq describe PLATFORM/RESOURCE\n  socq run PLATFORM RESOURCE [--input JSON | --input-file FILE]\n  socq PLATFORM RESOURCE [endpoint flags]\n  socq task get|wait|results|files|download TASK_ID\n  socq account\n  socq mcp [--platforms LIST | --tools LIST]\n\nGlobal output: --format table|json|jsonl|csv --output FILE\nSkill attribution: --request-source skill or SOCQ_REQUEST_SOURCE=skill.\nAuthentication priority: --api-key, SOCQ_API_KEY, system keyring, local fallback config. Avoid --api-key in shell history.\n`;
+const HELP = `SocQ CLI\n\nUsage:\n  socq auth login|status|clear\n  socq platforms\n  socq tools [platform]\n  socq describe PLATFORM/RESOURCE\n  socq run PLATFORM RESOURCE [--input JSON | --input-file FILE]\n  socq PLATFORM RESOURCE [endpoint flags]\n  socq task get|wait|results|files|download TASK_ID\n  socq account\n  socq mcp [--platforms LIST | --tools LIST]\n\nGlobal output: --format table|json|jsonl|csv --output FILE\nResult view: --result-view standard|full [--result-fields id,url,author.username]\nSkill attribution: --request-source skill or SOCQ_REQUEST_SOURCE=skill.\nAuthentication priority: --api-key, SOCQ_API_KEY, system keyring, local fallback config. Avoid --api-key in shell history.\n`;

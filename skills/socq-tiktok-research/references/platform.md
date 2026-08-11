@@ -1,23 +1,23 @@
 # TikTok
 
-Generated from SocQ Capability Registry schema `v1-e4178ca97338`. Read this file when the request targets TikTok.
+Generated from SocQ Capability Registry schema `v1-603ff741990d`. Read this file when the request targets TikTok.
 
 ## Endpoint selection
 
-| Endpoint | Use for | Input choice | Cost |
-| --- | --- | --- | --- |
-| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Fetch normalized comment replies data from TikTok. | comment_id, url | live pricing |
-| [`tiktok/comments`](https://docs.socq.ai/api-manual/tiktok/comments) | Fetch normalized comments data from TikTok. | urls | live pricing |
-| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Fetch normalized followers list data from TikTok. | usernames | live pricing |
-| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Fetch normalized following list data from TikTok. | usernames | live pricing |
-| [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | Fetch normalized hashtags data from TikTok. | hashtags | live pricing |
-| [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Fetch normalized live room info data from TikTok. | room_id, user_id | live pricing |
-| [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | Fetch normalized profiles data from TikTok. | usernames | live pricing |
-| [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | Fetch normalized search data from TikTok. | query | live pricing |
-| [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Fetch normalized trending feed data from TikTok. | region | live pricing |
-| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Fetch normalized user videos data from TikTok. | usernames | live pricing |
-| [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Fetch normalized video transcript data from TikTok. | urls | live pricing |
-| [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | Fetch normalized videos data from TikTok. | urls | live pricing |
+| Endpoint | Use for | Input choice | Standard schema | Cost |
+| --- | --- | --- | --- | --- |
+| [`tiktok/comment-replies`](https://docs.socq.ai/api-manual/tiktok/comment-replies) | Fetch normalized comment replies data from TikTok. | comment_id, url | `comment@1.0` | live pricing |
+| [`tiktok/comments`](https://docs.socq.ai/api-manual/tiktok/comments) | Fetch normalized comments data from TikTok. | urls | `comment@1.0` | live pricing |
+| [`tiktok/followers-list`](https://docs.socq.ai/api-manual/tiktok/followers-list) | Fetch normalized followers list data from TikTok. | usernames | `relationship@1.0` | live pricing |
+| [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Fetch normalized following list data from TikTok. | usernames | `relationship@1.0` | live pricing |
+| [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | Fetch normalized hashtags data from TikTok. | hashtags | `hashtag-trend@1.0` | live pricing |
+| [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Fetch normalized live room info data from TikTok. | room_id, user_id | `live-room@1.0` | live pricing |
+| [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | Fetch normalized profiles data from TikTok. | usernames | `account@1.0` | live pricing |
+| [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | Fetch normalized search data from TikTok. | query | `reel-video@1.0` | live pricing |
+| [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Fetch normalized trending feed data from TikTok. | region | `reel-video@1.0` | live pricing |
+| [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Fetch normalized user videos data from TikTok. | usernames | `reel-video@1.0` | live pricing |
+| [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Fetch normalized video transcript data from TikTok. | urls | `transcript@1.0` | live pricing |
+| [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | Fetch normalized videos data from TikTok. | urls | `reel-video@1.0` | live pricing |
 
 ## Validated examples
 
@@ -28,7 +28,7 @@ Typed MCP tool: `socq_tiktok_comment_replies`
 ```json
 {
   "url": "https://www.tiktok.com/@scout2015/video/6718335390845095173",
-  "comment_id": "1234567890",
+  "comment_id": "6718335906996502534",
   "results_limit": 20
 }
 ```
