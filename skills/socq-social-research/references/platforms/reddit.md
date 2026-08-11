@@ -6,10 +6,10 @@ Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Fetch normalized comments data from Reddit. | urls | `comment@1.0` | live pricing |
-| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Fetch normalized posts data from Reddit. | urls | `post@1.0` | live pricing |
-| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Fetch normalized search data from Reddit. | query | `post@1.0` | live pricing |
-| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Fetch normalized subreddit posts data from Reddit. | urls | `post@1.0` | live pricing |
+| [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Reddit Comments API | urls | `comment@1.0` | 0.3 credits/result |
+| [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Reddit Posts API | urls | `post@1.0` | 0.5 credits/result |
+| [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Reddit Search API | query | `post@1.0` | 0.6 credits/result |
+| [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Reddit Subreddit Posts API | urls | `post@1.0` | 0.5 credits/result |
 
 ## Validated examples
 
@@ -20,7 +20,7 @@ Typed MCP tool: `socq_reddit_comments`
 ```json
 {
   "urls": [
-    "https://www.reddit.com/r/technology/comments/1vbchyh/second_major_ai_company_says_its_systems_hacked/"
+    "https://www.reddit.com/r/technology/comments/abc123/example_post/"
   ]
 }
 ```
@@ -32,7 +32,7 @@ Typed MCP tool: `socq_reddit_posts`
 ```json
 {
   "urls": [
-    "https://www.reddit.com/r/technology/comments/1vbchyh/second_major_ai_company_says_its_systems_hacked/"
+    "https://www.reddit.com/r/technology/comments/abc123/example_post/"
   ]
 }
 ```

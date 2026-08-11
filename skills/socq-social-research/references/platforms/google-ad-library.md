@@ -6,9 +6,9 @@ Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`google-ad-library/ad`](https://docs.socq.ai/api-manual/google-ad-library/ad) | Fetch normalized ad data from Google Ad Library. | url | `ad@1.0` | live pricing |
-| [`google-ad-library/advertiser-search`](https://docs.socq.ai/api-manual/google-ad-library/advertiser-search) | Fetch normalized advertiser search data from Google Ad Library. | query | `advertiser@1.0` | live pricing |
-| [`google-ad-library/company-ads`](https://docs.socq.ai/api-manual/google-ad-library/company-ads) | Fetch normalized company ads data from Google Ad Library. | one of: advertiser_id; domain | `ad@1.0` | live pricing |
+| [`google-ad-library/ad`](https://docs.socq.ai/api-manual/google-ad-library/ad) | Collect public Google ad details. | url | `ad@1.0` | 0.5 credits/result |
+| [`google-ad-library/advertiser-search`](https://docs.socq.ai/api-manual/google-ad-library/advertiser-search) | Search public Google advertisers. | query | `advertiser@1.0` | 0.5 credits/result |
+| [`google-ad-library/company-ads`](https://docs.socq.ai/api-manual/google-ad-library/company-ads) | Collect public Google company ads. | one of: advertiser_id; domain | `ad@1.0` | 0.5 credits/result |
 
 ## Validated examples
 

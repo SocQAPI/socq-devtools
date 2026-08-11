@@ -6,8 +6,8 @@ Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`linkedin-ad-library/ad`](https://docs.socq.ai/api-manual/linkedin-ad-library/ad) | Fetch normalized ad data from LinkedIn Ad Library. | url | `ad@1.0` | live pricing |
-| [`linkedin-ad-library/search`](https://docs.socq.ai/api-manual/linkedin-ad-library/search) | Fetch normalized search data from LinkedIn Ad Library. | one of: company; company_id; keyword | `ad@1.0` | live pricing |
+| [`linkedin-ad-library/ad`](https://docs.socq.ai/api-manual/linkedin-ad-library/ad) | Collect public LinkedIn ad details. | url | `ad@1.0` | 0.5 credits/result |
+| [`linkedin-ad-library/search`](https://docs.socq.ai/api-manual/linkedin-ad-library/search) | Search public LinkedIn ads. | one of: company; company_id; keyword | `ad@1.0` | 0.5 credits/result |
 
 ## Validated examples
 

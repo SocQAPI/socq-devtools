@@ -6,10 +6,10 @@ Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`pinterest/pins`](https://docs.socq.ai/api-manual/pinterest/pins) | Fetch normalized pins data from Pinterest. | urls | `post@1.0` | live pricing |
-| [`pinterest/profiles`](https://docs.socq.ai/api-manual/pinterest/profiles) | Fetch normalized profiles data from Pinterest. | urls | `account@1.0` | live pricing |
-| [`pinterest/search`](https://docs.socq.ai/api-manual/pinterest/search) | Fetch normalized search data from Pinterest. | query | `post@1.0` | live pricing |
-| [`pinterest/user-pins`](https://docs.socq.ai/api-manual/pinterest/user-pins) | Fetch normalized user pins data from Pinterest. | urls | `post@1.0` | live pricing |
+| [`pinterest/pins`](https://docs.socq.ai/api-manual/pinterest/pins) | Pinterest Pins API | urls | `post@1.0` | 0.5 credits/result |
+| [`pinterest/profiles`](https://docs.socq.ai/api-manual/pinterest/profiles) | Pinterest Profiles API | urls | `account@1.0` | 0.6 credits/result |
+| [`pinterest/search`](https://docs.socq.ai/api-manual/pinterest/search) | Pinterest Search API | query | `post@1.0` | 0.6 credits/result |
+| [`pinterest/user-pins`](https://docs.socq.ai/api-manual/pinterest/user-pins) | Pinterest User Pins API | urls | `post@1.0` | 0.5 credits/result |
 
 ## Validated examples
 
@@ -20,7 +20,7 @@ Typed MCP tool: `socq_pinterest_pins`
 ```json
 {
   "urls": [
-    "https://www.pinterest.com/pin/1091841503437618715"
+    "https://www.pinterest.com/pin/123456789012345678/"
   ]
 }
 ```

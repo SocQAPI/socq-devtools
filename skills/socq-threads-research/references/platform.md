@@ -6,9 +6,9 @@ Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Fetch normalized posts data from Threads. | urls | `post@1.0` | live pricing |
-| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Fetch normalized profiles data from Threads. | urls | `account@1.0` | live pricing |
-| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Fetch normalized user posts data from Threads. | urls | `post@1.0` | live pricing |
+| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Threads Posts API | urls | `post@1.0` | 0.5 credits/result |
+| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Threads Profiles API | urls | `account@1.0` | 0.6 credits/result |
+| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Threads User Posts API | urls | `post@1.0` | 0.5 credits/result |
 
 ## Validated examples
 
@@ -19,7 +19,7 @@ Typed MCP tool: `socq_threads_posts`
 ```json
 {
   "urls": [
-    "https://www.threads.com/@instagram/post/DbbbOW8D-T1"
+    "https://www.threads.net/@instagram/post/ABC123/"
   ]
 }
 ```
