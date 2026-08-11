@@ -17,7 +17,7 @@ Typed MCP tool: `socq_tiktok_ad_library_ad`
 
 ```json
 {
-  "url": "https://library.tiktok.com/ads/detail/?id=1234567890"
+  "url": "https://library.tiktok.com/ads/detail/?id=1871655924410641"
 }
 ```
 
@@ -27,7 +27,7 @@ Typed MCP tool: `socq_tiktok_ad_library_search`
 
 ```json
 {
-  "query": "running shoes",
-  "results_limit": 24
+  "query": "Anysphere",
+  "results_limit": 12
 }
 ```

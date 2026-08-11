@@ -3488,7 +3488,7 @@
       },
       "examples": [
         {
-          "url": "https://adstransparency.google.com/advertiser/AR123/creative/CR123"
+          "url": "https://adstransparency.google.com/advertiser/AR01614014350098432001/creative/CR10449491775734153217"
         }
       ],
       "tags": [
@@ -3623,7 +3623,7 @@
       },
       "examples": [
         {
-          "query": "Acme",
+          "query": "Nike",
           "region": "US"
         }
       ],
@@ -3799,7 +3799,7 @@
       },
       "examples": [
         {
-          "domain": "example.com",
+          "domain": "lululemon.com",
           "results_limit": 40
         }
       ],
@@ -7348,7 +7348,7 @@
       },
       "examples": [
         {
-          "url": "https://www.linkedin.com/posts/microsoft_ai-activity-1234567890"
+          "url": "https://www.linkedin.com/posts/aagupta_what-you-need-to-know-ai-agents-activity-7354600338621906944-RvXR"
         }
       ],
       "tags": [
@@ -8095,7 +8095,7 @@
       "examples": [
         {
           "urls": [
-            "https://www.linkedin.com/search/results/people/?keywords=engineer"
+            "https://www.linkedin.com/search/results/people/?keywords=Aakash%20Gupta"
           ]
         }
       ],
@@ -11580,7 +11580,7 @@
       },
       "examples": [
         {
-          "url": "https://library.tiktok.com/ads/detail/?id=1234567890"
+          "url": "https://library.tiktok.com/ads/detail/?id=1871655924410641"
         }
       ],
       "tags": [
@@ -11718,8 +11718,8 @@
       },
       "examples": [
         {
-          "query": "running shoes",
-          "results_limit": 24
+          "query": "Anysphere",
+          "results_limit": 12
         }
       ],
       "tags": [

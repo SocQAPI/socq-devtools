@@ -76,7 +76,7 @@ Typed MCP tool: `socq_linkedin_post_comments`
 
 ```json
 {
-  "url": "https://www.linkedin.com/posts/microsoft_ai-activity-1234567890"
+  "url": "https://www.linkedin.com/posts/aagupta_what-you-need-to-know-ai-agents-activity-7354600338621906944-RvXR"
 }
 ```
 
@@ -138,7 +138,7 @@ Typed MCP tool: `socq_linkedin_search_people`
 ```json
 {
   "urls": [
-    "https://www.linkedin.com/search/results/people/?keywords=engineer"
+    "https://www.linkedin.com/search/results/people/?keywords=Aakash%20Gupta"
   ]
 }
 ```

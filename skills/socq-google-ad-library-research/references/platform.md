@@ -18,7 +18,7 @@ Typed MCP tool: `socq_google_ad_library_ad`
 
 ```json
 {
-  "url": "https://adstransparency.google.com/advertiser/AR123/creative/CR123"
+  "url": "https://adstransparency.google.com/advertiser/AR01614014350098432001/creative/CR10449491775734153217"
 }
 ```
 
@@ -28,7 +28,7 @@ Typed MCP tool: `socq_google_ad_library_advertiser_search`
 
 ```json
 {
-  "query": "Acme",
+  "query": "Nike",
   "region": "US"
 }
 ```
@@ -39,7 +39,7 @@ Typed MCP tool: `socq_google_ad_library_company_ads`
 
 ```json
 {
-  "domain": "example.com",
+  "domain": "lululemon.com",
   "results_limit": 40
 }
 ```
