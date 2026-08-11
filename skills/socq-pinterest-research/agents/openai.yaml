@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Pinterest Research"
-  short_description: "Research public Pinterest data"
-  default_prompt: "Use $socq-pinterest-research to research this topic on Pinterest."
+  short_description: "Collect and analyze public Pinterest data"
+  default_prompt: "Use $socq-pinterest-research to collect and analyze this public Pinterest research request."
 dependencies:
   tools:
     - type: "mcp"

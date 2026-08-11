@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Reddit Research"
-  short_description: "Research public Reddit data"
-  default_prompt: "Use $socq-reddit-research to research this topic on Reddit."
+  short_description: "Collect and analyze public Reddit data"
+  default_prompt: "Use $socq-reddit-research to collect and analyze this public Reddit research request."
 dependencies:
   tools:
     - type: "mcp"

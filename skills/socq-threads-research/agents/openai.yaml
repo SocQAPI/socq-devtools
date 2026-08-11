@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Threads Research"
-  short_description: "Research public Threads data"
-  default_prompt: "Use $socq-threads-research to research this topic on Threads."
+  short_description: "Collect and analyze public Threads data"
+  default_prompt: "Use $socq-threads-research to collect and analyze this public Threads research request."
 dependencies:
   tools:
     - type: "mcp"

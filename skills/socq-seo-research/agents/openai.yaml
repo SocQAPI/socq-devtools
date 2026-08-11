@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ SEO Research"
-  short_description: "Research public SEO data"
-  default_prompt: "Use $socq-seo-research to research this topic on SEO."
+  short_description: "Collect and analyze public SEO data"
+  default_prompt: "Use $socq-seo-research to collect and analyze this public SEO research request."
 dependencies:
   tools:
     - type: "mcp"

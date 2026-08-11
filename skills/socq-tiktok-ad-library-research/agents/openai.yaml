@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Tiktok Ad Library Research"
-  short_description: "Research public Tiktok Ad Library data"
-  default_prompt: "Use $socq-tiktok-ad-library-research to research this topic on Tiktok Ad Library."
+  short_description: "Collect and analyze public Tiktok Ad Library data"
+  default_prompt: "Use $socq-tiktok-ad-library-research to collect and analyze this public Tiktok Ad Library research request."
 dependencies:
   tools:
     - type: "mcp"

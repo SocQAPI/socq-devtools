@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Google Ad Library Research"
-  short_description: "Research public Google Ad Library data"
-  default_prompt: "Use $socq-google-ad-library-research to research this topic on Google Ad Library."
+  short_description: "Collect and analyze public Google Ad Library data"
+  default_prompt: "Use $socq-google-ad-library-research to collect and analyze this public Google Ad Library research request."
 dependencies:
   tools:
     - type: "mcp"

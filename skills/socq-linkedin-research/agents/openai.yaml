@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ LinkedIn Research"
-  short_description: "Research public LinkedIn data"
-  default_prompt: "Use $socq-linkedin-research to research this topic on LinkedIn."
+  short_description: "Collect and analyze public LinkedIn data"
+  default_prompt: "Use $socq-linkedin-research to collect and analyze this public LinkedIn research request."
 dependencies:
   tools:
     - type: "mcp"

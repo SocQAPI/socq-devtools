@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ X Research"
-  short_description: "Research public X data"
-  default_prompt: "Use $socq-x-research to research this topic on X."
+  short_description: "Collect and analyze public X data"
+  default_prompt: "Use $socq-x-research to collect and analyze this public X research request."
 dependencies:
   tools:
     - type: "mcp"

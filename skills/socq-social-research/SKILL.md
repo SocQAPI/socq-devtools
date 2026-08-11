@@ -24,62 +24,69 @@ metadata:
 
 # SocQ Social and SEO Research
 
-Use SocQ to collect public social and SEO data through an asynchronous, credit-metered workflow.
+## SocQ Links
 
-## Choose the integration
+- Website: <https://socq.ai/>
+- Platform catalog: <https://socq.ai/platforms>
+- API documentation: <https://docs.socq.ai/api-manual>
+- API key: <https://socq.ai/dashboard/api-key>
+- MCP and CLI: <https://docs.socq.ai/integrations/overview>
+- Agent Skill guide: <https://docs.socq.ai/integrations/skill>
 
-1. In OpenClaw, prefer the `socq` CLI when it is installed. Otherwise run the same commands through `npx @socq/cli`.
-2. Prefer the hosted MCP server at `https://api.socq.ai/mcp` when the client already has SocQ MCP configured.
-3. Use a filtered MCP URL when the platforms or endpoints are known:
-   - `?platforms=youtube,tiktok` for at most five platforms.
-   - `?tools=youtube_comments,x_search` for at most thirty endpoint tools.
-4. Run `npx @socq/mcp` when the client only supports local stdio MCP.
-5. Use REST only when neither CLI nor MCP is available.
-6. Attribute every execution started by this Skill:
-   - pass `_request_source: "skill"` to compact or typed MCP execution tools;
-   - pass `--request-source skill` to CLI execution commands;
-   - send `X-Socq-Source: skill-rest` for direct REST execution.
+Use this Skill to select and run SocQ endpoints for public social-platform and SEO research. SocQ requests are asynchronous and credit-metered.
 
-Never place an API key in a prompt, query string, committed file, or shell command that will be retained. Read [authentication.md](references/authentication.md) before configuring credentials.
+## Use When
 
-SocQ is an external, credit-metered service. A SocQ account and `SOCQ_API_KEY` are required, and research requests may consume paid credits. Check the available credits and expected endpoint cost before starting a large or cross-platform request.
+- The user asks to discover, collect, compare, monitor, or analyze public social or SEO data.
+- The workflow spans platforms or needs endpoint discovery through the Capability Registry.
+- An agent must estimate credits, submit tasks, poll results, paginate normalized records, or retrieve raw exports.
 
-## Execute research
+## Endpoint Selection
 
-1. Restate the requested platforms, entities, date range, and result volume.
-2. Search the Capability Registry, then describe the selected endpoint before constructing input. Read [catalog.md](references/catalog.md) when tool discovery is unavailable.
-3. Read the matching platform reference before choosing inputs or constructing a payload:
-   [Facebook](references/platforms/facebook.md),
-   [Facebook Ad Library](references/platforms/facebook-ad-library.md),
-   [Facebook Marketplace](references/platforms/facebook-marketplace.md),
-   [Google Ad Library](references/platforms/google-ad-library.md),
-   [Instagram](references/platforms/instagram.md),
-   [LinkedIn](references/platforms/linkedin.md),
-   [LinkedIn Ad Library](references/platforms/linkedin-ad-library.md),
-   [Pinterest](references/platforms/pinterest.md),
-   [Reddit](references/platforms/reddit.md),
-   [Threads](references/platforms/threads.md),
-   [TikTok](references/platforms/tiktok.md),
-   [TikTok Ad Library](references/platforms/tiktok-ad-library.md),
-   [TikTok Shop](references/platforms/tiktok-shop.md),
-   [X](references/platforms/x.md), or
-   [YouTube](references/platforms/youtube.md).
-   For keyword research, intent, organic results, or site rankings, read
-   [SEO](references/platforms/seo.md).
-4. Prefer direct URLs or canonical usernames over broad social search when the user supplies them. For SEO work, preserve the requested market and language; do not compare keyword metrics from different locations as if they were equivalent.
-5. Check account credits before a large or cross-platform run. Read [billing.md](references/billing.md) for cost controls.
-6. Submit with a reusable idempotency key when a transport retry is possible.
-7. Treat `queued` and `running` as incomplete. Poll until `succeeded` or `failed`; follow [async-tasks.md](references/async-tasks.md).
-8. Follow every `next_cursor` needed for the requested scope, respecting a user-provided result cap. Read [pagination.md](references/pagination.md).
-9. Use task files for complete raw JSONL exports when normalized pages are insufficient.
-10. Report partial coverage, failed platforms, filters, and collection time with the results.
+- Search the live Capability Registry first. Read [catalog.md](references/catalog.md) when tool discovery is unavailable.
+- Read the matching generated platform reference before selecting endpoints or constructing input: [Facebook](references/platforms/facebook.md), [Facebook Ad Library](references/platforms/facebook-ad-library.md), [Facebook Marketplace](references/platforms/facebook-marketplace.md), [Google Ad Library](references/platforms/google-ad-library.md), [Instagram](references/platforms/instagram.md), [LinkedIn](references/platforms/linkedin.md), [LinkedIn Ad Library](references/platforms/linkedin-ad-library.md), [Pinterest](references/platforms/pinterest.md), [Reddit](references/platforms/reddit.md), [Threads](references/platforms/threads.md), [TikTok](references/platforms/tiktok.md), [TikTok Ad Library](references/platforms/tiktok-ad-library.md), [TikTok Shop](references/platforms/tiktok-shop.md), [X](references/platforms/x.md), [YouTube](references/platforms/youtube.md), or [SEO](references/platforms/seo.md).
+- Choose endpoints from the requested resource shape rather than routing every request through broad search.
+- Prefer direct URLs, canonical usernames, or platform IDs when supplied.
+- For multi-network research, follow [cross-platform.md](references/cross-platform.md) and use comparable date windows, limits, locales, and content types.
 
-For research spanning multiple networks, follow [cross-platform.md](references/cross-platform.md). For authentication, rate limits, provider failures, and recovery, follow [errors.md](references/errors.md).
+## Key Inputs
+
+- Preserve the requested platforms, entities, query terms, date range, locale, filters, ordering, and result cap.
+- Ask only for missing input required by the selected endpoint.
+- Use `view: "standard"` for MCP and Skill result reads. Use `_result_view: "standard"` for typed MCP tools or `--result-view standard` for CLI output.
+- Add a reusable idempotency key when a submission might be retried.
+- Treat `next_cursor` as opaque and stop only at the requested scope or user-approved cap.
+
+## Execution
+
+1. Prefer an already configured hosted SocQ MCP server at `https://api.socq.ai/mcp`.
+2. Filter MCP with `?platforms=youtube,tiktok` for up to five platforms or `?tools=youtube_comments,x_search` for up to thirty endpoint tools when scope is known.
+3. Use `npx @socq/mcp` for local stdio-only clients. If MCP is unavailable, use `socq` or `npx @socq/cli`; use REST only as the final fallback.
+4. Read [authentication.md](references/authentication.md), keep `SOCQ_API_KEY` in the environment, and never put it in prompts, URLs, committed files, or retained commands.
+5. Read [billing.md](references/billing.md), report expected cost, and obtain confirmation before a paid large-volume, cross-platform, or multi-endpoint run.
+6. Submit with `_request_source: "skill"`, `--request-source skill`, or `X-Socq-Source: skill-rest` for MCP, CLI, or REST.
+7. Save every task ID. Treat `queued` and `running` as incomplete and follow [async-tasks.md](references/async-tasks.md) until `succeeded` or `failed`.
+8. Follow [pagination.md](references/pagination.md) for requested pages and retrieve task files when complete raw JSONL output is required.
+9. Read [errors.md](references/errors.md) before retrying authentication, credit, rate-limit, validation, or provider failures.
+
+## Output Expectations
+
+Include:
+
+- selected endpoints, platforms, and execution path
+- concise input, filter, window, and comparability summary
+- expected and reported credit usage when available
+- task IDs and terminal statuses
+- result counts, pages read, and whether more data remains
+- normalized findings or raw export locations
+- collection time, failed platforms, unsupported filters, and incomplete coverage
 
 ## Guardrails
 
 - Collect only public data supported by the selected endpoint.
 - Do not retry a failed paid request blindly; inspect the normalized error first.
-- Do not invent unsupported parameters. Re-read the endpoint schema after a validation error.
+- Do not start a paid large-volume, cross-platform, or multi-endpoint run without user confirmation.
+- Do not invent unsupported parameters; re-read the live endpoint schema after validation errors.
 - Do not claim completeness when pagination stopped early, a provider failed, or the requested date filter is unsupported.
-- Keep task IDs in the working notes so interrupted research can resume without resubmission.
+- Do not compare metrics collected with different windows, filters, locales, or content types without labeling the difference.
+- Keep task IDs in working notes so interrupted research can resume without resubmitting.

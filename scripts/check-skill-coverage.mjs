@@ -30,6 +30,17 @@ for (const endpoint of endpoints) {
 }
 
 const platforms = new Set(endpoints.map((item) => item.platform));
+const requiredSections = [
+  "## SocQ Links",
+  "## Use When",
+  "## Endpoint Selection",
+  "## Key Inputs",
+  "## Execution",
+  "## Output Expectations",
+  "## Guardrails",
+];
+const umbrellaSkill = await readFile(resolve(skillRoot, "SKILL.md"), "utf8");
+validateSkillStructure(umbrellaSkill, "socq-social-research");
 for (const platform of platforms) {
   const path = resolve(skillRoot, "references", "platforms", `${platform}.md`);
   await access(path);
@@ -41,6 +52,14 @@ for (const platform of platforms) {
   }
   if (!specialistSkill.includes("[platform.md](references/platform.md)")) {
     throw new Error(`${specialistRoot} does not link its platform reference`);
+  }
+  validateSkillStructure(specialistSkill, platformSkillName(platform));
+  if (!specialistSkill.includes(`https://api.socq.ai/mcp?platforms=${platform}`)) {
+    throw new Error(`${specialistRoot} has an incorrect filtered MCP URL`);
+  }
+  const agentMetadata = await readFile(resolve(specialistRoot, "agents", "openai.yaml"), "utf8");
+  if (!agentMetadata.includes(`$${platformSkillName(platform)}`)) {
+    throw new Error(`${specialistRoot} agent metadata does not reference its Skill name`);
   }
   const specialistReference = await readFile(resolve(specialistRoot, "references", "platform.md"), "utf8");
   if (specialistReference !== content) throw new Error(`${specialistRoot} platform reference is stale`);
@@ -65,6 +84,19 @@ for (const endpoint of endpoints) {
 }
 
 process.stdout.write(`Validated Skill coverage for ${endpoints.length} endpoints across ${platforms.size} platforms.\n`);
+
+function validateSkillStructure(content, name) {
+  if (!content.includes(`name: ${name}`)) throw new Error(`${name} has incorrect Skill metadata`);
+  for (const section of requiredSections) {
+    if (!content.includes(section)) throw new Error(`${name} is missing ${section}`);
+  }
+  for (const link of ["https://socq.ai/", "https://docs.socq.ai/", "SOCQ_API_KEY"]) {
+    if (!content.includes(link)) throw new Error(`${name} is missing ${link}`);
+  }
+  for (const behavior of ["standard", "idempotency", "next_cursor", "request_source", "task ID"]) {
+    if (!content.includes(behavior)) throw new Error(`${name} is missing ${behavior} guidance`);
+  }
+}
 
 function hasValue(value) {
   return value !== undefined && value !== null && value !== "" && (!Array.isArray(value) || value.length > 0);

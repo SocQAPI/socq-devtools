@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ TikTok Research"
-  short_description: "Research public TikTok data"
-  default_prompt: "Use $socq-tiktok-research to research this topic on TikTok."
+  short_description: "Collect and analyze public TikTok data"
+  default_prompt: "Use $socq-tiktok-research to collect and analyze this public TikTok research request."
 dependencies:
   tools:
     - type: "mcp"

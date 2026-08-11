@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Facebook Marketplace Research"
-  short_description: "Research public Facebook Marketplace data"
-  default_prompt: "Use $socq-facebook-marketplace to research this topic on Facebook Marketplace."
+  short_description: "Collect and analyze public Facebook Marketplace data"
+  default_prompt: "Use $socq-facebook-marketplace to collect and analyze this public Facebook Marketplace research request."
 dependencies:
   tools:
     - type: "mcp"

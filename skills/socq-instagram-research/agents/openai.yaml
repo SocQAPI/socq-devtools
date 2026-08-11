@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ Instagram Research"
-  short_description: "Research public Instagram data"
-  default_prompt: "Use $socq-instagram-research to research this topic on Instagram."
+  short_description: "Collect and analyze public Instagram data"
+  default_prompt: "Use $socq-instagram-research to collect and analyze this public Instagram research request."
 dependencies:
   tools:
     - type: "mcp"

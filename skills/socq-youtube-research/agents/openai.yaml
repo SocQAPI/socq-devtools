@@ -1,7 +1,7 @@
 interface:
   display_name: "SocQ YouTube Research"
-  short_description: "Research public YouTube data"
-  default_prompt: "Use $socq-youtube-research to research this topic on YouTube."
+  short_description: "Collect and analyze public YouTube data"
+  default_prompt: "Use $socq-youtube-research to collect and analyze this public YouTube research request."
 dependencies:
   tools:
     - type: "mcp"
