@@ -1,13 +1,13 @@
 # Tiktok Ad Library
 
-Generated from SocQ Capability Registry schema `v1-c051f5df2885`. Read this file when the request targets Tiktok Ad Library.
+Generated from SocQ Capability Registry schema `v1-132d958902f5`. Read this file when the request targets Tiktok Ad Library.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`tiktok-ad-library/ad`](https://docs.socq.ai/api-manual/tiktok-ad-library/ad) | Collect public TikTok ad details. | url | `ad@1.0` | 0.5 credits/result |
-| [`tiktok-ad-library/search`](https://docs.socq.ai/api-manual/tiktok-ad-library/search) | Search public TikTok ads. | query | `ad@1.0` | 0.5 credits/result |
+| [`tiktok-ad-library/ad`](https://docs.socq.ai/api-manual/tiktok-ad-library/ad) | Fetch normalized ad data from TikTok Ad Library. | url | `ad@1.0` | live pricing |
+| [`tiktok-ad-library/search`](https://docs.socq.ai/api-manual/tiktok-ad-library/search) | Fetch normalized search data from TikTok Ad Library. | query | `ad@1.0` | live pricing |
 
 ## Validated examples
 

@@ -1,4 +1,4 @@
-import {mkdir, writeFile} from "node:fs/promises";
+import {mkdir, readFile, writeFile} from "node:fs/promises";
 import {dirname, resolve} from "node:path";
 import {pathToFileURL} from "node:url";
 
@@ -24,6 +24,11 @@ type FetchJson = (url: string) => Promise<unknown>;
 function option(name: string, fallback: string): string {
   const index = process.argv.indexOf(`--${name}`);
   return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : fallback;
+}
+
+function optionalOption(name: string): string | undefined {
+  const index = process.argv.indexOf(`--${name}`);
+  return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : undefined;
 }
 
 async function fetchJson(url: string): Promise<unknown> {
@@ -106,11 +111,20 @@ async function main(): Promise<void> {
   const baseUrl = option("base-url", process.env.SOCQ_BASE_URL ?? "https://api.socq.ai").replace(/\/$/, "");
   const catalogOutput = resolve(option("catalog-output", "artifacts/capability-catalog.json"));
   const openapiOutput = resolve(option("openapi-output", "artifacts/agent-openapi.json"));
-  const openapiPromise = fetchJson(`${baseUrl}/v1/catalog/openapi.json`);
-  const [catalog, openapi] = await Promise.all([
-    fetchCompleteCatalog(baseUrl),
-    openapiPromise,
-  ]);
+  const catalogFile = optionalOption("catalog-file");
+  const openapiFile = optionalOption("openapi-file");
+  if (Boolean(catalogFile) !== Boolean(openapiFile)) {
+    throw new Error("--catalog-file and --openapi-file must be provided together");
+  }
+  const [catalog, openapi] = catalogFile && openapiFile
+    ? await Promise.all([
+        readFile(resolve(catalogFile), "utf8").then((value) => JSON.parse(value)),
+        readFile(resolve(openapiFile), "utf8").then((value) => JSON.parse(value)),
+      ])
+    : await Promise.all([
+        fetchCompleteCatalog(baseUrl),
+        fetchJson(`${baseUrl}/v1/catalog/openapi.json`),
+      ]);
 
   for (const [path, value] of [[catalogOutput, catalog], [openapiOutput, openapi]] as const) {
     await mkdir(dirname(path), {recursive: true});
