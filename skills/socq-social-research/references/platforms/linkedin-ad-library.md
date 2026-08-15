@@ -1,13 +1,13 @@
 # Linkedin Ad Library
 
-Generated from SocQ Capability Registry schema `v1-132d958902f5`. Read this file when the request targets Linkedin Ad Library.
+Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Linkedin Ad Library.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`linkedin-ad-library/ad`](https://docs.socq.ai/api-manual/linkedin-ad-library/ad) | Fetch normalized ad data from LinkedIn Ad Library. | url | `ad@1.0` | live pricing |
-| [`linkedin-ad-library/search`](https://docs.socq.ai/api-manual/linkedin-ad-library/search) | Fetch normalized search data from LinkedIn Ad Library. | one of: company; company_id; keyword | `ad@1.0` | live pricing |
+| [`linkedin-ad-library/ad`](https://docs.socq.ai/api-manual/linkedin-ad-library/ad) | Collect public LinkedIn ad details. | url | `ad@1.0` | 0.5 credits/result |
+| [`linkedin-ad-library/search`](https://docs.socq.ai/api-manual/linkedin-ad-library/search) | Search public LinkedIn ads. | one of: company; company_id; keyword | `ad@1.0` | 0.5 credits/result |
 
 ## Validated examples
 

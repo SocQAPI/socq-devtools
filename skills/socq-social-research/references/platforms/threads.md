@@ -1,14 +1,14 @@
 # Threads
 
-Generated from SocQ Capability Registry schema `v1-132d958902f5`. Read this file when the request targets Threads.
+Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Threads.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Fetch normalized posts data from Threads. | urls | `post@1.0` | live pricing |
-| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Fetch normalized profiles data from Threads. | urls | `account@1.0` | live pricing |
-| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Fetch normalized user posts data from Threads. | urls | `post@1.0` | live pricing |
+| [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Threads Posts API | urls | `post@1.0` | 0.5 credits/result |
+| [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Threads Profiles API | urls | `account@1.0` | 0.6 credits/result |
+| [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Threads User Posts API | urls | `post@1.0` | 0.5 credits/result |
 
 ## Validated examples
 

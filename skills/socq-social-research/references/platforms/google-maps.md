@@ -1,14 +1,14 @@
 # Google Maps
 
-Generated from SocQ Capability Registry schema `v1-132d958902f5`. Read this file when the request targets Google Maps.
+Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Google Maps.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`google-maps/places`](https://docs.socq.ai/api-manual/google-maps/places) | Fetch normalized places data from Google Maps. | urls | `place@1.0` | 0.15 credits/result |
-| [`google-maps/reviews`](https://docs.socq.ai/api-manual/google-maps/reviews) | Fetch normalized reviews data from Google Maps. | urls | `review@1.0` | 0.15 credits/result |
-| [`google-maps/search`](https://docs.socq.ai/api-manual/google-maps/search) | Fetch normalized search data from Google Maps. | location, query | `place@1.0` | 0.15 credits/result |
+| [`google-maps/places`](https://docs.socq.ai/api-manual/google-maps/places) | Collect public Google Maps place details. | urls | `place@1.0` | 0.15 credits/result |
+| [`google-maps/reviews`](https://docs.socq.ai/api-manual/google-maps/reviews) | Collect public Google Maps reviews. | urls | `review@1.0` | 0.15 credits/result |
+| [`google-maps/search`](https://docs.socq.ai/api-manual/google-maps/search) | Search public Google Maps places. | location, query | `place@1.0` | 0.15 credits/result |
 
 ## Validated examples
 
@@ -19,7 +19,7 @@ Typed MCP tool: `socq_google_maps_places`
 ```json
 {
   "urls": [
-    "https://www.google.com/maps/place/Empire+State+Building"
+    "https://www.google.com/maps/place/Coffee%20Project%20New%20York%20%7C%20East%20Village/data=!4m7!3m6!1s0x89c2599b5a24d7fd:0x9e354f6cf514b9fc!8m2!3d40.7270884!4d-73.9893820!16s%2Fg%2F11c3svpqld!19sChIJ_dckWptZwokR_LkU9WxPNZ4?authuser=0&hl=en&rclk=1"
   ]
 }
 ```
@@ -31,10 +31,10 @@ Typed MCP tool: `socq_google_maps_reviews`
 ```json
 {
   "urls": [
-    "https://www.google.com/maps/place/Empire+State+Building"
+    "https://www.google.com/maps/place/Coffee%20Project%20New%20York%20%7C%20East%20Village/data=!4m7!3m6!1s0x89c2599b5a24d7fd:0x9e354f6cf514b9fc!8m2!3d40.7270884!4d-73.9893820!16s%2Fg%2F11c3svpqld!19sChIJ_dckWptZwokR_LkU9WxPNZ4?authuser=0&hl=en&rclk=1"
   ],
-  "days_limit": 30,
-  "results_limit": 20
+  "days_limit": 3650,
+  "results_limit": 3
 }
 ```
 
@@ -47,6 +47,6 @@ Typed MCP tool: `socq_google_maps_search`
   "query": "coffee",
   "location": "New York, NY",
   "country": "US",
-  "results_limit": 20
+  "results_limit": 3
 }
 ```

@@ -1,14 +1,14 @@
 # Bluesky
 
-Generated from SocQ Capability Registry schema `v1-132d958902f5`. Read this file when the request targets Bluesky.
+Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Bluesky.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`bluesky/posts`](https://docs.socq.ai/api-manual/bluesky/posts) | Fetch normalized posts data from Bluesky. | url | `post@1.0` | 0.19 credits/request |
-| [`bluesky/profiles`](https://docs.socq.ai/api-manual/bluesky/profiles) | Fetch normalized profiles data from Bluesky. | username | `account@1.0` | 0.19 credits/request |
-| [`bluesky/user-posts`](https://docs.socq.ai/api-manual/bluesky/user-posts) | Fetch normalized user posts data from Bluesky. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
+| [`bluesky/posts`](https://docs.socq.ai/api-manual/bluesky/posts) | Collect a public Bluesky post. | url | `post@1.0` | 0.19 credits/request |
+| [`bluesky/profiles`](https://docs.socq.ai/api-manual/bluesky/profiles) | Collect a public Bluesky profile. | username | `account@1.0` | 0.19 credits/request |
+| [`bluesky/user-posts`](https://docs.socq.ai/api-manual/bluesky/user-posts) | Collect one page of public Bluesky user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
 
 ## Validated examples
 
@@ -18,7 +18,7 @@ Typed MCP tool: `socq_bluesky_posts`
 
 ```json
 {
-  "url": "https://bsky.app/profile/bsky.app/post/example"
+  "url": "https://bsky.app/profile/jay.bsky.team/post/3micofpyeys2g"
 }
 ```
 
@@ -28,7 +28,7 @@ Typed MCP tool: `socq_bluesky_profiles`
 
 ```json
 {
-  "username": "bsky.app"
+  "username": "jay.bsky.team"
 }
 ```
 
@@ -38,6 +38,6 @@ Typed MCP tool: `socq_bluesky_user_posts`
 
 ```json
 {
-  "username": "bsky.app"
+  "username": "jay.bsky.team"
 }
 ```
