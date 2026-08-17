@@ -1,20 +1,20 @@
 # Bluesky
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Bluesky.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Bluesky.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`bluesky/posts`](https://docs.socq.ai/api-manual/bluesky/posts) | Collect a public Bluesky post. | url | `post@1.0` | 0.19 credits/request |
-| [`bluesky/profiles`](https://docs.socq.ai/api-manual/bluesky/profiles) | Collect a public Bluesky profile. | username | `account@1.0` | 0.19 credits/request |
+| [`bluesky/post`](https://docs.socq.ai/api-manual/bluesky/post) | Collect a public Bluesky post. | url | `post@1.0` | 0.19 credits/request |
+| [`bluesky/profile`](https://docs.socq.ai/api-manual/bluesky/profile) | Collect a public Bluesky profile. | username | `account@1.0` | 0.19 credits/request |
 | [`bluesky/user-posts`](https://docs.socq.ai/api-manual/bluesky/user-posts) | Collect one page of public Bluesky user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
 
 ## Validated examples
 
-### `bluesky/posts`
+### `bluesky/post`
 
-Typed MCP tool: `socq_bluesky_posts`
+Typed MCP tool: `socq_bluesky_post`
 
 ```json
 {
@@ -22,9 +22,9 @@ Typed MCP tool: `socq_bluesky_posts`
 }
 ```
 
-### `bluesky/profiles`
+### `bluesky/profile`
 
-Typed MCP tool: `socq_bluesky_profiles`
+Typed MCP tool: `socq_bluesky_profile`
 
 ```json
 {

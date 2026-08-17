@@ -1,20 +1,20 @@
 # Google Maps
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Google Maps.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Google Maps.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`google-maps/places`](https://docs.socq.ai/api-manual/google-maps/places) | Collect public Google Maps place details. | urls | `place@1.0` | 0.15 credits/result |
+| [`google-maps/place-details`](https://docs.socq.ai/api-manual/google-maps/place-details) | Collect public Google Maps place details. | urls | `place@1.0` | 0.15 credits/result |
 | [`google-maps/reviews`](https://docs.socq.ai/api-manual/google-maps/reviews) | Collect public Google Maps reviews. | urls | `review@1.0` | 0.15 credits/result |
 | [`google-maps/search`](https://docs.socq.ai/api-manual/google-maps/search) | Search public Google Maps places. | location, query | `place@1.0` | 0.15 credits/result |
 
 ## Validated examples
 
-### `google-maps/places`
+### `google-maps/place-details`
 
-Typed MCP tool: `socq_google_maps_places`
+Typed MCP tool: `socq_google_maps_place_details`
 
 ```json
 {

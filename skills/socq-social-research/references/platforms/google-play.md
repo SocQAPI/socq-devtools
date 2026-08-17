@@ -1,20 +1,20 @@
 # Google Play
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Google Play.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Google Play.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`google-play/apps`](https://docs.socq.ai/api-manual/google-play/apps) | Collect public Google Play app details. | urls | `app@1.0` | 0.15 credits/result |
-| [`google-play/rankings`](https://docs.socq.ai/api-manual/google-play/rankings) | Collect public Google Play category rankings. | urls | `app@1.0` | 0.15 credits/result |
-| [`google-play/reviews`](https://docs.socq.ai/api-manual/google-play/reviews) | Collect public Google Play app reviews. | urls | `review@1.0` | 0.15 credits/result |
+| [`google-play/app-detail`](https://docs.socq.ai/api-manual/google-play/app-detail) | Collect public Google Play app details. | urls | `app@1.0` | 0.15 credits/result |
+| [`google-play/app-rankings`](https://docs.socq.ai/api-manual/google-play/app-rankings) | Collect public Google Play category rankings. | urls | `app@1.0` | 0.15 credits/result |
+| [`google-play/app-reviews`](https://docs.socq.ai/api-manual/google-play/app-reviews) | Collect public Google Play app reviews. | urls | `review@1.0` | 0.15 credits/result |
 
 ## Validated examples
 
-### `google-play/apps`
+### `google-play/app-detail`
 
-Typed MCP tool: `socq_google_play_apps`
+Typed MCP tool: `socq_google_play_app_detail`
 
 ```json
 {
@@ -24,9 +24,9 @@ Typed MCP tool: `socq_google_play_apps`
 }
 ```
 
-### `google-play/rankings`
+### `google-play/app-rankings`
 
-Typed MCP tool: `socq_google_play_rankings`
+Typed MCP tool: `socq_google_play_app_rankings`
 
 ```json
 {
@@ -37,9 +37,9 @@ Typed MCP tool: `socq_google_play_rankings`
 }
 ```
 
-### `google-play/reviews`
+### `google-play/app-reviews`
 
-Typed MCP tool: `socq_google_play_reviews`
+Typed MCP tool: `socq_google_play_app_reviews`
 
 ```json
 {

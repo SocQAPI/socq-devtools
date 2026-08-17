@@ -1,16 +1,16 @@
 # Amazon
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Amazon.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Amazon.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
 | [`amazon/best-sellers`](https://docs.socq.ai/api-manual/amazon/best-sellers) | Collect public Amazon best sellers. | urls | `product@1.0` | 0.15 credits/result |
-| [`amazon/products`](https://docs.socq.ai/api-manual/amazon/products) | Collect public Amazon product details. | urls | `product@1.0` | 0.15 credits/result |
+| [`amazon/product-detail`](https://docs.socq.ai/api-manual/amazon/product-detail) | Collect public Amazon product details. | urls | `product@1.0` | 0.15 credits/result |
+| [`amazon/product-search`](https://docs.socq.ai/api-manual/amazon/product-search) | Search public Amazon products. | domain, query | `product@1.0` | 0.15 credits/result |
 | [`amazon/reviews`](https://docs.socq.ai/api-manual/amazon/reviews) | Collect public Amazon reviews. | urls | `review@1.0` | 0.15 credits/result |
-| [`amazon/search`](https://docs.socq.ai/api-manual/amazon/search) | Search public Amazon products. | domain, query | `product@1.0` | 0.15 credits/result |
-| [`amazon/sellers`](https://docs.socq.ai/api-manual/amazon/sellers) | Collect public Amazon seller information. | urls | `seller@1.0` | 0.15 credits/result |
+| [`amazon/seller-info`](https://docs.socq.ai/api-manual/amazon/seller-info) | Collect public Amazon seller information. | urls | `seller@1.0` | 0.15 credits/result |
 
 ## Validated examples
 
@@ -27,15 +27,27 @@ Typed MCP tool: `socq_amazon_best_sellers`
 }
 ```
 
-### `amazon/products`
+### `amazon/product-detail`
 
-Typed MCP tool: `socq_amazon_products`
+Typed MCP tool: `socq_amazon_product_detail`
 
 ```json
 {
   "urls": [
     "https://www.amazon.com/dp/B0CHHSFMRL"
   ]
+}
+```
+
+### `amazon/product-search`
+
+Typed MCP tool: `socq_amazon_product_search`
+
+```json
+{
+  "query": "wireless earbuds",
+  "domain": "https://www.amazon.com",
+  "results_limit": 3
 }
 ```
 
@@ -52,21 +64,9 @@ Typed MCP tool: `socq_amazon_reviews`
 }
 ```
 
-### `amazon/search`
+### `amazon/seller-info`
 
-Typed MCP tool: `socq_amazon_search`
-
-```json
-{
-  "query": "wireless earbuds",
-  "domain": "https://www.amazon.com",
-  "results_limit": 3
-}
-```
-
-### `amazon/sellers`
-
-Typed MCP tool: `socq_amazon_sellers`
+Typed MCP tool: `socq_amazon_seller_info`
 
 ```json
 {

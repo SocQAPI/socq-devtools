@@ -1,27 +1,27 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
 | [`amazon/best-sellers`](https://docs.socq.ai/api-manual/amazon/best-sellers) | Collect public Amazon best sellers. | urls | `product@1.0` | 0.15 credits/result |
-| [`amazon/products`](https://docs.socq.ai/api-manual/amazon/products) | Collect public Amazon product details. | urls | `product@1.0` | 0.15 credits/result |
+| [`amazon/product-detail`](https://docs.socq.ai/api-manual/amazon/product-detail) | Collect public Amazon product details. | urls | `product@1.0` | 0.15 credits/result |
+| [`amazon/product-search`](https://docs.socq.ai/api-manual/amazon/product-search) | Search public Amazon products. | domain, query | `product@1.0` | 0.15 credits/result |
 | [`amazon/reviews`](https://docs.socq.ai/api-manual/amazon/reviews) | Collect public Amazon reviews. | urls | `review@1.0` | 0.15 credits/result |
-| [`amazon/search`](https://docs.socq.ai/api-manual/amazon/search) | Search public Amazon products. | domain, query | `product@1.0` | 0.15 credits/result |
-| [`amazon/sellers`](https://docs.socq.ai/api-manual/amazon/sellers) | Collect public Amazon seller information. | urls | `seller@1.0` | 0.15 credits/result |
-| [`apple-app-store/apps`](https://docs.socq.ai/api-manual/apple-app-store/apps) | Collect public Apple App Store app details. | urls | `app@1.0` | 0.15 credits/result |
+| [`amazon/seller-info`](https://docs.socq.ai/api-manual/amazon/seller-info) | Collect public Amazon seller information. | urls | `seller@1.0` | 0.15 credits/result |
+| [`apple-app-store/app-detail`](https://docs.socq.ai/api-manual/apple-app-store/app-detail) | Collect public Apple App Store app details. | urls | `app@1.0` | 0.15 credits/result |
+| [`apple-app-store/app-reviews`](https://docs.socq.ai/api-manual/apple-app-store/app-reviews) | Collect public Apple App Store reviews. | urls | `review@1.0` | 0.15 credits/result |
 | [`apple-app-store/rankings`](https://docs.socq.ai/api-manual/apple-app-store/rankings) | Collect public Apple App Store category rankings. | urls | `app@1.0` | 0.15 credits/result |
-| [`apple-app-store/reviews`](https://docs.socq.ai/api-manual/apple-app-store/reviews) | Collect public Apple App Store reviews. | urls | `review@1.0` | 0.15 credits/result |
-| [`bluesky/posts`](https://docs.socq.ai/api-manual/bluesky/posts) | Collect a public Bluesky post. | url | `post@1.0` | 0.19 credits/request |
-| [`bluesky/profiles`](https://docs.socq.ai/api-manual/bluesky/profiles) | Collect a public Bluesky profile. | username | `account@1.0` | 0.19 credits/request |
+| [`bluesky/post`](https://docs.socq.ai/api-manual/bluesky/post) | Collect a public Bluesky post. | url | `post@1.0` | 0.19 credits/request |
+| [`bluesky/profile`](https://docs.socq.ai/api-manual/bluesky/profile) | Collect a public Bluesky profile. | username | `account@1.0` | 0.19 credits/request |
 | [`bluesky/user-posts`](https://docs.socq.ai/api-manual/bluesky/user-posts) | Collect one page of public Bluesky user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
-| [`douyin/comments`](https://docs.socq.ai/api-manual/douyin/comments) | Collect one page of public Douyin video comments. | url | `comment@1.0` | 0.1 credits/request |
-| [`douyin/live-room-info`](https://docs.socq.ai/api-manual/douyin/live-room-info) | Collect public Douyin live room details. | room_id | `live-room@1.0` | 0.1 credits/request |
-| [`douyin/live-room-products`](https://docs.socq.ai/api-manual/douyin/live-room-products) | Collect one page of public Douyin live room products. | author_id, room_id | `product@1.0` | 0.1 credits/request |
-| [`douyin/profiles`](https://docs.socq.ai/api-manual/douyin/profiles) | Collect a public Douyin profile. | one of: url; user_id | `account@1.0` | 0.1 credits/request |
-| [`douyin/search`](https://docs.socq.ai/api-manual/douyin/search) | Search public Douyin videos. | query | `reel-video@1.0` | 0.1 credits/request |
+| [`douyin/live-room-detail`](https://docs.socq.ai/api-manual/douyin/live-room-detail) | Collect public Douyin live room details. | room_id | `live-room@1.0` | 0.1 credits/request |
+| [`douyin/product-data`](https://docs.socq.ai/api-manual/douyin/product-data) | Collect one page of public Douyin live room products. | author_id, room_id | `product@1.0` | 0.1 credits/request |
+| [`douyin/user-profile`](https://docs.socq.ai/api-manual/douyin/user-profile) | Collect a public Douyin profile. | one of: url; user_id | `account@1.0` | 0.1 credits/request |
 | [`douyin/user-videos`](https://docs.socq.ai/api-manual/douyin/user-videos) | Collect one page of public Douyin user videos. | one of: url; user_id | `reel-video@1.0` | 0.1 credits/request |
-| [`douyin/videos`](https://docs.socq.ai/api-manual/douyin/videos) | Collect public Douyin video details. | url | `reel-video@1.0` | 0.1 credits/request |
+| [`douyin/video-comments`](https://docs.socq.ai/api-manual/douyin/video-comments) | Collect one page of public Douyin video comments. | url | `comment@1.0` | 0.1 credits/request |
+| [`douyin/video-detail`](https://docs.socq.ai/api-manual/douyin/video-detail) | Collect public Douyin video details. | url | `reel-video@1.0` | 0.1 credits/request |
+| [`douyin/video-search`](https://docs.socq.ai/api-manual/douyin/video-search) | Search public Douyin videos. | query | `reel-video@1.0` | 0.1 credits/request |
 | [`facebook-ad-library/ad`](https://docs.socq.ai/api-manual/facebook-ad-library/ad) | Facebook Ad Library Ad API | url | `ad@1.0` | 0.6 credits/result |
 | [`facebook-ad-library/company-ads`](https://docs.socq.ai/api-manual/facebook-ad-library/company-ads) | Facebook Ad Library Company Ads API | page_id | `ad@1.0` | 0.5 credits/result |
 | [`facebook-ad-library/company-search`](https://docs.socq.ai/api-manual/facebook-ad-library/company-search) | Facebook Ad Library Company Search API | query | `advertiser@1.0` | 0.5 credits/result |
@@ -46,12 +46,12 @@ Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit en
 | [`google-ad-library/ad`](https://docs.socq.ai/api-manual/google-ad-library/ad) | Collect public Google ad details. | url | `ad@1.0` | 0.5 credits/result |
 | [`google-ad-library/advertiser-search`](https://docs.socq.ai/api-manual/google-ad-library/advertiser-search) | Search public Google advertisers. | query | `advertiser@1.0` | 0.5 credits/result |
 | [`google-ad-library/company-ads`](https://docs.socq.ai/api-manual/google-ad-library/company-ads) | Collect public Google company ads. | one of: advertiser_id; domain | `ad@1.0` | 0.5 credits/result |
-| [`google-maps/places`](https://docs.socq.ai/api-manual/google-maps/places) | Collect public Google Maps place details. | urls | `place@1.0` | 0.15 credits/result |
+| [`google-maps/place-details`](https://docs.socq.ai/api-manual/google-maps/place-details) | Collect public Google Maps place details. | urls | `place@1.0` | 0.15 credits/result |
 | [`google-maps/reviews`](https://docs.socq.ai/api-manual/google-maps/reviews) | Collect public Google Maps reviews. | urls | `review@1.0` | 0.15 credits/result |
 | [`google-maps/search`](https://docs.socq.ai/api-manual/google-maps/search) | Search public Google Maps places. | location, query | `place@1.0` | 0.15 credits/result |
-| [`google-play/apps`](https://docs.socq.ai/api-manual/google-play/apps) | Collect public Google Play app details. | urls | `app@1.0` | 0.15 credits/result |
-| [`google-play/rankings`](https://docs.socq.ai/api-manual/google-play/rankings) | Collect public Google Play category rankings. | urls | `app@1.0` | 0.15 credits/result |
-| [`google-play/reviews`](https://docs.socq.ai/api-manual/google-play/reviews) | Collect public Google Play app reviews. | urls | `review@1.0` | 0.15 credits/result |
+| [`google-play/app-detail`](https://docs.socq.ai/api-manual/google-play/app-detail) | Collect public Google Play app details. | urls | `app@1.0` | 0.15 credits/result |
+| [`google-play/app-rankings`](https://docs.socq.ai/api-manual/google-play/app-rankings) | Collect public Google Play category rankings. | urls | `app@1.0` | 0.15 credits/result |
+| [`google-play/app-reviews`](https://docs.socq.ai/api-manual/google-play/app-reviews) | Collect public Google Play app reviews. | urls | `review@1.0` | 0.15 credits/result |
 | [`instagram/audio-reels`](https://docs.socq.ai/api-manual/instagram/audio-reels) | Collect public Instagram reels by audio identifier. | audio_ids | `reel-video@1.0` | 0.5 credits/result |
 | [`instagram/comments`](https://docs.socq.ai/api-manual/instagram/comments) | Instagram Comments API | urls | `comment@1.0` | 0.3 credits/result |
 | [`instagram/followers-count`](https://docs.socq.ai/api-manual/instagram/followers-count) | Instagram Followers Count API | one of: query; urls; usernames | `account@1.0` | 0.52 credits/result |
@@ -69,8 +69,8 @@ Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit en
 | [`instagram/tagged-posts`](https://docs.socq.ai/api-manual/instagram/tagged-posts) | Collect public posts that tag an Instagram profile. | usernames | `post@1.0` | 0.5 credits/result |
 | [`instagram/transcript`](https://docs.socq.ai/api-manual/instagram/transcript) | Extract transcripts from public Instagram posts and reels. | urls | `transcript@1.0` | 0.7 credits/result |
 | [`instagram/trending-reels`](https://docs.socq.ai/api-manual/instagram/trending-reels) | Collect public trending Instagram reels. | none | `reel-video@1.0` | 0.5 credits/result |
-| [`kwai/posts`](https://docs.socq.ai/api-manual/kwai/posts) | Collect a public Kwai post. | url | `post@1.0` | 0.19 credits/request |
-| [`kwai/profiles`](https://docs.socq.ai/api-manual/kwai/profiles) | Collect a public Kwai profile. | one of: url; username | `account@1.0` | 0.19 credits/request |
+| [`kwai/post`](https://docs.socq.ai/api-manual/kwai/post) | Collect a public Kwai post. | url | `post@1.0` | 0.19 credits/request |
+| [`kwai/profile`](https://docs.socq.ai/api-manual/kwai/profile) | Collect a public Kwai profile. | one of: url; username | `account@1.0` | 0.19 credits/request |
 | [`kwai/user-posts`](https://docs.socq.ai/api-manual/kwai/user-posts) | Collect one page of public Kwai user posts. | one of: url; username | `post@1.0` | 0.19 credits/request |
 | [`linkedin-ad-library/ad`](https://docs.socq.ai/api-manual/linkedin-ad-library/ad) | Collect public LinkedIn ad details. | url | `ad@1.0` | 0.5 credits/result |
 | [`linkedin-ad-library/search`](https://docs.socq.ai/api-manual/linkedin-ad-library/search) | Search public LinkedIn ads. | one of: company; company_id; keyword | `ad@1.0` | 0.5 credits/result |
@@ -94,13 +94,13 @@ Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit en
 | [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Reddit Search API | query | `post@1.0` | 0.6 credits/result |
 | [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Reddit Subreddit Posts API | urls | `post@1.0` | 0.5 credits/result |
 | [`rednote/comment-replies`](https://docs.socq.ai/api-manual/rednote/comment-replies) | Collect one page of public Rednote comment replies. | comment_id, url | `comment@1.0` | 1 credits/request |
-| [`rednote/comments`](https://docs.socq.ai/api-manual/rednote/comments) | Collect one page of public Rednote note comments. | url | `comment@1.0` | 1 credits/request |
 | [`rednote/home-recommendations`](https://docs.socq.ai/api-manual/rednote/home-recommendations) | Collect public Rednote home recommendations. | none | `post@1.0` | 1 credits/request |
-| [`rednote/notes`](https://docs.socq.ai/api-manual/rednote/notes) | Collect public Rednote note details. | url | `post@1.0` | 1 credits/request |
-| [`rednote/profiles`](https://docs.socq.ai/api-manual/rednote/profiles) | Collect a public Rednote profile. | one of: url; user_id | `account@1.0` | 1 credits/request |
-| [`rednote/search`](https://docs.socq.ai/api-manual/rednote/search) | Search public Rednote notes. | query | `post@1.0` | 1 credits/request |
+| [`rednote/note-comments`](https://docs.socq.ai/api-manual/rednote/note-comments) | Collect one page of public Rednote note comments. | url | `comment@1.0` | 1 credits/request |
+| [`rednote/note-detail`](https://docs.socq.ai/api-manual/rednote/note-detail) | Collect public Rednote note details. | url | `post@1.0` | 1 credits/request |
+| [`rednote/search-notes`](https://docs.socq.ai/api-manual/rednote/search-notes) | Search public Rednote notes. | query | `post@1.0` | 1 credits/request |
 | [`rednote/search-users`](https://docs.socq.ai/api-manual/rednote/search-users) | Search public Rednote users. | query | `account@1.0` | 1 credits/request |
 | [`rednote/user-notes`](https://docs.socq.ai/api-manual/rednote/user-notes) | Collect one page of public Rednote user notes. | one of: url; user_id | `post@1.0` | 1 credits/request |
+| [`rednote/user-profile`](https://docs.socq.ai/api-manual/rednote/user-profile) | Collect a public Rednote profile. | one of: url; user_id | `account@1.0` | 1 credits/request |
 | [`seo/google-organic-serp`](https://docs.socq.ai/api-manual/seo/google-organic-serp) | Retrieve live organic search results. | query | `serp-result@1.0` | 0.1 credits/result |
 | [`seo/keyword-difficulty`](https://docs.socq.ai/api-manual/seo/keyword-difficulty) | Calculate ranking difficulty for each input keyword. | keywords | `seo-keyword@1.0` | 0.1 credits/input |
 | [`seo/keyword-overview`](https://docs.socq.ai/api-manual/seo/keyword-overview) | Return combined metrics for each input keyword. | keywords | `seo-keyword@1.0` | 0.15 credits/input |
@@ -111,9 +111,9 @@ Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit en
 | [`seo/related-keywords`](https://docs.socq.ai/api-manual/seo/related-keywords) | Find semantically and lexically related keywords. | query | `seo-keyword@1.0` | 0.1 credits/result |
 | [`seo/relevant-pages`](https://docs.socq.ai/api-manual/seo/relevant-pages) | Find pages with measurable SEO value. | target | `serp-result@1.0` | 0.15 credits/result |
 | [`seo/search-intent`](https://docs.socq.ai/api-manual/seo/search-intent) | Classify the intent of each input keyword. | keywords | `seo-keyword@1.0` | 0.1 credits/input |
-| [`snapchat/profiles`](https://docs.socq.ai/api-manual/snapchat/profiles) | Collect a public Snapchat profile. | username | `account@1.0` | 0.19 credits/request |
+| [`snapchat/profile`](https://docs.socq.ai/api-manual/snapchat/profile) | Collect a public Snapchat profile. | username | `account@1.0` | 0.19 credits/request |
+| [`snapchat/spotlight`](https://docs.socq.ai/api-manual/snapchat/spotlight) | Collect a public Snapchat Spotlight item. | url | `reel-video@1.0` | 0.19 credits/request |
 | [`snapchat/spotlight-comments`](https://docs.socq.ai/api-manual/snapchat/spotlight-comments) | Collect one page of public Snapchat Spotlight comments. | url | `comment@1.0` | 0.19 credits/request |
-| [`snapchat/spotlights`](https://docs.socq.ai/api-manual/snapchat/spotlights) | Collect a public Snapchat Spotlight item. | url | `reel-video@1.0` | 0.19 credits/request |
 | [`threads/posts`](https://docs.socq.ai/api-manual/threads/posts) | Threads Posts API | urls | `post@1.0` | 0.5 credits/result |
 | [`threads/profiles`](https://docs.socq.ai/api-manual/threads/profiles) | Threads Profiles API | urls | `account@1.0` | 0.6 credits/result |
 | [`threads/user-posts`](https://docs.socq.ai/api-manual/threads/user-posts) | Threads User Posts API | urls | `post@1.0` | 0.5 credits/result |
@@ -136,10 +136,10 @@ Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Do not edit en
 | [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Collect public videos from TikTok profiles. | usernames | `reel-video@1.0` | 0.5 credits/result |
 | [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Extract transcripts from public TikTok videos. | urls | `transcript@1.0` | 0.5 credits/result |
 | [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | TikTok Videos API | urls | `reel-video@1.0` | 0.7 credits/result |
-| [`truth-social/posts`](https://docs.socq.ai/api-manual/truth-social/posts) | Collect a public Truth Social post. | url | `post@1.0` | 0.19 credits/request |
-| [`truth-social/profiles`](https://docs.socq.ai/api-manual/truth-social/profiles) | Collect a public Truth Social profile. | username | `account@1.0` | 0.19 credits/request |
+| [`truth-social/post`](https://docs.socq.ai/api-manual/truth-social/post) | Collect a public Truth Social post. | url | `post@1.0` | 0.19 credits/request |
+| [`truth-social/profile`](https://docs.socq.ai/api-manual/truth-social/profile) | Collect a public Truth Social profile. | username | `account@1.0` | 0.19 credits/request |
 | [`truth-social/user-posts`](https://docs.socq.ai/api-manual/truth-social/user-posts) | Collect one page of public Truth Social user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
-| [`twitch/profiles`](https://docs.socq.ai/api-manual/twitch/profiles) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
+| [`twitch/profile`](https://docs.socq.ai/api-manual/twitch/profile) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
 | [`twitch/user-videos`](https://docs.socq.ai/api-manual/twitch/user-videos) | Collect one page of public Twitch user videos. | username | `reel-video@1.0` | 0.19 credits/request |
 | [`x/followers-list`](https://docs.socq.ai/api-manual/x/followers-list) | Collect public X follower profiles. | usernames | `relationship@1.0` | 0.5 credits/result |
 | [`x/following-list`](https://docs.socq.ai/api-manual/x/following-list) | Collect public X followed profiles. | usernames | `relationship@1.0` | 0.5 credits/result |

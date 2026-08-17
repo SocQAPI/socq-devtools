@@ -1,19 +1,19 @@
 # Rednote
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Rednote.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Rednote.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
 | [`rednote/comment-replies`](https://docs.socq.ai/api-manual/rednote/comment-replies) | Collect one page of public Rednote comment replies. | comment_id, url | `comment@1.0` | 1 credits/request |
-| [`rednote/comments`](https://docs.socq.ai/api-manual/rednote/comments) | Collect one page of public Rednote note comments. | url | `comment@1.0` | 1 credits/request |
 | [`rednote/home-recommendations`](https://docs.socq.ai/api-manual/rednote/home-recommendations) | Collect public Rednote home recommendations. | none | `post@1.0` | 1 credits/request |
-| [`rednote/notes`](https://docs.socq.ai/api-manual/rednote/notes) | Collect public Rednote note details. | url | `post@1.0` | 1 credits/request |
-| [`rednote/profiles`](https://docs.socq.ai/api-manual/rednote/profiles) | Collect a public Rednote profile. | one of: url; user_id | `account@1.0` | 1 credits/request |
-| [`rednote/search`](https://docs.socq.ai/api-manual/rednote/search) | Search public Rednote notes. | query | `post@1.0` | 1 credits/request |
+| [`rednote/note-comments`](https://docs.socq.ai/api-manual/rednote/note-comments) | Collect one page of public Rednote note comments. | url | `comment@1.0` | 1 credits/request |
+| [`rednote/note-detail`](https://docs.socq.ai/api-manual/rednote/note-detail) | Collect public Rednote note details. | url | `post@1.0` | 1 credits/request |
+| [`rednote/search-notes`](https://docs.socq.ai/api-manual/rednote/search-notes) | Search public Rednote notes. | query | `post@1.0` | 1 credits/request |
 | [`rednote/search-users`](https://docs.socq.ai/api-manual/rednote/search-users) | Search public Rednote users. | query | `account@1.0` | 1 credits/request |
 | [`rednote/user-notes`](https://docs.socq.ai/api-manual/rednote/user-notes) | Collect one page of public Rednote user notes. | one of: url; user_id | `post@1.0` | 1 credits/request |
+| [`rednote/user-profile`](https://docs.socq.ai/api-manual/rednote/user-profile) | Collect a public Rednote profile. | one of: url; user_id | `account@1.0` | 1 credits/request |
 
 ## Validated examples
 
@@ -25,16 +25,6 @@ Typed MCP tool: `socq_rednote_comment_replies`
 {
   "url": "https://www.xiaohongshu.com/explore/6a6174d6000000001d02013b?xsec_token=AB4sNisHvFy2q4C5ujG23AV858osk5rYC63eCgf8YTVOI%3D&xsec_source=pc_feed",
   "comment_id": "6a6327f6000000002b026c1d"
-}
-```
-
-### `rednote/comments`
-
-Typed MCP tool: `socq_rednote_comments`
-
-```json
-{
-  "url": "https://www.xiaohongshu.com/explore/6a6174d6000000001d02013b?xsec_token=AB4sNisHvFy2q4C5ujG23AV858osk5rYC63eCgf8YTVOI%3D&xsec_source=pc_feed"
 }
 ```
 
@@ -50,9 +40,19 @@ Typed MCP tool: `socq_rednote_home_recommendations`
 }
 ```
 
-### `rednote/notes`
+### `rednote/note-comments`
 
-Typed MCP tool: `socq_rednote_notes`
+Typed MCP tool: `socq_rednote_note_comments`
+
+```json
+{
+  "url": "https://www.xiaohongshu.com/explore/6a6174d6000000001d02013b?xsec_token=AB4sNisHvFy2q4C5ujG23AV858osk5rYC63eCgf8YTVOI%3D&xsec_source=pc_feed"
+}
+```
+
+### `rednote/note-detail`
+
+Typed MCP tool: `socq_rednote_note_detail`
 
 ```json
 {
@@ -60,19 +60,9 @@ Typed MCP tool: `socq_rednote_notes`
 }
 ```
 
-### `rednote/profiles`
+### `rednote/search-notes`
 
-Typed MCP tool: `socq_rednote_profiles`
-
-```json
-{
-  "user_id": "65d8c7d40000000005033a6b"
-}
-```
-
-### `rednote/search`
-
-Typed MCP tool: `socq_rednote_search`
+Typed MCP tool: `socq_rednote_search_notes`
 
 ```json
 {
@@ -95,6 +85,16 @@ Typed MCP tool: `socq_rednote_search_users`
 ### `rednote/user-notes`
 
 Typed MCP tool: `socq_rednote_user_notes`
+
+```json
+{
+  "user_id": "65d8c7d40000000005033a6b"
+}
+```
+
+### `rednote/user-profile`
+
+Typed MCP tool: `socq_rednote_user_profile`
 
 ```json
 {

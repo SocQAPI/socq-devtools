@@ -1,19 +1,19 @@
 # Twitch
 
-Generated from SocQ Capability Registry schema `v1-457a38f62a01`. Read this file when the request targets Twitch.
+Generated from SocQ Capability Registry schema `v1-7220ff41bac6`. Read this file when the request targets Twitch.
 
 ## Endpoint selection
 
 | Endpoint | Use for | Input choice | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
-| [`twitch/profiles`](https://docs.socq.ai/api-manual/twitch/profiles) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
+| [`twitch/profile`](https://docs.socq.ai/api-manual/twitch/profile) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
 | [`twitch/user-videos`](https://docs.socq.ai/api-manual/twitch/user-videos) | Collect one page of public Twitch user videos. | username | `reel-video@1.0` | 0.19 credits/request |
 
 ## Validated examples
 
-### `twitch/profiles`
+### `twitch/profile`
 
-Typed MCP tool: `socq_twitch_profiles`
+Typed MCP tool: `socq_twitch_profile`
 
 ```json
 {
