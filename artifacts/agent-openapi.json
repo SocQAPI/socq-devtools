@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "SocQ Agent API",
-    "version": "v1-7220ff41bac6",
+    "version": "v1-535044043eab",
     "description": "Asynchronous social data API generated from the SocQ Capability Registry."
   },
   "servers": [
@@ -774,6 +774,16 @@
                     "required": [
                       "username"
                     ]
+                  }
+                ],
+                "allOf": [
+                  {
+                    "not": {
+                      "required": [
+                        "user_id",
+                        "username"
+                      ]
+                    }
                   }
                 ]
               }
@@ -7042,7 +7052,12 @@
                   },
                   "media_type": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "all",
+                      "image",
+                      "video"
+                    ]
                   },
                   "results_limit": {
                     "type": "integer",
@@ -7240,11 +7255,22 @@
                 "properties": {
                   "media_type": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "all",
+                      "image",
+                      "video"
+                    ]
                   },
                   "published_within": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "all",
+                      "day",
+                      "six_months",
+                      "week"
+                    ]
                   },
                   "query": {
                     "type": "string",
@@ -7253,7 +7279,12 @@
                   },
                   "sort_by": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "general",
+                      "latest",
+                      "most_liked"
+                    ]
                   }
                 },
                 "required": [
@@ -10624,11 +10655,24 @@
                 "properties": {
                   "filter_by": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "all",
+                      "archive",
+                      "archives",
+                      "highlight",
+                      "highlights",
+                      "upload",
+                      "uploads"
+                    ]
                   },
                   "sort_by": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "enum": [
+                      "time",
+                      "views"
+                    ]
                   },
                   "username": {
                     "type": "string",
