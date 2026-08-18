@@ -21,7 +21,7 @@ Typed MCP tool: `socq_amazon_best_sellers`
 ```json
 {
   "urls": [
-    "https://www.amazon.com/Best-Sellers-Electronics/zgbs/electronics"
+    "https://www.amazon.com/Best-Sellers-Books/zgbs/books"
   ],
   "results_limit": 3
 }
