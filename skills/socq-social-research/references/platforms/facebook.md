@@ -1,6 +1,6 @@
 # Facebook
 
-Generated from SocQ Capability Registry schema `v1-535044043eab`. Read this file when the request targets Facebook.
+Generated from SocQ Capability Registry schema `v1-d93e6d4f8368`. Read this file when the request targets Facebook.
 
 ## Endpoint selection
 

@@ -1,6 +1,6 @@
 # Douyin
 
-Generated from SocQ Capability Registry schema `v1-535044043eab`. Read this file when the request targets Douyin.
+Generated from SocQ Capability Registry schema `v1-d93e6d4f8368`. Read this file when the request targets Douyin.
 
 ## Endpoint selection
 
@@ -32,8 +32,8 @@ Typed MCP tool: `socq_douyin_product_data`
 
 ```json
 {
-  "room_id": "7462723839303093032",
-  "author_id": "82194685715",
+  "room_id": "7356742011975715619",
+  "author_id": "2207432981615527",
   "results_limit": 3
 }
 ```
