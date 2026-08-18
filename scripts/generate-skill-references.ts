@@ -284,6 +284,63 @@ function platformSkillDescription(platform: string, title: string): string {
 }
 
 function platformPlaybook(platform: string): string {
+  if (platform === "rednote") {
+    return `
+## Plan Rednote research
+
+Separate note discovery, creator research, and discussion analysis before choosing an endpoint:
+
+- Use \`rednote/search-notes\` for topic, product, brand, or keyword discovery. Keep the original query and preserve the returned note URLs for follow-up collection.
+- Use \`rednote/home-recommendations\` only for a point-in-time recommendation sample. Do not describe it as search results, a stable ranking, or a complete view of the platform.
+- Use \`rednote/note-detail\` when the user supplies a note URL or when a discovered note needs full metadata before analysis.
+- Use \`rednote/note-comments\` for top-level discussion and \`rednote/comment-replies\` for a selected comment thread. Retain note and parent-comment identifiers so replies remain attributable.
+- Use \`rednote/search-users\` to resolve an ambiguous creator, then \`rednote/user-profile\` for account metadata and \`rednote/user-notes\` for that creator's public notes.
+
+For product or brand research, distinguish creator claims, note-level engagement, and audience comments in the final report. Recommendation samples and keyword search results use different discovery mechanisms and must not be merged into a single rank. When comparing creators or notes, align collection windows and requested page limits, and label any partial comment or reply coverage.
+
+`;
+  }
+  if (platform === "snapchat") {
+    return `
+## Plan Snapchat research
+
+Route Snapchat requests by public object type instead of assuming a general search or account-feed capability:
+
+- Use \`snapchat/profile\` when the user supplies a username and needs public account identity or profile metadata.
+- Use \`snapchat/spotlight\` when the user supplies a Spotlight URL and needs the video's public metadata.
+- Use \`snapchat/spotlight-comments\` for audience discussion on a specific Spotlight URL. Keep the Spotlight URL with every collected page so comments remain tied to the correct item.
+
+The available endpoints do not provide broad Snapchat keyword search, private Stories, messaging, friend graphs, or a complete creator feed. Say so directly when a request exceeds this scope. For Spotlight analysis, collect the item before its comments, distinguish item metadata from comment evidence, and report collection time because public counters and comment availability can change.
+
+`;
+  }
+  if (platform === "truth-social") {
+    return `
+## Plan Truth Social research
+
+Choose between account resolution, timeline collection, and single-post inspection:
+
+- Use \`truth-social/profile\` to resolve a supplied username and record the canonical account identity before account-level analysis.
+- Use \`truth-social/user-posts\` for a public account timeline. Prefer the resolved user ID when available, preserve pagination order, and state the collected time range.
+- Use \`truth-social/post\` when the user provides a post URL or when a timeline item needs its current public metadata inspected separately.
+
+Do not infer a platform-wide trend from one account timeline, and do not treat current post counters as engagement gained during a historical window. The available endpoints do not provide general keyword search, follower graphs, or conversation-thread expansion. For comparisons, collect each account with the same page limit and time boundary, separate original post text from current metrics, and identify deleted, unavailable, or out-of-window posts as coverage gaps.
+
+`;
+  }
+  if (platform === "twitch") {
+    return `
+## Plan Twitch research
+
+Keep channel identity and recorded-video inventory as separate collection steps:
+
+- Use \`twitch/profile\` to resolve a channel username and collect its current public profile metadata.
+- Use \`twitch/user-videos\` for the channel's public recorded-video inventory. Preserve pagination order and the collection timestamp when comparing upload activity.
+
+Resolve the profile first when the channel name is ambiguous, then collect videos only if the request needs recorded content or publishing history. The available endpoints do not provide live-stream state, clips, chat messages, followers, subscriptions, or historical audience measurements. Do not present recorded videos as the channel's complete live activity. When comparing channels, use the same page limit and collection time, and distinguish current cumulative video metrics from activity inside the requested period.
+
+`;
+  }
   if (platform === "x") {
     return `
 ## Plan X research

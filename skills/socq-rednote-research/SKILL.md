@@ -41,6 +41,19 @@ Use this Skill to select and run SocQ endpoints for public Rednote research. Soc
 - The workflow needs Rednote-specific endpoint selection, input validation, pagination, or raw exports.
 - An agent must estimate credits, submit a task, poll it to completion, and report normalized results.
 
+## Plan Rednote research
+
+Separate note discovery, creator research, and discussion analysis before choosing an endpoint:
+
+- Use `rednote/search-notes` for topic, product, brand, or keyword discovery. Keep the original query and preserve the returned note URLs for follow-up collection.
+- Use `rednote/home-recommendations` only for a point-in-time recommendation sample. Do not describe it as search results, a stable ranking, or a complete view of the platform.
+- Use `rednote/note-detail` when the user supplies a note URL or when a discovered note needs full metadata before analysis.
+- Use `rednote/note-comments` for top-level discussion and `rednote/comment-replies` for a selected comment thread. Retain note and parent-comment identifiers so replies remain attributable.
+- Use `rednote/search-users` to resolve an ambiguous creator, then `rednote/user-profile` for account metadata and `rednote/user-notes` for that creator's public notes.
+
+For product or brand research, distinguish creator claims, note-level engagement, and audience comments in the final report. Recommendation samples and keyword search results use different discovery mechanisms and must not be merged into a single rank. When comparing creators or notes, align collection windows and requested page limits, and label any partial comment or reply coverage.
+
+
 ## Endpoint Selection
 
 - Read [platform.md](references/platform.md) before selecting an endpoint or constructing input. It contains the current endpoint IDs, typed MCP tools, CLI mappings, costs, input choices, and validated examples generated from the Capability Registry.

@@ -41,6 +41,17 @@ Use this Skill to select and run SocQ endpoints for public Snapchat research. So
 - The workflow needs Snapchat-specific endpoint selection, input validation, pagination, or raw exports.
 - An agent must estimate credits, submit a task, poll it to completion, and report normalized results.
 
+## Plan Snapchat research
+
+Route Snapchat requests by public object type instead of assuming a general search or account-feed capability:
+
+- Use `snapchat/profile` when the user supplies a username and needs public account identity or profile metadata.
+- Use `snapchat/spotlight` when the user supplies a Spotlight URL and needs the video's public metadata.
+- Use `snapchat/spotlight-comments` for audience discussion on a specific Spotlight URL. Keep the Spotlight URL with every collected page so comments remain tied to the correct item.
+
+The available endpoints do not provide broad Snapchat keyword search, private Stories, messaging, friend graphs, or a complete creator feed. Say so directly when a request exceeds this scope. For Spotlight analysis, collect the item before its comments, distinguish item metadata from comment evidence, and report collection time because public counters and comment availability can change.
+
+
 ## Endpoint Selection
 
 - Read [platform.md](references/platform.md) before selecting an endpoint or constructing input. It contains the current endpoint IDs, typed MCP tools, CLI mappings, costs, input choices, and validated examples generated from the Capability Registry.

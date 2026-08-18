@@ -41,6 +41,17 @@ Use this Skill to select and run SocQ endpoints for public Truth Social research
 - The workflow needs Truth Social-specific endpoint selection, input validation, pagination, or raw exports.
 - An agent must estimate credits, submit a task, poll it to completion, and report normalized results.
 
+## Plan Truth Social research
+
+Choose between account resolution, timeline collection, and single-post inspection:
+
+- Use `truth-social/profile` to resolve a supplied username and record the canonical account identity before account-level analysis.
+- Use `truth-social/user-posts` for a public account timeline. Prefer the resolved user ID when available, preserve pagination order, and state the collected time range.
+- Use `truth-social/post` when the user provides a post URL or when a timeline item needs its current public metadata inspected separately.
+
+Do not infer a platform-wide trend from one account timeline, and do not treat current post counters as engagement gained during a historical window. The available endpoints do not provide general keyword search, follower graphs, or conversation-thread expansion. For comparisons, collect each account with the same page limit and time boundary, separate original post text from current metrics, and identify deleted, unavailable, or out-of-window posts as coverage gaps.
+
+
 ## Endpoint Selection
 
 - Read [platform.md](references/platform.md) before selecting an endpoint or constructing input. It contains the current endpoint IDs, typed MCP tools, CLI mappings, costs, input choices, and validated examples generated from the Capability Registry.

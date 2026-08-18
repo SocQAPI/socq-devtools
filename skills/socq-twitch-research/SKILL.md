@@ -41,6 +41,16 @@ Use this Skill to select and run SocQ endpoints for public Twitch research. SocQ
 - The workflow needs Twitch-specific endpoint selection, input validation, pagination, or raw exports.
 - An agent must estimate credits, submit a task, poll it to completion, and report normalized results.
 
+## Plan Twitch research
+
+Keep channel identity and recorded-video inventory as separate collection steps:
+
+- Use `twitch/profile` to resolve a channel username and collect its current public profile metadata.
+- Use `twitch/user-videos` for the channel's public recorded-video inventory. Preserve pagination order and the collection timestamp when comparing upload activity.
+
+Resolve the profile first when the channel name is ambiguous, then collect videos only if the request needs recorded content or publishing history. The available endpoints do not provide live-stream state, clips, chat messages, followers, subscriptions, or historical audience measurements. Do not present recorded videos as the channel's complete live activity. When comparing channels, use the same page limit and collection time, and distinguish current cumulative video metrics from activity inside the requested period.
+
+
 ## Endpoint Selection
 
 - Read [platform.md](references/platform.md) before selecting an endpoint or constructing input. It contains the current endpoint IDs, typed MCP tools, CLI mappings, costs, input choices, and validated examples generated from the Capability Registry.
