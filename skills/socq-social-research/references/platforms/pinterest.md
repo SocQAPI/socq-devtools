@@ -1,6 +1,6 @@
 # Pinterest
 
-Generated from SocQ Capability Registry schema `v1-d93e6d4f8368`. Read this file when the request targets Pinterest.
+Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Read this file when the request targets Pinterest.
 
 ## Endpoint selection
 

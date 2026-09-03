@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-d93e6d4f8368`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
@@ -60,7 +60,7 @@ Generated from SocQ Capability Registry schema `v1-d93e6d4f8368`. Do not edit en
 | [`instagram/hashtag-posts`](https://docs.socq.ai/api-manual/instagram/hashtag-posts) | Collect public Instagram posts matching a hashtag. | hashtags | `post@1.0` | 0.5 credits/result |
 | [`instagram/highlight-items`](https://docs.socq.ai/api-manual/instagram/highlight-items) | Collect public Instagram highlight items. | highlight_ids | `highlight@1.0` | 0.5 credits/result |
 | [`instagram/post-info`](https://docs.socq.ai/api-manual/instagram/post-info) | Collect public Instagram post details. | urls | `post@1.0` | 0.5 credits/result |
-| [`instagram/posts`](https://docs.socq.ai/api-manual/instagram/posts) | Instagram Post API | one of: query; urls; usernames | `post@1.0` | 0.34 credits/result |
+| [`instagram/posts`](https://docs.socq.ai/api-manual/instagram/posts) | Instagram Post API | one of: urls; usernames | `post@1.0` | 0.34 credits/result |
 | [`instagram/profiles`](https://docs.socq.ai/api-manual/instagram/profiles) | Collect public Instagram profile metadata and statistics. | usernames | `account@1.0` | 0.6 credits/result |
 | [`instagram/reels`](https://docs.socq.ai/api-manual/instagram/reels) | Instagram Reel API | one of: query; urls; usernames | `reel-video@1.0` | 0.52 credits/result |
 | [`instagram/reels-search`](https://docs.socq.ai/api-manual/instagram/reels-search) | Search public Instagram reels. | query | `reel-video@1.0` | 0.5 credits/result |
