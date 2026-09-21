@@ -1,6 +1,6 @@
 # Facebook
 
-Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Read this file when the request targets Facebook.
+Generated from SocQ Capability Registry schema `v1-db3820acff22`. Read this file when the request targets Facebook.
 
 ## Endpoint selection
 
@@ -13,8 +13,8 @@ Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Read this file
 | [`facebook/event-details`](https://docs.socq.ai/api-manual/facebook/event-details) | Collect public Facebook event details. | urls | `event@1.0` | 0.5 credits/result |
 | [`facebook/events-search`](https://docs.socq.ai/api-manual/facebook/events-search) | Search public Facebook events by keyword. | query | `event@1.0` | 0.6 credits/result |
 | [`facebook/group-posts`](https://docs.socq.ai/api-manual/facebook/group-posts) | Collect posts from public Facebook groups. | urls | `post@1.0` | 1.2 credits/result |
-| [`facebook/pages`](https://docs.socq.ai/api-manual/facebook/pages) | Facebook Page API | one of: query; urls; usernames | `account@1.0` | 2.4 credits/result |
-| [`facebook/posts`](https://docs.socq.ai/api-manual/facebook/posts) | Facebook Posts API | one of: query; urls; usernames | `post@1.0` | 1 credits/result |
+| [`facebook/pages`](https://docs.socq.ai/api-manual/facebook/pages) | Facebook Page API | urls | `account@1.0` | 2.4 credits/result |
+| [`facebook/posts`](https://docs.socq.ai/api-manual/facebook/posts) | Facebook Posts API | urls | `post@1.0` | 1 credits/result |
 | [`facebook/profile-events`](https://docs.socq.ai/api-manual/facebook/profile-events) | Collect public Facebook profile events. | urls | `event@1.0` | 0.6 credits/result |
 | [`facebook/profile-photos`](https://docs.socq.ai/api-manual/facebook/profile-photos) | Collect public Facebook profile photos. | urls | `reel-video@1.0` | 0.5 credits/result |
 | [`facebook/profiles`](https://docs.socq.ai/api-manual/facebook/profiles) | Collect public Facebook profile details. | urls | `account@1.0` | 1.2 credits/result |
@@ -111,10 +111,12 @@ Typed MCP tool: `socq_facebook_group_posts`
 
 Typed MCP tool: `socq_facebook_pages`
 
+Provide public Facebook page/profile URLs in urls. Keyword search, username-only input, and individual post/reel URLs are not supported. Legacy query and usernames fields are ignored when valid urls are supplied.
+
 ```json
 {
-  "usernames": [
-    "nasa"
+  "urls": [
+    "https://www.facebook.com/nasa"
   ]
 }
 ```
@@ -122,6 +124,8 @@ Typed MCP tool: `socq_facebook_pages`
 ### `facebook/posts`
 
 Typed MCP tool: `socq_facebook_posts`
+
+Provide public Facebook page/profile URLs in urls. Keyword search, username-only input, and individual post/reel URLs are not supported. Legacy query and usernames fields are ignored when valid urls are supplied.
 
 ```json
 {
@@ -172,6 +176,8 @@ Typed MCP tool: `socq_facebook_profiles`
 ### `facebook/reels`
 
 Typed MCP tool: `socq_facebook_reels`
+
+Provide Facebook page/profile URLs to collect their reels. A single /reel/... video URL is not a profile URL.
 
 ```json
 {

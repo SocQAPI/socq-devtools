@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-db3820acff22`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
@@ -36,8 +36,8 @@ Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Do not edit en
 | [`facebook/event-details`](https://docs.socq.ai/api-manual/facebook/event-details) | Collect public Facebook event details. | urls | `event@1.0` | 0.5 credits/result |
 | [`facebook/events-search`](https://docs.socq.ai/api-manual/facebook/events-search) | Search public Facebook events by keyword. | query | `event@1.0` | 0.6 credits/result |
 | [`facebook/group-posts`](https://docs.socq.ai/api-manual/facebook/group-posts) | Collect posts from public Facebook groups. | urls | `post@1.0` | 1.2 credits/result |
-| [`facebook/pages`](https://docs.socq.ai/api-manual/facebook/pages) | Facebook Page API | one of: query; urls; usernames | `account@1.0` | 2.4 credits/result |
-| [`facebook/posts`](https://docs.socq.ai/api-manual/facebook/posts) | Facebook Posts API | one of: query; urls; usernames | `post@1.0` | 1 credits/result |
+| [`facebook/pages`](https://docs.socq.ai/api-manual/facebook/pages) | Facebook Page API | urls | `account@1.0` | 2.4 credits/result |
+| [`facebook/posts`](https://docs.socq.ai/api-manual/facebook/posts) | Facebook Posts API | urls | `post@1.0` | 1 credits/result |
 | [`facebook/profile-events`](https://docs.socq.ai/api-manual/facebook/profile-events) | Collect public Facebook profile events. | urls | `event@1.0` | 0.6 credits/result |
 | [`facebook/profile-photos`](https://docs.socq.ai/api-manual/facebook/profile-photos) | Collect public Facebook profile photos. | urls | `reel-video@1.0` | 0.5 credits/result |
 | [`facebook/profiles`](https://docs.socq.ai/api-manual/facebook/profiles) | Collect public Facebook profile details. | urls | `account@1.0` | 1.2 credits/result |
@@ -54,7 +54,7 @@ Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Do not edit en
 | [`google-play/app-reviews`](https://docs.socq.ai/api-manual/google-play/app-reviews) | Collect public Google Play app reviews. | urls | `review@1.0` | 0.15 credits/result |
 | [`instagram/audio-reels`](https://docs.socq.ai/api-manual/instagram/audio-reels) | Collect public Instagram reels by audio identifier. | audio_ids | `reel-video@1.0` | 0.5 credits/result |
 | [`instagram/comments`](https://docs.socq.ai/api-manual/instagram/comments) | Instagram Comments API | urls | `comment@1.0` | 0.3 credits/result |
-| [`instagram/followers-count`](https://docs.socq.ai/api-manual/instagram/followers-count) | Instagram Followers Count API | one of: query; urls; usernames | `account@1.0` | 0.52 credits/result |
+| [`instagram/followers-count`](https://docs.socq.ai/api-manual/instagram/followers-count) | Instagram Followers Count API | one of: urls; usernames | `account@1.0` | 0.52 credits/result |
 | [`instagram/followers-list`](https://docs.socq.ai/api-manual/instagram/followers-list) | Collect public profiles from an Instagram account follower list. | usernames | `relationship@1.0` | 0.3 credits/result |
 | [`instagram/following-list`](https://docs.socq.ai/api-manual/instagram/following-list) | Collect public profiles followed by an Instagram account. | usernames | `relationship@1.0` | 0.3 credits/result |
 | [`instagram/hashtag-posts`](https://docs.socq.ai/api-manual/instagram/hashtag-posts) | Collect public Instagram posts matching a hashtag. | hashtags | `post@1.0` | 0.5 credits/result |
@@ -62,9 +62,9 @@ Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Do not edit en
 | [`instagram/post-info`](https://docs.socq.ai/api-manual/instagram/post-info) | Collect public Instagram post details. | urls | `post@1.0` | 0.5 credits/result |
 | [`instagram/posts`](https://docs.socq.ai/api-manual/instagram/posts) | Instagram Post API | one of: urls; usernames | `post@1.0` | 0.34 credits/result |
 | [`instagram/profiles`](https://docs.socq.ai/api-manual/instagram/profiles) | Collect public Instagram profile metadata and statistics. | usernames | `account@1.0` | 0.6 credits/result |
-| [`instagram/reels`](https://docs.socq.ai/api-manual/instagram/reels) | Instagram Reel API | one of: query; urls; usernames | `reel-video@1.0` | 0.52 credits/result |
+| [`instagram/reels`](https://docs.socq.ai/api-manual/instagram/reels) | Instagram Reel API | one of: urls; usernames | `reel-video@1.0` | 0.52 credits/result |
 | [`instagram/reels-search`](https://docs.socq.ai/api-manual/instagram/reels-search) | Search public Instagram reels. | query | `reel-video@1.0` | 0.5 credits/result |
-| [`instagram/search`](https://docs.socq.ai/api-manual/instagram/search) | Instagram Search API | one of: query; urls; usernames | `account@1.0` | 0.54 credits/result |
+| [`instagram/search`](https://docs.socq.ai/api-manual/instagram/search) | Instagram Search API | query | `account@1.0` | 0.54 credits/result |
 | [`instagram/story-highlights`](https://docs.socq.ai/api-manual/instagram/story-highlights) | Collect public Instagram story highlights. | usernames | `highlight@1.0` | 0.5 credits/result |
 | [`instagram/tagged-posts`](https://docs.socq.ai/api-manual/instagram/tagged-posts) | Collect public posts that tag an Instagram profile. | usernames | `post@1.0` | 0.5 credits/result |
 | [`instagram/transcript`](https://docs.socq.ai/api-manual/instagram/transcript) | Extract transcripts from public Instagram posts and reels. | urls | `transcript@1.0` | 0.7 credits/result |

@@ -1,6 +1,6 @@
 # LinkedIn
 
-Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Read this file when the request targets LinkedIn.
+Generated from SocQ Capability Registry schema `v1-db3820acff22`. Read this file when the request targets LinkedIn.
 
 ## Endpoint selection
 
@@ -146,6 +146,8 @@ Typed MCP tool: `socq_linkedin_search_people`
 ### `linkedin/search-posts`
 
 Typed MCP tool: `socq_linkedin_search_posts`
+
+An explicit no-posts response completes successfully with an empty results.items list. Other access or service errors remain failures. Empty results follow the normal empty-result billing policy.
 
 ```json
 {

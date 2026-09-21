@@ -26,6 +26,7 @@ interface Capability {
   description: string;
   billing: Billing;
   input_schema: {
+    description?: string;
     required?: string[];
     anyOf?: Array<{required?: string[]}>;
     properties?: Record<string, unknown>;
@@ -99,6 +100,10 @@ for (const [platform, items] of grouped) {
       "",
       `Typed MCP tool: \`${item.tool_name}\``,
       "",
+      ...(item.input_schema.description ? [item.input_schema.description, ""] : []),
+      ...(["instagram/hashtag-posts", "linkedin/search-posts"].includes(item.public_id)
+        ? ["An explicit no-posts response completes successfully with an empty results.items list. Other access or service errors remain failures. Empty results follow the normal empty-result billing policy.", ""]
+        : []),
       "```json",
       JSON.stringify(item.examples[0] ?? {}, null, 2),
       "```",

@@ -1,6 +1,6 @@
 # SEO
 
-Generated from SocQ Capability Registry schema `v1-e5c51554619a`. Read this file when the request targets SEO.
+Generated from SocQ Capability Registry schema `v1-db3820acff22`. Read this file when the request targets SEO.
 
 ## Endpoint selection
 
@@ -36,6 +36,8 @@ Typed MCP tool: `socq_seo_google_organic_serp`
 
 Typed MCP tool: `socq_seo_keyword_difficulty`
 
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
+
 ```json
 {
   "keywords": [
@@ -49,6 +51,8 @@ Typed MCP tool: `socq_seo_keyword_difficulty`
 ### `seo/keyword-overview`
 
 Typed MCP tool: `socq_seo_keyword_overview`
+
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
 
 ```json
 {
@@ -64,6 +68,8 @@ Typed MCP tool: `socq_seo_keyword_overview`
 
 Typed MCP tool: `socq_seo_keyword_search_volume`
 
+Use language values supported by Keyword Search Volume: Chinese uses zh_CN or zh_TW, not zh. Locale support differs between SEO endpoints.
+
 ```json
 {
   "keywords": [
@@ -78,6 +84,8 @@ Typed MCP tool: `socq_seo_keyword_search_volume`
 
 Typed MCP tool: `socq_seo_keyword_suggestions`
 
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
+
 ```json
 {
   "query": "keyword research",
@@ -90,6 +98,8 @@ Typed MCP tool: `socq_seo_keyword_suggestions`
 ### `seo/keywords-for-site`
 
 Typed MCP tool: `socq_seo_keywords_for_site`
+
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
 
 ```json
 {
@@ -104,6 +114,8 @@ Typed MCP tool: `socq_seo_keywords_for_site`
 
 Typed MCP tool: `socq_seo_ranked_keywords`
 
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
+
 ```json
 {
   "target": "example.com",
@@ -116,6 +128,8 @@ Typed MCP tool: `socq_seo_ranked_keywords`
 ### `seo/related-keywords`
 
 Typed MCP tool: `socq_seo_related_keywords`
+
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
 
 ```json
 {
@@ -130,6 +144,8 @@ Typed MCP tool: `socq_seo_related_keywords`
 
 Typed MCP tool: `socq_seo_relevant_pages`
 
+Choose a supported country and a language available in that country. The defaults are United States (2840) and English (en). Country code 2156 is unavailable here. Locale support differs from Keyword Search Volume and live SERP.
+
 ```json
 {
   "target": "example.com",
@@ -142,6 +158,8 @@ Typed MCP tool: `socq_seo_relevant_pages`
 ### `seo/search-intent`
 
 Typed MCP tool: `socq_seo_search_intent`
+
+Use the language codes declared for this endpoint. Locale support differs from Keyword Search Volume and live SERP.
 
 ```json
 {
