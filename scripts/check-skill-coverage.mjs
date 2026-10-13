@@ -69,6 +69,9 @@ for (const platform of platforms) {
     if (specialistShared !== shared) throw new Error(`${specialistRoot}/references/${name} is stale`);
   }
   for (const endpoint of endpoints.filter((item) => item.platform === platform)) {
+    if (endpoint.input_schema.description && !content.includes(endpoint.input_schema.description)) {
+      throw new Error(`${path} is missing input constraints for ${endpoint.public_id}`);
+    }
     if (!content.includes(`\`${endpoint.public_id}\``)) throw new Error(`${path} is missing ${endpoint.public_id}`);
     if (!content.includes(`\`${endpoint.tool_name}\``)) throw new Error(`${path} is missing ${endpoint.tool_name}`);
     if (!specialistReference.includes(`\`${endpoint.public_id}\``)) {
