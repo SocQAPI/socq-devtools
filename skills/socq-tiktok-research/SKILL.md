@@ -41,6 +41,14 @@ Use this Skill to select and run SocQ endpoints for public TikTok research. SocQ
 - The workflow needs TikTok-specific endpoint selection, input validation, pagination, or raw exports.
 - An agent must estimate credits, submit a task, poll it to completion, and report normalized results.
 
+## Plan TikTok discovery
+
+- Use `tiktok/popular-creators` for creator discovery with creator-country, audience-country and follower-range filters.
+- Use `tiktok/popular-songs` for popular or surging sounds. The returned `id` is a sound clip ID suitable for `tiktok/song` and `tiktok/song-videos`.
+- Use `tiktok/top-search` when both videos and photo carousels are relevant. Region affects content availability and does not guarantee that posts originate there.
+- Use `tiktok/user-live` with usernames for current live status. A successful offline lookup is one result and costs 0.5 credits; `tiktok/live-room-info` instead requires room and user IDs.
+
+
 ## Endpoint Selection
 
 - Read [platform.md](references/platform.md) before selecting an endpoint or constructing input. It contains the current endpoint IDs, typed MCP tools, CLI mappings, costs, input choices, and validated examples generated from the Capability Registry.

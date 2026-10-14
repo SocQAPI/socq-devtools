@@ -1,6 +1,6 @@
 # Google Maps
 
-Generated from SocQ Capability Registry schema `v1-db3820acff22`. Read this file when the request targets Google Maps.
+Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file when the request targets Google Maps.
 
 ## Endpoint selection
 

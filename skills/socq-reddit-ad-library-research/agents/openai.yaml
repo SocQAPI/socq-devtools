@@ -1,0 +1,11 @@
+interface:
+  display_name: "SocQ Reddit AD Library Research"
+  short_description: "Collect and analyze public Reddit AD Library data"
+  default_prompt: "Use $socq-reddit-ad-library-research to collect and analyze this public Reddit AD Library research request."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "socq"
+      description: "Hosted SocQ Reddit AD Library data tools"
+      transport: "streamable_http"
+      url: "https://api.socq.ai/mcp?platforms=reddit-ad-library"

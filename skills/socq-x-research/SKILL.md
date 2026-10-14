@@ -45,6 +45,9 @@ Use this Skill to select and run SocQ endpoints for public X research. SocQ requ
 
 Choose the endpoint from the shape of the question instead of treating every X request as generic search:
 
+- Use `x/community` for community metadata and rules, and `x/community-posts` for its posts. Both accept community URLs in `urls`.
+- Use `x/thread-context` with post URLs to retain the target, ancestors and replies. Keep `conversation_id` and `in_reply_to_id` when reconstructing the thread; page sizes vary.
+
 - Use `x/search` for topic, phrase, hashtag, or time-bounded conversation discovery. Preserve the user's query operators and requested ordering.
 - Use `x/trends` for currently trending topics. Report the collection time and requested region because trends are time- and market-sensitive.
 - Use `x/profiles` to resolve account identity before collecting an account's posts or network.

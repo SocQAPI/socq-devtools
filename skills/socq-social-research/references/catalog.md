@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-db3820acff22`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
@@ -89,10 +89,14 @@ Generated from SocQ Capability Registry schema `v1-db3820acff22`. Do not edit en
 | [`pinterest/profiles`](https://docs.socq.ai/api-manual/pinterest/profiles) | Pinterest Profiles API | urls | `account@1.0` | 0.6 credits/result |
 | [`pinterest/search`](https://docs.socq.ai/api-manual/pinterest/search) | Pinterest Search API | query | `post@1.0` | 0.6 credits/result |
 | [`pinterest/user-pins`](https://docs.socq.ai/api-manual/pinterest/user-pins) | Pinterest User Pins API | urls | `post@1.0` | 0.5 credits/result |
+| [`reddit-ad-library/ad`](https://docs.socq.ai/api-manual/reddit-ad-library/ad) | Get a public Reddit ad creative by its ad identifier. | ad_id | `ad@1.0` | 0.6 credits/result |
+| [`reddit-ad-library/search`](https://docs.socq.ai/api-manual/reddit-ad-library/search) | Search public Reddit ad inspiration with creative, industry and objective filters; up to 30 ads. | query | `ad@1.0` | 0.5 credits/result |
 | [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Reddit Comments API | urls | `comment@1.0` | 0.3 credits/result |
 | [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Reddit Posts API | urls | `post@1.0` | 0.5 credits/result |
 | [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Reddit Search API | query | `post@1.0` | 0.6 credits/result |
+| [`reddit/subreddit-details`](https://docs.socq.ai/api-manual/reddit/subreddit-details) | Retrieve metadata for public subreddits by community URL, returning subscriber counts, weekly active users, rules, and community assets. | urls | `account@1.0` | 0.5 credits/result |
 | [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Reddit Subreddit Posts API | urls | `post@1.0` | 0.5 credits/result |
+| [`reddit/subreddit-search`](https://docs.socq.ai/api-manual/reddit/subreddit-search) | Search public discussions and posts within one specific subreddit by query, timeframe, and sort order. | query, urls | `post@1.0` | 0.6 credits/result |
 | [`rednote/comment-replies`](https://docs.socq.ai/api-manual/rednote/comment-replies) | Collect one page of public Rednote comment replies. | comment_id, url | `comment@1.0` | 1 credits/request |
 | [`rednote/home-recommendations`](https://docs.socq.ai/api-manual/rednote/home-recommendations) | Collect public Rednote home recommendations. | none | `post@1.0` | 1 credits/request |
 | [`rednote/note-comments`](https://docs.socq.ai/api-manual/rednote/note-comments) | Collect one page of public Rednote note comments. | url | `comment@1.0` | 1 credits/request |
@@ -130,9 +134,16 @@ Generated from SocQ Capability Registry schema `v1-db3820acff22`. Do not edit en
 | [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Collect public TikTok followed profiles. | usernames | `relationship@1.0` | 0.5 credits/result |
 | [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | TikTok Hashtags API | hashtags | `hashtag-trend@1.0` | 0.7 credits/result |
 | [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Collect public TikTok live room metadata and audience metrics. | room_id, user_id | `live-room@1.0` | 0.5 credits/result |
+| [`tiktok/popular-creators`](https://docs.socq.ai/api-manual/tiktok/popular-creators) | Discover popular public TikTok creators with audience and follower filters. | none | `account@1.0` | 0.6 credits/result |
+| [`tiktok/popular-songs`](https://docs.socq.ai/api-manual/tiktok/popular-songs) | Discover popular or surging TikTok songs and their sound clip IDs. | none | `music@1.0` | 0.5 credits/result |
 | [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | TikTok Profiles API | usernames | `account@1.0` | 0.6 credits/result |
 | [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | TikTok Search API | query | `reel-video@1.0` | 0.7 credits/result |
+| [`tiktok/search-users`](https://docs.socq.ai/api-manual/tiktok/search-users) | Search public TikTok creators and accounts by keyword, returning normalized identity, biography, account flags, and visible follower, following, and video counts. | query | `account@1.0` | 0.6 credits/result |
+| [`tiktok/song`](https://docs.socq.ai/api-manual/tiktok/song) | Collect detailed public TikTok sound and music metadata by clip ID or sound URL, returning author, album, duration, audio links, and video usage count. | one of: music_id; url | `music@1.0` | 0.5 credits/result |
+| [`tiktok/song-videos`](https://docs.socq.ai/api-manual/tiktok/song-videos) | Collect public TikTok videos that use a specific sound, returning normalized video metadata, creator details, captions, media links, and engagement counters. | music_ids | `reel-video@1.0` | 0.5 credits/result |
+| [`tiktok/top-search`](https://docs.socq.ai/api-manual/tiktok/top-search) | Search public TikTok videos and photo carousels. | query | `reel-video@1.0` | 0.7 credits/result |
 | [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Collect trending TikTok videos for a region. | region | `reel-video@1.0` | 0.7 credits/result |
+| [`tiktok/user-live`](https://docs.socq.ai/api-manual/tiktok/user-live) | Check public TikTok accounts for live streaming status, including offline results. | usernames | `live-status@1.0` | 0.5 credits/result |
 | [`tiktok/user-videos`](https://docs.socq.ai/api-manual/tiktok/user-videos) | Collect public videos from TikTok profiles. | usernames | `reel-video@1.0` | 0.5 credits/result |
 | [`tiktok/video-transcript`](https://docs.socq.ai/api-manual/tiktok/video-transcript) | Extract transcripts from public TikTok videos. | urls | `transcript@1.0` | 0.5 credits/result |
 | [`tiktok/videos`](https://docs.socq.ai/api-manual/tiktok/videos) | TikTok Videos API | urls | `reel-video@1.0` | 0.7 credits/result |
@@ -141,14 +152,19 @@ Generated from SocQ Capability Registry schema `v1-db3820acff22`. Do not edit en
 | [`truth-social/user-posts`](https://docs.socq.ai/api-manual/truth-social/user-posts) | Collect one page of public Truth Social user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
 | [`twitch/profile`](https://docs.socq.ai/api-manual/twitch/profile) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
 | [`twitch/user-videos`](https://docs.socq.ai/api-manual/twitch/user-videos) | Collect one page of public Twitch user videos. | username | `reel-video@1.0` | 0.19 credits/request |
+| [`x/community`](https://docs.socq.ai/api-manual/x/community) | Get public X community metadata, member counts, rules and membership policies. | urls | `community@1.0` | 0.5 credits/result |
+| [`x/community-posts`](https://docs.socq.ai/api-manual/x/community-posts) | Collect public posts from X communities in creation-time order. | urls | `post@1.0` | 0.7 credits/result |
 | [`x/followers-list`](https://docs.socq.ai/api-manual/x/followers-list) | Collect public X follower profiles. | usernames | `relationship@1.0` | 0.5 credits/result |
 | [`x/following-list`](https://docs.socq.ai/api-manual/x/following-list) | Collect public X followed profiles. | usernames | `relationship@1.0` | 0.5 credits/result |
+| [`x/mentions`](https://docs.socq.ai/api-manual/x/mentions) | Collect public tweets that mention a target user handle, with support for date range filtering and engagement metrics. | usernames | `post@1.0` | 0.7 credits/result |
 | [`x/post-quotes`](https://docs.socq.ai/api-manual/x/post-quotes) | Collect public quotes of X posts. | urls | `post@1.0` | 0.5 credits/result |
 | [`x/post-replies`](https://docs.socq.ai/api-manual/x/post-replies) | Collect public replies to X posts. | urls | `comment@1.0` | 0.5 credits/result |
 | [`x/post-retweeters`](https://docs.socq.ai/api-manual/x/post-retweeters) | Collect public profiles that reposted X posts. | urls | `relationship@1.0` | 0.5 credits/result |
 | [`x/posts`](https://docs.socq.ai/api-manual/x/posts) | X Posts API | urls | `post@1.0` | 0.5 credits/result |
 | [`x/profiles`](https://docs.socq.ai/api-manual/x/profiles) | X Profiles API | usernames | `account@1.0` | 0.6 credits/result |
 | [`x/search`](https://docs.socq.ai/api-manual/x/search) | X Search API | query | `post@1.0` | 0.7 credits/result |
+| [`x/search-users`](https://docs.socq.ai/api-manual/x/search-users) | Search public X user accounts by keyword, returning normalized identity, bio, verified status, and audience metrics. | query | `account@1.0` | 0.6 credits/result |
+| [`x/thread-context`](https://docs.socq.ai/api-manual/x/thread-context) | Collect the target X post, its ancestors and replies while preserving thread relationships. | urls | `thread-post@1.0` | 0.5 credits/result |
 | [`x/trends`](https://docs.socq.ai/api-manual/x/trends) | Collect public X trends by location identifier. | woeids | `hashtag-trend@1.0` | 0.5 credits/result |
 | [`x/user-posts`](https://docs.socq.ai/api-manual/x/user-posts) | X User Posts API | usernames | `post@1.0` | 0.5 credits/result |
 | [`youtube/channel-live-videos`](https://docs.socq.ai/api-manual/youtube/channel-live-videos) | Collect public YouTube channel live videos. | urls | `reel-video@1.0` | 0.5 credits/result |

@@ -259,6 +259,7 @@ function escapeTable(value: string): string {
 
 function platformTitle(platform: string): string {
   const titles: Record<string, string> = {
+    "reddit-ad-library": "Reddit AD Library",
     "facebook-ad-library": "Facebook Ad Library",
     "facebook-marketplace": "Facebook Marketplace",
     "tiktok-shop": "TikTok Shop",
@@ -279,6 +280,7 @@ function platformTitle(platform: string): string {
 
 function platformSkillDescription(platform: string, title: string): string {
   const subjects: Record<string, string> = {
+    "reddit-ad-library": "Reddit ads, creative inspiration, headlines, media, and landing pages",
     "facebook-ad-library": "ads, advertisers, creatives, and campaign activity",
     "facebook-marketplace": "Marketplace listings, sellers, prices, and product details",
     seo: "keyword volume, suggestions, related terms, difficulty, intent, organic results, and site rankings",
@@ -289,6 +291,28 @@ function platformSkillDescription(platform: string, title: string): string {
 }
 
 function platformPlaybook(platform: string): string {
+  if (platform === "reddit-ad-library") {
+    return `
+## Plan Reddit ad research
+
+- Use \`reddit-ad-library/search\` for ad inspiration by query and optional industry, budget, format, placement or objective filters. The maximum collection is 30 ads.
+- Pass a returned ad's \`id\` as \`ad_id\` to \`reddit-ad-library/ad\` for creative details. This is a separate paid collection.
+- Compare the actual headline, body, media and landing page. Missing advertiser or impression fields remain unknown; do not infer campaign spend or exhaustive coverage from this inspiration sample.
+
+`;
+  }
+  if (platform === "tiktok") {
+    return `
+## Plan TikTok discovery
+
+- Use \`tiktok/popular-creators\` for creator discovery with creator-country, audience-country and follower-range filters.
+- Use \`tiktok/popular-songs\` for popular or surging sounds. The returned \`id\` is a sound clip ID suitable for \`tiktok/song\` and \`tiktok/song-videos\`.
+- Use \`tiktok/top-search\` when both videos and photo carousels are relevant. Region affects content availability and does not guarantee that posts originate there.
+- Use \`tiktok/user-live\` with usernames for current live status. A successful offline lookup is one result and costs 0.5 credits; \`tiktok/live-room-info\` instead requires room and user IDs.
+
+`;
+  }
+
   if (platform === "rednote") {
     return `
 ## Plan Rednote research
@@ -351,6 +375,9 @@ Resolve the profile first when the channel name is ambiguous, then collect video
 ## Plan X research
 
 Choose the endpoint from the shape of the question instead of treating every X request as generic search:
+
+- Use \`x/community\` for community metadata and rules, and \`x/community-posts\` for its posts. Both accept community URLs in \`urls\`.
+- Use \`x/thread-context\` with post URLs to retain the target, ancestors and replies. Keep \`conversation_id\` and \`in_reply_to_id\` when reconstructing the thread; page sizes vary.
 
 - Use \`x/search\` for topic, phrase, hashtag, or time-bounded conversation discovery. Preserve the user's query operators and requested ordering.
 - Use \`x/trends\` for currently trending topics. Report the collection time and requested region because trends are time- and market-sensitive.
