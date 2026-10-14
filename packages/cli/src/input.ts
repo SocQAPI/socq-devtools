@@ -3,7 +3,7 @@ import type {Capability, JsonSchema} from "@socq/core";
 
 const RESERVED = new Set([
   "api-key", "base-url", "input", "input-file", "format", "output", "wait", "timeout", "result-limit",
-  "idempotency-key", "cursor", "platforms", "tools", "request-source",
+  "idempotency-key", "cursor", "platforms", "tools", "request-source", "result-fields", "result-view",
 ]);
 
 export async function buildInput(
