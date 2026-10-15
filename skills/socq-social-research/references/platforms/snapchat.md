@@ -1,6 +1,6 @@
 # Snapchat
 
-Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file when the request targets Snapchat.
+Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Read this file when the request targets Snapchat.
 
 ## Endpoint selection
 

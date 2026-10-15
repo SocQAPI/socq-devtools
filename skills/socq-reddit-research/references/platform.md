@@ -1,6 +1,6 @@
 # Reddit
 
-Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file when the request targets Reddit.
+Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Read this file when the request targets Reddit.
 
 ## Endpoint selection
 
@@ -9,9 +9,9 @@ Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file
 | [`reddit/comments`](https://docs.socq.ai/api-manual/reddit/comments) | Reddit Comments API | urls | `comment@1.0` | 0.3 credits/result |
 | [`reddit/posts`](https://docs.socq.ai/api-manual/reddit/posts) | Reddit Posts API | urls | `post@1.0` | 0.5 credits/result |
 | [`reddit/search`](https://docs.socq.ai/api-manual/reddit/search) | Reddit Search API | query | `post@1.0` | 0.6 credits/result |
-| [`reddit/subreddit-details`](https://docs.socq.ai/api-manual/reddit/subreddit-details) | Retrieve metadata for public subreddits by community URL, returning subscriber counts, weekly active users, rules, and community assets. | urls | `account@1.0` | 0.5 credits/result |
+| [`reddit/subreddit-details`](https://docs.socq.ai/api-manual/reddit/subreddit-details) | Collect public Reddit community metadata. | urls | `account@1.0` | 0.5 credits/result |
 | [`reddit/subreddit-posts`](https://docs.socq.ai/api-manual/reddit/subreddit-posts) | Reddit Subreddit Posts API | urls | `post@1.0` | 0.5 credits/result |
-| [`reddit/subreddit-search`](https://docs.socq.ai/api-manual/reddit/subreddit-search) | Search public discussions and posts within one specific subreddit by query, timeframe, and sort order. | query, urls | `post@1.0` | 0.6 credits/result |
+| [`reddit/subreddit-search`](https://docs.socq.ai/api-manual/reddit/subreddit-search) | Search public posts inside one Reddit community. | query, urls | `post@1.0` | 0.6 credits/result |
 
 ## Validated examples
 
@@ -83,8 +83,6 @@ Typed MCP tool: `socq_reddit_subreddit_search`
   "urls": [
     "https://www.reddit.com/r/technology/"
   ],
-  "results_limit": 20,
-  "sort_by": "relevance",
-  "published_within": "all"
+  "results_limit": 20
 }
 ```

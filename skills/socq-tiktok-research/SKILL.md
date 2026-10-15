@@ -43,8 +43,7 @@ Use this Skill to select and run SocQ endpoints for public TikTok research. SocQ
 
 ## Plan TikTok discovery
 
-- Use `tiktok/popular-creators` for creator discovery with creator-country, audience-country and follower-range filters.
-- Use `tiktok/popular-songs` for popular or surging sounds. The returned `id` is a sound clip ID suitable for `tiktok/song` and `tiktok/song-videos`.
+- Use `tiktok/popular-songs` for the TikTok app sound charts: `chart_type: "top"` selects Top 50 (the default), and `chart_type: "viral"` selects Viral 50. `results_limit` defaults to 20 and accepts 1–50. The returned `id` is a sound clip ID suitable for `tiktok/song` and `tiktok/song-videos`.
 - Use `tiktok/top-search` when both videos and photo carousels are relevant. Region affects content availability and does not guarantee that posts originate there.
 - Use `tiktok/user-live` with usernames for current live status. A successful offline lookup is one result and costs 0.5 credits; `tiktok/live-room-info` instead requires room and user IDs.
 

@@ -1,6 +1,6 @@
 # TikTok
 
-Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file when the request targets TikTok.
+Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Read this file when the request targets TikTok.
 
 ## Endpoint selection
 
@@ -12,13 +12,12 @@ Generated from SocQ Capability Registry schema `v1-0a761bf42900`. Read this file
 | [`tiktok/following-list`](https://docs.socq.ai/api-manual/tiktok/following-list) | Collect public TikTok followed profiles. | usernames | `relationship@1.0` | 0.5 credits/result |
 | [`tiktok/hashtags`](https://docs.socq.ai/api-manual/tiktok/hashtags) | TikTok Hashtags API | hashtags | `hashtag-trend@1.0` | 0.7 credits/result |
 | [`tiktok/live-room-info`](https://docs.socq.ai/api-manual/tiktok/live-room-info) | Collect public TikTok live room metadata and audience metrics. | room_id, user_id | `live-room@1.0` | 0.5 credits/result |
-| [`tiktok/popular-creators`](https://docs.socq.ai/api-manual/tiktok/popular-creators) | Discover popular public TikTok creators with audience and follower filters. | none | `account@1.0` | 0.6 credits/result |
-| [`tiktok/popular-songs`](https://docs.socq.ai/api-manual/tiktok/popular-songs) | Discover popular or surging TikTok songs and their sound clip IDs. | none | `music@1.0` | 0.5 credits/result |
+| [`tiktok/popular-songs`](https://docs.socq.ai/api-manual/tiktok/popular-songs) | Get the TikTok App Top 50 or Viral 50 music chart. Choose chart_type top or viral. results_limit defaults to 20, maximum 50. | none | `music@1.0` | 0.5 credits/result |
 | [`tiktok/profiles`](https://docs.socq.ai/api-manual/tiktok/profiles) | TikTok Profiles API | usernames | `account@1.0` | 0.6 credits/result |
 | [`tiktok/search`](https://docs.socq.ai/api-manual/tiktok/search) | TikTok Search API | query | `reel-video@1.0` | 0.7 credits/result |
-| [`tiktok/search-users`](https://docs.socq.ai/api-manual/tiktok/search-users) | Search public TikTok creators and accounts by keyword, returning normalized identity, biography, account flags, and visible follower, following, and video counts. | query | `account@1.0` | 0.6 credits/result |
-| [`tiktok/song`](https://docs.socq.ai/api-manual/tiktok/song) | Collect detailed public TikTok sound and music metadata by clip ID or sound URL, returning author, album, duration, audio links, and video usage count. | one of: music_id; url | `music@1.0` | 0.5 credits/result |
-| [`tiktok/song-videos`](https://docs.socq.ai/api-manual/tiktok/song-videos) | Collect public TikTok videos that use a specific sound, returning normalized video metadata, creator details, captions, media links, and engagement counters. | music_ids | `reel-video@1.0` | 0.5 credits/result |
+| [`tiktok/search-users`](https://docs.socq.ai/api-manual/tiktok/search-users) | Search public TikTok accounts by keyword. | query | `account@1.0` | 0.6 credits/result |
+| [`tiktok/song`](https://docs.socq.ai/api-manual/tiktok/song) | Collect public TikTok sound or song details. | one of: music_id; url | `music@1.0` | 0.5 credits/result |
+| [`tiktok/song-videos`](https://docs.socq.ai/api-manual/tiktok/song-videos) | Collect public TikTok videos that use a sound. | music_ids | `reel-video@1.0` | 0.5 credits/result |
 | [`tiktok/top-search`](https://docs.socq.ai/api-manual/tiktok/top-search) | Search public TikTok videos and photo carousels. | query | `reel-video@1.0` | 0.7 credits/result |
 | [`tiktok/trending-feed`](https://docs.socq.ai/api-manual/tiktok/trending-feed) | Collect trending TikTok videos for a region. | region | `reel-video@1.0` | 0.7 credits/result |
 | [`tiktok/user-live`](https://docs.socq.ai/api-manual/tiktok/user-live) | Check public TikTok accounts for live streaming status, including offline results. | usernames | `live-status@1.0` | 0.5 credits/result |
@@ -101,31 +100,15 @@ Typed MCP tool: `socq_tiktok_live_room_info`
 }
 ```
 
-### `tiktok/popular-creators`
-
-Typed MCP tool: `socq_tiktok_popular_creators`
-
-Optional creator filters; results_limit defaults to 20 and accepts integers from 1 to 2000.
-
-```json
-{
-  "sort_by": "engagement",
-  "creator_country": "US",
-  "results_limit": 20
-}
-```
-
 ### `tiktok/popular-songs`
 
 Typed MCP tool: `socq_tiktok_popular_songs`
 
-Optional song filters; results_limit defaults to 20. time_period accepts the ranking options 7, 30 and 130. Boolean filters must be JSON booleans.
+Choose the TikTok App Top 50 (top, default) or Viral 50 (viral) music chart. results_limit defaults to 20 and accepts integers from 1 to 50.
 
 ```json
 {
-  "country": "US",
-  "time_period": 7,
-  "rank_type": "popular",
+  "chart_type": "top",
   "results_limit": 20
 }
 ```
