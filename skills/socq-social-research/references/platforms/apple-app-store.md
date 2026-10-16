@@ -1,6 +1,6 @@
 # Apple App Store
 
-Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Read this file when the request targets Apple App Store.
+Generated from SocQ Capability Registry schema `v1-9a87cca161f6`. Read this file when the request targets Apple App Store.
 
 ## Endpoint selection
 

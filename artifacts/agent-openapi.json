@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "SocQ Agent API",
-    "version": "v1-050b21a3b206",
+    "version": "v1-9a87cca161f6",
     "description": "Asynchronous social data API generated from the SocQ Capability Registry."
   },
   "servers": [
@@ -625,7 +625,7 @@
                   "url": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A non-empty post reference with an authority component whose parsed hostname is bsky.app or a bsky.app subdomain. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+                    "description": "A public content or product URL."
                   }
                 },
                 "required": [
@@ -690,9 +690,7 @@
                   "username": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A Bluesky username containing 1 to 253 ASCII letters, digits, periods, or hyphens, without a leading @.",
-                    "maxLength": 253,
-                    "pattern": "^[A-Za-z0-9.-]{1,253}$"
+                    "description": "A public account username."
                   }
                 },
                 "required": [
@@ -757,15 +755,12 @@
                   "user_id": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A Bluesky decentralized identifier in did:method:identifier form.",
-                    "pattern": "^did:[a-z0-9]+:[A-Za-z0-9._:%-]+$"
+                    "description": "A public account identifier."
                   },
                   "username": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A Bluesky handle containing 1 to 253 ASCII letters, digits, periods, or hyphens, without a leading @.",
-                    "maxLength": 253,
-                    "pattern": "^[A-Za-z0-9.-]{1,253}$"
+                    "description": "A public account username."
                   }
                 },
                 "required": [],
@@ -3302,7 +3297,7 @@
                       "minLength": 1
                     },
                     "minItems": 1,
-                    "description": "A non-empty list of references whose parsed hostname is google.com, goo.gl, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted, and no specific path is required."
+                    "description": "Public profile or content URLs."
                   }
                 },
                 "required": [
@@ -3381,7 +3376,7 @@
                       "minLength": 1
                     },
                     "minItems": 1,
-                    "description": "A non-empty list of references whose parsed hostname is google.com, goo.gl, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted, and no specific path is required."
+                    "description": "Public profile or content URLs."
                   }
                 },
                 "required": [
@@ -5126,7 +5121,7 @@
                   "url": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A non-empty post reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+                    "description": "A public content or product URL."
                   }
                 },
                 "required": [
@@ -5191,14 +5186,12 @@
                   "url": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A non-empty profile reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+                    "description": "A public content or product URL."
                   },
                   "username": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A Kwai username with one optional leading @ followed by 1 to 64 ASCII letters, digits, periods, underscores, or hyphens, for a maximum total length of 65 characters.",
-                    "maxLength": 65,
-                    "pattern": "^@?[A-Za-z0-9._-]{1,64}$"
+                    "description": "A public account username."
                   }
                 },
                 "required": [],
@@ -5273,14 +5266,12 @@
                   "url": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A non-empty profile reference whose parsed hostname is kwai.com, kwai-video.com, or a subdomain of either host. Any scheme is accepted when an authority and hostname are present; protocol-relative references are also accepted."
+                    "description": "A public content or product URL."
                   },
                   "username": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "A Kwai username with one optional leading @ followed by 1 to 64 ASCII letters, digits, periods, underscores, or hyphens, for a maximum total length of 65 characters.",
-                    "maxLength": 65,
-                    "pattern": "^@?[A-Za-z0-9._-]{1,64}$"
+                    "description": "A public account username."
                   }
                 },
                 "required": [],
@@ -13482,71 +13473,6 @@
         }
       }
     },
-    "/v1/twitch/clip": {
-      "post": {
-        "operationId": "socq_twitch_clip",
-        "summary": "Twitch Clip API",
-        "description": "Collect a public Twitch clip.",
-        "tags": [
-          "twitch"
-        ],
-        "x-standard-result-item-schema": {
-          "$ref": "#/components/schemas/ReelVideoItem"
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          },
-          {
-            "apiKeyAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$schema": "https://json-schema.org/draft/2020-12/schema",
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "minLength": 1,
-                    "description": "A public content or product URL."
-                  }
-                },
-                "required": [
-                  "url"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Task accepted",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AgentSubmitResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Input validation failed",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AgentValidationErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/v1/twitch/profile": {
       "post": {
         "operationId": "socq_twitch_profile",
@@ -15841,7 +15767,7 @@
             "schema": {
               "type": "string"
             },
-            "description": "Up to 50 comma-separated fields or dot paths."
+            "description": "Comma-separated result fields and dot paths; maximum 50."
           }
         ],
         "responses": {

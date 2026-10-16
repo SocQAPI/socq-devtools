@@ -1,6 +1,6 @@
 # Capability Catalog
 
-Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Do not edit endpoint definitions manually.
+Generated from SocQ Capability Registry schema `v1-9a87cca161f6`. Do not edit endpoint definitions manually.
 
 | Endpoint | Purpose | Required input | Standard schema | Cost |
 | --- | --- | --- | --- | --- |
@@ -147,7 +147,6 @@ Generated from SocQ Capability Registry schema `v1-050b21a3b206`. Do not edit en
 | [`truth-social/post`](https://docs.socq.ai/api-manual/truth-social/post) | Collect a public Truth Social post. | url | `post@1.0` | 0.19 credits/request |
 | [`truth-social/profile`](https://docs.socq.ai/api-manual/truth-social/profile) | Collect a public Truth Social profile. | username | `account@1.0` | 0.19 credits/request |
 | [`truth-social/user-posts`](https://docs.socq.ai/api-manual/truth-social/user-posts) | Collect one page of public Truth Social user posts. | one of: user_id; username | `post@1.0` | 0.19 credits/request |
-| [`twitch/clip`](https://docs.socq.ai/api-manual/twitch/clip) | Collect a public Twitch clip. | url | `reel-video@1.0` | 0.19 credits/request |
 | [`twitch/profile`](https://docs.socq.ai/api-manual/twitch/profile) | Collect a public Twitch profile. | username | `account@1.0` | 0.19 credits/request |
 | [`twitch/user-videos`](https://docs.socq.ai/api-manual/twitch/user-videos) | Collect one page of public Twitch user videos. | username | `reel-video@1.0` | 0.19 credits/request |
 | [`x/community`](https://docs.socq.ai/api-manual/x/community) | Get public X community metadata, member counts, rules and membership policies. | urls | `community@1.0` | 0.5 credits/result |

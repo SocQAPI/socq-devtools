@@ -1,6 +1,6 @@
 {
   "name": "@socq/cli",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Catalog-driven CLI for SocQ social data APIs",
   "license": "MIT",
   "repository": {
