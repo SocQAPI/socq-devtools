@@ -1,4 +1,5 @@
 import {createInterface} from "node:readline/promises";
+import {readFile} from "node:fs/promises";
 import {stdin, stdout} from "node:process";
 import {Writable} from "node:stream";
 import {
@@ -19,6 +20,11 @@ import {renderOutput, type OutputFormat} from "./output.js";
 export async function runCli(argv: string[]): Promise<number> {
   const parsed = parseArgs(argv);
   const [command, subcommand, third] = parsed.positionals;
+  if (command === "version" || parsed.options.version === true) {
+    const {version} = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8")) as {version: string};
+    process.stdout.write(`${version}\n`);
+    return 0;
+  }
   if (!command || command === "help" || parsed.options.help) {
     process.stdout.write(HELP);
     return 0;
@@ -54,8 +60,7 @@ export async function runCli(argv: string[]): Promise<number> {
     return 0;
   }
   if (command === "tools") {
-    const catalog = await client.catalog(subcommand ? {platform: subcommand} : {});
-    await renderOutput(catalog.endpoints.items, format, output);
+    await renderOutput(await allCapabilities(client, subcommand), format, output);
     return 0;
   }
   if (command === "describe") {
@@ -75,9 +80,24 @@ export async function runCli(argv: string[]): Promise<number> {
 
   // Friendly dynamic form: socq youtube comments --urls ...
   if (!subcommand) throw new Error(`Unknown command: ${command}`);
-  const catalog = await client.catalog({platform: command});
-  if (!catalog.endpoints.items.some((item) => item.resource === subcommand)) throw new Error(`Unknown command or endpoint: ${command} ${subcommand}`);
+  const capabilities = await allCapabilities(client, command);
+  if (!capabilities.some((item) => item.resource === subcommand)) throw new Error(`Unknown command or endpoint: ${command} ${subcommand}`);
   return execute(client, command, subcommand, parsed, format, output);
+}
+
+async function allCapabilities(client: SocqClient, platform?: string): Promise<Capability[]> {
+  const items: Capability[] = [];
+  const seenCursors = new Set<string>();
+  let cursor: string | undefined;
+  while (true) {
+    const catalog = await client.catalog({...(platform ? {platform} : {}), ...(cursor ? {cursor} : {})});
+    items.push(...catalog.endpoints.items);
+    if (!catalog.endpoints.has_more) return items;
+    const nextCursor = catalog.endpoints.next_cursor;
+    if (!nextCursor || seenCursors.has(nextCursor)) throw new Error("Catalog pagination did not provide a new cursor");
+    seenCursors.add(nextCursor);
+    cursor = nextCursor;
+  }
 }
 
 async function execute(
@@ -214,4 +234,4 @@ export function exitCodeFor(error: unknown): number {
   return 2;
 }
 
-const HELP = `SocQ CLI\n\nUsage:\n  socq auth login|status|clear\n  socq platforms\n  socq tools [platform]\n  socq describe PLATFORM/RESOURCE\n  socq run PLATFORM RESOURCE [--input JSON | --input-file FILE]\n  socq PLATFORM RESOURCE [endpoint flags]\n  socq task get|wait|results|files|download TASK_ID\n  socq account\n  socq mcp [--platforms LIST | --tools LIST]\n\nGlobal output: --format table|json|jsonl|csv --output FILE\nResult view: --result-view standard|full [--result-fields id,url,author.username]\nSkill attribution: --request-source skill or SOCQ_REQUEST_SOURCE=skill.\nAuthentication priority: --api-key, SOCQ_API_KEY, system keyring, local fallback config. Avoid --api-key in shell history.\n`;
+const HELP = `SocQ CLI\n\nUsage:\n  socq --version\n  socq auth login|status|clear\n  socq platforms\n  socq tools [platform]\n  socq describe PLATFORM/RESOURCE\n  socq run PLATFORM RESOURCE [--input JSON | --input-file FILE]\n  socq PLATFORM RESOURCE [endpoint flags]\n  socq task get|wait|results|files|download TASK_ID\n  socq account\n  socq mcp [--platforms LIST | --tools LIST]\n\nGlobal output: --format table|json|jsonl|csv --output FILE\nResult view: --result-view standard|full [--result-fields id,url,author.username]\nSkill attribution: --request-source skill or SOCQ_REQUEST_SOURCE=skill.\nAuthentication priority: --api-key, SOCQ_API_KEY, system keyring, local fallback config. Avoid --api-key in shell history.\n`;
