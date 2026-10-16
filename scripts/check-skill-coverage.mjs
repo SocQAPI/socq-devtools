@@ -1,3 +1,4 @@
+import {validateSkillLinks} from "./check-skill-links.mjs";
 import {access, readFile} from "node:fs/promises";
 import {resolve} from "node:path";
 import {requiredAlternativeGroups, satisfiesRequiredAlternatives} from "./schema-requirements.mjs";
@@ -85,6 +86,8 @@ if (generatedCatalog.includes("鈥") || generatedCatalog.includes("�")) throw 
 for (const endpoint of endpoints) {
   if (!generatedCatalog.includes(`\`${endpoint.public_id}\``)) throw new Error(`Catalog reference is missing ${endpoint.public_id}`);
 }
+
+await validateSkillLinks(resolve("skills"));
 
 process.stdout.write(`Validated Skill coverage for ${endpoints.length} endpoints across ${platforms.size} platforms.\n`);
 
